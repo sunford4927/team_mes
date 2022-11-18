@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+
+
+.sidebar {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.sidebarWrapper{
+    left: 0;    
+    width: 300px;
+    height: 100%;
+    margin-top: -30px;
+    background: #042331;
+    border-radius:10px;   
+
+}
+
+.sidebarTitle {
+    font-size: 35px;
+    color: white;
+    line-height: 50px;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebarList {
+    display: block;
+    height: 150px;
+    width: auto;
+    font-size: 20px;
+    color: white;
+    padding-left: 30px;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, .4);
+    
+}
+
+.sidebarListItem {
+    padding: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius:10px;
+}
+
+
+
+
+.sidebarTitle:hover {
+    background-color:#b0bec5;
+    border: radius 10px;
+    padding-left: 50px;
+}
+
+.sidebarListItem:hover {
+    background-color:#b0bec5;
+    border-radius:10px;
+    padding-left: 50px;
+}
