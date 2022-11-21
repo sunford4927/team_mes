@@ -1,6 +1,53 @@
 .NewRTitle {
     flex: 1;
     margin-top: 200px;
-    padding: 10px;
+    padding: 20px;
+    
 
 }
+
+.processTitle {
+    flex: 4;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.processR {
+    flex: 4;
+    position: relative;
+    padding:15px;
+}
+
+.processnext {
+    padding-left: 110px;
+    margin-top: -50px;
+    font-size: 0.001in;
+    color:red;
+}
+
+.processclassification{
+    padding: 15px;
+}
+
+.processAddButton{
+    padding: 15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    margin-top: -100px;
+    padding-right: 20px;
+    
+    
+}
+
+.processAddButton1{
+    padding:15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    margin-top: -500px;
+
+}
+
