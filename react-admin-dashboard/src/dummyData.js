@@ -12,10 +12,13 @@ export const userRows = [
     },
     {
         id: 2,
-        username: '최윤영',
-        email: 'gzvczcv@naver.com',
-        status: 'active',
-        transaction: '$220',
+        Lot번호: '최윤영',
+        수주코드: 'gzvczcv@naver.com',
+        고객명: 'active',
+        제품명: '$220',
+        수량: '1,500',
+        생산완료예정일: '2022-06-30',
+        생산계획등록일: '2022-06-30',
     },
     {
         id: 3,

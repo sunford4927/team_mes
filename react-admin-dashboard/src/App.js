@@ -6,6 +6,9 @@ import { HiMenuAlt3 } from "react-icons/hi"
 import UserList from './pages/userList/UserList'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NewRagister from './news/newragister/NewRagister'
+import MoniToring from './pages/monitoring/MoniToring'
+
+
 
 
 
@@ -26,6 +29,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/monitoring" element={<MoniToring />} />
           <Route path="/NewR" element={<NewRagister />} />
 
 
