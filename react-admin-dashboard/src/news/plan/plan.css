@@ -1,6 +1,7 @@
 .plan {
     padding: 20px;
     font-size: 12px;
+    
 }
 
 .P{
@@ -9,15 +10,20 @@
 
 .plannext {
     padding-left: 810px;
-    margin-top: -13px;
+    margin-top: -15px;
     
 }
 .planNumbername {
     background: #FFFFFF;
     width: 900px;
     margin-right: 20px;
+    padding: 5px;
+    margin: 0px 8px 30px 8px ;
 }
 
+.proceeclassification{
+    margin-bottom: -20px;
+}
 .processNumberButton{
     width: 80px;
     border: none;
@@ -26,3 +32,49 @@
     background: #232323;
 }
 
+.planNumbername1 {
+    background: #FFFFFF;
+    width: 990px;
+    padding: 5px;
+    margin: 10px 10px 40px 8px ;
+}
+
+.planNumbername2 {
+    background: #FFFFFF;
+    width: 900px;
+    padding: 5px;
+    margin: 10px 10px 40px 8px;
+}
+.processNumberButton1{
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+}
+
+.processAddButton {
+    padding: 20px;
+    margin: -10px 5px 10px 20px;
+}
+.processNumberButton2{
+    width: 110px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+    margin: 10px 0px 0px 10px;
+}
+
+.planmaterial{
+    margin: 30px 0px 0px 10px;
+}
+
+
+.planPInfo{
+    margin: 30px 0px 0px 10px;
+
+}
+.planbar5 {
+    margin: 30px 0px 0px 10px;
+}

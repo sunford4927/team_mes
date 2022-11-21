@@ -7,14 +7,16 @@
 }
 
 .managementTitleContainer {
+    padding: 15px;
     display: flex;
+    margin: -10px 0px -20px -30px;
     
 }
 
 .managementContainer {
     display: flex;
     white-space: nowrap;
-    margin-top: -10px;
+    margin: -10px 0px -20px -30px;
 }
 
 .managementnumber{

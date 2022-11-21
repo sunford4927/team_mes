@@ -1,11 +1,12 @@
 .product {
     flex: 1;
-    padding: 15px;    
-    ;
+    padding: 10px;    
+    
 }
 
 .productTitleContainer {
     display: flex;
+    margin: -20px 0px -30px -15px;
     font-size: 0.875rem;  
     
 }

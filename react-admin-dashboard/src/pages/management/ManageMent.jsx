@@ -47,6 +47,7 @@ export default function ManageMent() {
                 </Link>
                 <button className="managementAddButton1">검색 초기화</button>
             </div>
+            
         </div>
     )
 }

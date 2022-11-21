@@ -48,7 +48,6 @@ const UserList = () => {
             columns={columns}
             pageSize={9}
             rowsPerPageOptions={[5]}
-            
         />        
     </div>
 }
