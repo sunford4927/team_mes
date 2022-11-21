@@ -1,0 +1,28 @@
+.plan {
+    padding: 20px;
+    font-size: 12px;
+}
+
+.P{
+    color: red;
+}
+
+.plannext {
+    padding-left: 810px;
+    margin-top: -13px;
+    
+}
+.planNumbername {
+    background: #FFFFFF;
+    width: 900px;
+    margin-right: 20px;
+}
+
+.processNumberButton{
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+}
+
