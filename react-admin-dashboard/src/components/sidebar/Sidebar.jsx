@@ -1,9 +1,10 @@
 import React from "react";
 import './sidebar.css'
 import HomeWorkIcon from '@mui/icons-material/HomeWork'
-import GradientSharpIcon from '@mui/icons-material/GradientSharp';
+
 import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
 import SettingsIcon from '@mui/icons-material/Settings';
+import {Link} from 'react-router-dom'
 
 
 export default function Sidebar() {
@@ -11,8 +12,10 @@ export default function Sidebar() {
     <div className="sidebar">
         <div className="sidebarWrapper">
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle"> <HomeWorkIcon /> 기준정보관리</h3>                    
-                <ul className="sidebarList">
+                <Link to ={"/"}>
+                    <h3 className="sidebarTitle"> <HomeWorkIcon /> 기준정보관리</h3>
+                </Link>                    
+                <ul className="sidebarList">                    
                     <li className="sidebarListItem">                        
                         사원정보 관리                        
                     </li>
@@ -37,11 +40,15 @@ export default function Sidebar() {
                 </ul>
             </div>
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle"> <Person2SharpIcon />생산관리</h3>
+                
+                    <h3 className="sidebarTitle"> <Person2SharpIcon />생산관리</h3>
+                
                 <ul className="sidebarList">
+                    <Link to='/users'>
                     <li className="sidebarListItem">                        
                         생산계획 관리
                     </li>
+                    </Link>
                     <li className="sidebarListItem">                        
                         공정진척 관리
                     </li>
@@ -55,18 +62,7 @@ export default function Sidebar() {
                         생산보고서
                     </li>
                 </ul>
-            </div>
-            <div className="sidebarMenu">
-                <h3 className="sidebarTitle"> <GradientSharpIcon />마이페이지</h3>
-                <ul className="sidebarList">
-                    <li className="sidebarListItem">                        
-                        내 정보 관리
-                    </li>
-                    <li className="sidebarListItem">                        
-                        공지사항
-                    </li>                    
-                </ul>
-            </div>
+            </div>           
             <div className="sidebarMenu">
                 <h3 className="sidebarTitle"> <SettingsIcon />시스템관리</h3>
                 <ul className="sidebarList">

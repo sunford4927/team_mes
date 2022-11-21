@@ -1,3 +1,69 @@
-.ManageMent {
-    flex: 4;
+.management {
+    margin-top: -200px;
+    flex: 4;    
+    padding: 10px;
+    position: relative;
+    
 }
+
+.managementTitleContainer {
+    display: flex;
+    
+}
+
+.managementContainer {
+    display: flex;
+    white-space: nowrap;
+    margin-top: -10px;
+}
+
+.managementnumber{
+    flex: 0.7;    
+    padding: 20px;
+    
+}
+
+.managementname {
+    flex: 0.6;
+    padding: 20px;
+    
+    
+}
+.managementdate {
+    flex: 1;
+    padding: 20px;
+    
+    
+}
+.managementAddButton{
+    width: 80px;
+    height: 40px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    background: #232323;
+    margin-right: 5px;
+    
+
+}
+
+.managementAddButton1 {
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333333;
+    background: #FFFFFF;
+    color: #FFFFFF;
+    background: #232323;
+
+
+
+}
+
+

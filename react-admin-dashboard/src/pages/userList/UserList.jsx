@@ -4,6 +4,8 @@ import './userList.css';
 import { DataGrid } from '@mui/x-data-grid'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import { userRows } from '../../dummyData';
+import ManageMent from "../management/ManageMent";
+import Product from "../product/Product";
 
 
 const columns = [
@@ -17,7 +19,7 @@ const columns = [
     {field: '제품명', headerName:'제품명', width: 160,},
     {field: '수량', headerName:'수량', width: 70,},
     {field: '생산완료예정일', headerName:'생산완료예정일', width: 150,},
-    {field: '생산계획등록일', headerName:'생간계획등록일', width: 150,},
+    {field: '생산계획등록일', headerName:'생산계획등록일', width: 150,},
     {
         field: '비고',
         headerName:'',
@@ -36,15 +38,20 @@ const columns = [
 
 
 
-export default function UserList() {
+const UserList = () => {
     return <div className="userList">
-        <DataGrid
+        <ManageMent/>
+        <Product/>
+        <DataGrid            
             rows={userRows}
             disableSelectionOnClick 
             columns={columns}
             pageSize={9}
             rowsPerPageOptions={[5]}
-            checkboxSelection
+            
         />        
     </div>
 }
+export default UserList;
+
+
