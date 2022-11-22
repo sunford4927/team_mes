@@ -1,12 +1,12 @@
 import React from "react";
+import './newR.css';
 import { Link } from "react-router-dom";
 
-import './newR.css';
 
 
 
 
-export default function NewR() {
+export default function NewR() {   
     return (
         <div className="processPR">
             <div className="processPRWrapper">
@@ -18,32 +18,27 @@ export default function NewR() {
                         <span className="pp"> * </span>
                         <label> 분류 </label>
                 </div>
-                    <input 
-                        type="hidden"
-                        id="hiddenFlag"
-                        value
-                        />
-                    <input 
+                
+                    <input                                            
                         type="radio"
                         className="processAddButton"
                         id="rd1"
                         name="flag"
                         value="P"
                         chechked
-                    />                    
-                    <label for="rd1">계획</label>
-                       
-
-                                      
+                    />
+                                        
+                    <label>계획</label>
+                    <Link to='/order'>               
                     <input 
                         type="radio"
                         className="processAddButton1"
                         id="rd2"
                         name="flag"
-                        value="O"
-                        
+                        value="O"                        
                     />
-                    <label for="rd2">수주</label>
+                    </Link>
+                    <label>수주</label>
                     
                        
                 </div>

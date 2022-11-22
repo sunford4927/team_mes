@@ -1,11 +1,3 @@
-.NewRTitle {
-    flex: 4;
-    margin-top: 200px;
-    padding: 20px;
-    
-
-}
-
 .processTitle {
     flex: 1;
     padding: 15px;
@@ -37,26 +29,6 @@
     margin-bottom: 10px
 }
 
-.processAddButton{
-    padding: 20px;
-    border-radius: 5px;
-    background: #FFFFFF;
-    cursor: pointer;
-    border: none;
-    margin-top: -150px;
-    padding-right: 20px;
-    
-    
-    
-}
 
-.processAddButton1{
-    padding:20px;
-    border-radius: 5px;
-    background: #FFFFFF;
-    cursor: pointer;
-    border: none;
-    margin-top: -500px;
 
-}
 

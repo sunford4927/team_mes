@@ -17,9 +17,9 @@ const columns = [
     {field: '수주코드', headerName: '수주코드', width:140},
     {field: '고객명', headerName:'고객명', width: 160,},
     {field: '제품명', headerName:'제품명', width: 160,},
-    {field: '수량', headerName:'수량', width: 70,},
-    {field: '생산완료예정일', headerName:'생산완료예정일', width: 150,},
-    {field: '생산계획등록일', headerName:'생산계획등록일', width: 150,},
+    {field: '수량', headerName:'수량', width: 100,},
+    {field: '생산완료예정일', headerName:'생산완료예정일', width: 200,},
+    {field: '생산계획등록일', headerName:'생산계획등록일', width: 200,},
     {
         field: '비고',
         headerName:'',

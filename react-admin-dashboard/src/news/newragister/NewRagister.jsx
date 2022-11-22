@@ -5,12 +5,15 @@ import Plan from "../plan/Plan";
 
 
 
+
 const NRagiser = () =>{
-    return <div className="Nragiser">
+    return (
+
+    <div className="Nragiser">
         <NewR/>
         <Plan/>
-        </div>
-    
+    </div>
+    )
 };
 
 
