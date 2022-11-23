@@ -1,99 +1,97 @@
-import React, { useState }from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './userList.css';
-import { DataGrid } from '@mui/x-data-grid'
-import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import { userRows } from '../../dummyData';
+import "./userList.css";
+import { createUseGridApiEventHandler, DataGrid } from "@mui/x-data-grid";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
+import { userRows } from "../../dummyData";
 import ManageMent from "../management/ManageMent";
 import Product from "../product/Product";
 import axios from "axios";
-import { useEffect } from "react";
+// import { FormatListNumbered } from "@material-ui/icons";
 
+const UserList = () => {
+  const [dummyData, setDummyData] = useState("");
+  const [orders, setOrders] = useState("");
+  function Make_ID(dummyData) {
+    for (var i = 0; i < dummyData.length; i++) {
+      dummyData[i]["id"] = i;
+    }
+    // console.log(dummyData);
+    return dummyData;
+  }
+  function Make_Table(plans, orders, customers) {
+    var plans_order = [];
+    var order_customer = [];
+    var customer_name = [];
+    console.log(plans)
+    console.log(orders)
+    console.log(customers.data)
+    for (var i = 0; i < plans.length; i++) {
+      plans_order.push(plans[i]["order_code"]);
+    }
+    // console.log(plans_order.includes("CC-001")==false);
+    for (var j = 0; j < orders.length; j++) {
+      if (plans_order.includes(orders[j]["order_code"]) == true) {
+        order_customer.push(orders[j]);
+      }
+      // console.log(orders[j]["order_code"]);
+    }
+    console.log(order_customer);
 
-const columns = [
-    {field: 'id', headerName: 'NO', width:70},
+    for (var k = 0; k < customers.length; k++) {
+      if (order_customer.includes(customers[k]["customer_code"]) == true) {
+        customer_name.push(customers[k]);
+      }
+    }
+    console.log(customer_name);
+    return customer_name;
+  }
+
+  const columns = [
+    { field: "id", headerName: "ID", width: 70 },
     {
-        field: 'Lot번호',
-        headerName: 'LOT번호',
-        width:160,},    
-    {field: '수주코드', headerName: '수주코드', width:140},
-    {field: '고객명', headerName:'고객명', width: 160,},
-    {field: '제품명', headerName:'제품명', width: 160,},
-    {field: '수량', headerName:'수량', width: 70,},
-    {field: '생산완료예정일', headerName:'생산완료예정일', width: 150,},
-    {field: '생산계획등록일', headerName:'생산계획등록일', width: 150,},
-    {
-        field: '비고',
-        headerName:'',
-        width: 100,
-        renderCell: (params) => {
-            return (
-                <>
-                    <Link to = {'/users/'+ params.row.id}>
-                    <button className="userListEdit"><ExitToAppOutlinedIcon />수정</button>
-                    </Link>                    
-                </>
-            )
-        },
+      field: "lot_num",
+      headerName: "LOT번호",
+      width: 160,
     },
-]
+    { field: "order_code", headerName: "수주코드", width: 140 },
+    // { field: "고객명", headerName: "고객명", width: 160 },
+    // { field: "제품명", headerName: "제품명", width: 160 },
+    { field: "quantity", headerName: "수량", width: 70 },
+    { field: "due_date", headerName: "생산완료예정일", width: 150 },
+    { field: "reg_date", headerName: "생산계획등록일", width: 150 },
+  ];
 
-
-
-const UserList=() => {
-//     const [users, setUsers] = useState(null);
-// const [loading, setLoading] = useState(false);
-// const [error, setError] = useState(null);
-
-// const fetchUsers = async () => {
-//   try {
-//     // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-//     setError(null);
-//     setUsers(null);
-//     // loading 상태를 true 로 바꿉니다.
-//     setLoading(true);
-//     const response = await axios.get(
-//         'http://127.0.0.1:8000/plans/'
-//     );
-//     setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
-//     console.log(setUsers);
-//   } catch (e) {
-//     setError(e);
-//   }
-//   setLoading(false);
-  
-// };
-// useEffect(()=>{
-// fetchUsers();
-// },[]);
-//     if (loading) return <div>로딩중..</div>; 
-//     if (error) return <div>에러가 발생했습니다</div>;
-
-// 	// 아직 users가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
-//     if (!users) return null;
-
-	// 드디어 users가 성공적으로 받아와 진 상태입니다.
-
-const [dummyData ,setDummyData] = useState(userRows);
-function test(){
-    setDummyData()
-}
-
-    return <div className="userList">
-        <button onClick={test}></button>
-        <ManageMent/>
-        <Product/>
-        <DataGrid           
-            rows={dummyData}
-            disableSelectionOnClick 
-            columns={columns}
-            pageSize={9}
-            rowsPerPageOptions={[5]}
-            
-        >
-         
-            </DataGrid>
-            <h1>TTest</h1>        
+  useEffect(() => {
+    const Plansgetdata = async () => {
+      try {
+        const result = await axios.get("http://127.0.0.1:8000/plans/");
+        const result_data1 = await axios.get("http://127.0.0.1:8000/orders/");
+        const result_data2 = await axios.get("http://127.0.0.1:8000/customers/");
+        setDummyData(Make_ID(result.data));
+        setOrders(Make_Table(result.data, result_data1.data ,result_data2.data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+Plansgetdata();
+  }, []);
+  // console.log(dummyData)
+  //   console.log(dummyData);
+  console.log(orders);
+  return (
+    <div className="userList">
+      <ManageMent />
+      <Product />
+      <DataGrid
+        rows={dummyData}
+        disableSelectionOnClick
+        columns={columns}
+        pageSize={6}
+        rowsPerPageOptions={[5]}
+        // getRowId={(r) => r.id}
+      ></DataGrid>
     </div>
-}
+  );
+};
 export default UserList;

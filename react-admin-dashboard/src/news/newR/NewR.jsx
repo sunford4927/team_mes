@@ -1,12 +1,14 @@
 import React from "react";
 import './newR.css';
 import { Link } from "react-router-dom";
+// import { SettingsSystemDaydreamTwoTone } from "@material-ui/icons";
 
 
 
 
 
-export default function NewR() {   
+export default function NewR() {  
+
     return (
         <div className="processPR">
             <div className="processPRWrapper">
@@ -18,6 +20,7 @@ export default function NewR() {
                         <span className="pp"> * </span>
                         <label> 분류 </label>
                 </div>
+
                 
                     <input                                            
                         type="radio"
