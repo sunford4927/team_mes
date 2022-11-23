@@ -40,11 +40,7 @@ const UserList = () => {
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    {
-      field: "lot_num",
-      headerName: "LOT번호",
-      width: 160,
-    },
+    { field: "lot_num", headerName: "LOT번호", width: 160, },
     { field: "order_code", headerName: "수주코드", width: 140 },
     { field: "customer_name", headerName: "고객명", width: 160 },
     { field: "item_name", headerName: "제품명", width: 160 },
