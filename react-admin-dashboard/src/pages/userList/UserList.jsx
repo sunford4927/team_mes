@@ -23,28 +23,46 @@ const UserList = () => {
     var plans_order = [];
     var order_customer = [];
     var customer_name = [];
-    console.log(plans)
-    console.log(orders)
-    console.log(customers.data)
-    for (var i = 0; i < plans.length; i++) {
-      plans_order.push(plans[i]["order_code"]);
-    }
-    // console.log(plans_order.includes("CC-001")==false);
-    for (var j = 0; j < orders.length; j++) {
-      if (plans_order.includes(orders[j]["order_code"]) == true) {
-        order_customer.push(orders[j]);
-      }
-      // console.log(orders[j]["order_code"]);
-    }
-    console.log(order_customer);
+    var order_full = []
 
-    for (var k = 0; k < customers.length; k++) {
-      if (order_customer.includes(customers[k]["customer_code"]) == true) {
-        customer_name.push(customers[k]);
-      }
+    console.log(plans)
+    // console.log(orders)
+    // console.log(customers)
+    for (var i = 0; i < plans.length; i++) {
+        for (var j = 0; j< orders.lengt; j++) {
+            if(plans[i]['order_code'] == orders[j]['order_code']){
+                plans[i]['customer_code'] = orders[j]['customer_code'];
+            }
+            for (var k = 0; k < customers; k++){
+                if (plans[i]['customer_code'] == customers[k]['customer_code']){
+                    plans[i]['customer_name'] = customers[k]['customer_name']
+                }
+            }
+
+
+        }
     }
-    console.log(customer_name);
-    return customer_name;
+
+console.log(plans)
+    // console.log(plans_order.includes("CC-001")==false);
+    // for (var j = 0; j < orders.length; j++) {
+    //   if (plans_order.includes(orders[j]["order_code"]) == true) {
+    //     order_customer.push(orders[j]["customer_code"]);
+    //     order_full.push(orders[j]);
+
+    //   };
+    //   // console.log(orders[j]["order_code"]);
+    // };
+    // console.log(order_customer);
+
+    // for (var k = 0; k < customers.length; k++) {
+    //   if (order_customer.includes(customers[k]["customer_code"]) == true) {
+    //     customer_name.push(customers[k]);
+    //   };
+    // };
+    // console.log(order_full)
+    // console.log(customer_name);
+    // return customer_name;
   }
 
   const columns = [
@@ -76,9 +94,9 @@ const UserList = () => {
     };
 Plansgetdata();
   }, []);
-  // console.log(dummyData)
+  console.log(dummyData)
   //   console.log(dummyData);
-  console.log(orders);
+//   console.log(orders);
   return (
     <div className="userList">
       <ManageMent />
