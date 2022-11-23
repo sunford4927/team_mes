@@ -7,33 +7,54 @@
 }
 
 .managementTitleContainer {
+    padding: 15px;
     display: flex;
+    margin: -10px 0px -20px -30px;
+    font-size: 5px;
     
 }
 
 .managementContainer {
     display: flex;
     white-space: nowrap;
-    margin-top: -10px;
+    margin: -10px 0px -20px -30px;
+    font-size: 10px;
 }
 
-.managementnumber{
+.managementnumber{    
     flex: 0.7;    
     padding: 20px;
     
 }
-
+.managementnumber1 {
+    width: 150px;
+    margin: 0px 0px 0px 10px ;
+    
+}
 .managementname {
     flex: 0.6;
-    padding: 20px;
+    margin: 23px 0px 0px 0px;
+    padding: 0px;
     
     
 }
+
+
+.managementname1{
+    width: 150px;
+    margin: 1px 10px 0px 10px ;
+}
+
 .managementdate {
     flex: 1;
-    padding: 20px;
-    
-    
+    padding: 0px 230px 0px 0px ;
+    margin: 23px 10px 0px 10px;
+
+}
+
+.search{
+    width: 150px;
+    margin: 0px 0px 0px 10px;
 }
 .managementAddButton{
     width: 80px;

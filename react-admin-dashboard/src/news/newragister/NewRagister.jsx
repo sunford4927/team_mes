@@ -1,14 +1,19 @@
 import React from "react";
 import NewR from "../newR/NewR";
+import Plan from "../plan/Plan";
+
 
 
 
 
 const NRagiser = () =>{
-    return <div className="Nragiser">
+    return (
+
+    <div className="Nragiser">
         <NewR/>
-        </div>
-    
+        <Plan/>
+    </div>
+    )
 };
 
 

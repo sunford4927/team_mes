@@ -55,9 +55,11 @@ export default function Sidebar() {
                     <li className="sidebarListItem">                       
                         생산실적 관리
                     </li>
+                    <Link to='/monitoring'>
                     <li className="sidebarListItem">                       
                         생산 모니터링
                     </li>
+                    </Link>
                     <li className="sidebarListItem">                       
                         생산보고서
                     </li>
