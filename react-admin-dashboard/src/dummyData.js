@@ -1,4 +1,9 @@
-export const userRows = [
+import React, {useState} from 'react';
+import axios from 'axios';
+
+
+// UserList.status
+export const userRows =  [
     {
         id: 1,
         Lot번호: 'LOTTTTTT',
@@ -12,13 +17,17 @@ export const userRows = [
     },
     {
         id: 2,
-        username: '최윤영',
-        email: 'gzvczcv@naver.com',
-        status: 'active',
-        transaction: '$220',
+        Lot번호: 'LOTTTTTT',
+        수주코드: 'TESTORDER001',
+        고객명: '(주) 드림팩',
+        제품명: 'PN-001',
+        수량: '1,500',
+        생산완료예정일: '2022-06-30',
+        생산계획등록일: '2022-06-30',
     },
     {
         id: 3,
+        Lot번호: 'LOTTTTTT',
         username: '이상현',
         email: 'qwerqwerqew@naver.com',
         status: 'active',

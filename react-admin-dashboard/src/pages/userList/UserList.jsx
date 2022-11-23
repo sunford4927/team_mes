@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import { Link } from "react-router-dom";
 import './userList.css';
 import { DataGrid } from '@mui/x-data-grid'
@@ -6,6 +6,8 @@ import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import { userRows } from '../../dummyData';
 import ManageMent from "../management/ManageMent";
 import Product from "../product/Product";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 const columns = [
@@ -38,20 +40,60 @@ const columns = [
 
 
 
-const UserList = () => {
+const UserList=() => {
+//     const [users, setUsers] = useState(null);
+// const [loading, setLoading] = useState(false);
+// const [error, setError] = useState(null);
+
+// const fetchUsers = async () => {
+//   try {
+//     // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+//     setError(null);
+//     setUsers(null);
+//     // loading 상태를 true 로 바꿉니다.
+//     setLoading(true);
+//     const response = await axios.get(
+//         'http://127.0.0.1:8000/plans/'
+//     );
+//     setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
+//     console.log(setUsers);
+//   } catch (e) {
+//     setError(e);
+//   }
+//   setLoading(false);
+  
+// };
+// useEffect(()=>{
+// fetchUsers();
+// },[]);
+//     if (loading) return <div>로딩중..</div>; 
+//     if (error) return <div>에러가 발생했습니다</div>;
+
+// 	// 아직 users가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
+//     if (!users) return null;
+
+	// 드디어 users가 성공적으로 받아와 진 상태입니다.
+
+const [dummyData ,setDummyData] = useState(userRows);
+function test(){
+    setDummyData()
+}
+
     return <div className="userList">
+        <button onClick={test}></button>
         <ManageMent/>
         <Product/>
-        <DataGrid            
-            rows={userRows}
+        <DataGrid           
+            rows={dummyData}
             disableSelectionOnClick 
             columns={columns}
             pageSize={9}
             rowsPerPageOptions={[5]}
             
-        />        
+        >
+         
+            </DataGrid>
+            <h1>TTest</h1>        
     </div>
 }
 export default UserList;
-
-
