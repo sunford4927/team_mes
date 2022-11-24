@@ -11,9 +11,6 @@ import Orders from './news/order/Orders'
 
 
 
-
-
-
 function App() {
   return (
     <Router>
@@ -26,6 +23,7 @@ function App() {
               <HiMenuAlt3 size={26} className="cursor-pointer" />
             </div>
           </div>
+        
         </section>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -36,13 +34,14 @@ function App() {
 
 
         </Routes>
+
       </div>
     </Router>
   )
 }
 
 
-export default App
+export default App;
 //<div className='others'>other pages</div> */ 
 
 

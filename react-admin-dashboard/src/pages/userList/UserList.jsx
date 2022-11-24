@@ -1,56 +1,86 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import './userList.css';
-import { DataGrid } from '@mui/x-data-grid'
-import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import { userRows } from '../../dummyData';
+import React, { useEffect, useState } from "react";
+import "./userList.css";
+import { createUseGridApiEventHandler, DataGrid } from "@mui/x-data-grid";
 import ManageMent from "../management/ManageMent";
 import Product from "../product/Product";
-
-
-const columns = [
-    {field: 'id', headerName: 'NO', width:70},
-    {
-        field: 'Lot번호',
-        headerName: 'LOT번호',
-        width:160,},    
-    {field: '수주코드', headerName: '수주코드', width:140},
-    {field: '고객명', headerName:'고객명', width: 160,},
-    {field: '제품명', headerName:'제품명', width: 160,},
-    {field: '수량', headerName:'수량', width: 100,},
-    {field: '생산완료예정일', headerName:'생산완료예정일', width: 200,},
-    {field: '생산계획등록일', headerName:'생산계획등록일', width: 200,},
-    {
-        field: '비고',
-        headerName:'',
-        width: 100,
-        renderCell: (params) => {
-            return (
-                <>
-                    <Link to = {'/users/'+ params.row.id}>
-                    <button className="userListEdit"><ExitToAppOutlinedIcon />수정</button>
-                    </Link>                    
-                </>
-            )
-        },
-    },
-]
-
-
+import axios from "axios";
 
 const UserList = () => {
-    return <div className="userList">
-        <ManageMent/>
-        <Product/>
-        <DataGrid            
-            rows={userRows}
-            disableSelectionOnClick 
-            columns={columns}
-            pageSize={9}
-            rowsPerPageOptions={[5]}
-        />        
+  const [dummyData, setDummyData] = useState("");
+  const [orders, setOrders] = useState("");
+  function Make_ID(dummyData) {
+    for (var i = 0; i < dummyData.length; i++) {
+      dummyData[i]["id"] = i;
+    }
+    return dummyData;
+  }
+  function Make_Table(plans, orders, customers, items) {
+    for (var i = 0; i < plans.length; i++) {
+      for (var j = 0; j < orders.length; j++) {
+        if (plans[i]["order_code"] == orders[j]["order_code"]) {
+          plans[i]["customer_code"] = orders[j]["customer_code"];
+        }
+        for (var k = 0; k < customers.length; k++) {
+          if (plans[i]["customer_code"] == customers[k]["customer_code"]) {
+            plans[i]["customer_name"] = customers[k]["customer_name"];
+          }
+        }
+      }
+    }
+
+      for (var u = 0; u < plans.length; u++) {
+        for (var y = 0; y < items.length; y++) {
+          if (plans[u]["item_code"] == items[y]["item_code"]) {
+            plans[u]["item_name"] = items[y]["item_name"];
+          }
+        }
+      }
+      console.log(plans)
+  }
+
+  const columns = [
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "lot_num", headerName: "LOT번호", width: 160, },
+    { field: "order_code", headerName: "수주코드", width: 140 },
+    { field: "customer_name", headerName: "고객명", width: 160 },
+    { field: "item_name", headerName: "제품명", width: 160 },
+    { field: "quantity", headerName: "수량", width: 70 },
+    { field: "due_date", headerName: "생산완료예정일", width: 150 },
+    { field: "reg_date", headerName: "생산계획등록일", width: 150 },
+  ];
+
+  useEffect(() => {
+    const Plansgetdata = async () => {
+      try {
+        const result = await axios.get("http://127.0.0.1:8000/plans/");
+        const result_data1 = await axios.get("http://127.0.0.1:8000/orders/");
+        const result_data2 = await axios.get(
+          "http://127.0.0.1:8000/customers/"
+        );
+        const result_data3 = await axios.get("http://127.0.0.1:8000/items/");
+        setDummyData(Make_ID(result.data));
+        setOrders(
+          Make_Table(result.data, result_data1.data, result_data2.data, result_data3.data)
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    Plansgetdata();
+  }, []);
+  return (
+    <div className="userList">
+      <ManageMent />
+      <Product />
+      <DataGrid
+        rows={dummyData}
+        disableSelectionOnClick
+        columns={columns}
+        pageSize={6}
+        rowsPerPageOptions={[5]}
+        // getRowId={(r) => r.id}
+      ></DataGrid>
     </div>
-}
+  );
+};
 export default UserList;
-
-
