@@ -4,6 +4,7 @@ import './plan.css';
 
 
 
+
 export default function Plan() {
     return(
         <div className="plan">
@@ -20,7 +21,7 @@ export default function Plan() {
                     className="planNumbername"
                 />
                 <button 
-                    className="processNumberButton"
+                    className="processNumberButton1"
                     type="button"
                     onClick={()=>alert('조심')}>중복확인
                 </button>
@@ -43,12 +44,12 @@ export default function Plan() {
                 <span className="P"> * </span>
                 <label> 제품명  </label>            
             </div>             
-            <div className="planbar2">
+            <div className="planbar">
                 <input
                     type="text"
                     required
                     placeholder="찾기 버튼을 통해 제품을 선택해주세요"
-                    className="planNumbername2"
+                    className="planNumbername"
                 />
                 <button 
                     className="processNumberButton1"
@@ -57,44 +58,77 @@ export default function Plan() {
                 </button>
             </div>
 
-            <div className="planbar3">
+            <div className="planTitleContainer">
                 <span className="P"> * </span>
-                <label> 수량  </label>                
-            </div>
-            <div>
-                <input
+                <label> 수량  </label>
+            </div>                            
+            <div className="planbar1">
+            <input
                     type="text"
                     required
                     placeholder="수량을 입력해주세요"
                     className="planNumbername1"
                 />
             </div>
-
-            <div className="planbar4">
-                <div className="planmaterial">원자재</div>
-                    <button 
-                    className="processNumberButton2"
+            
+                
+            
+            <div className="planTitleContainer">
+                <div className="planmaterial">원자재
+                </div>
+            </div>
+            <div className="planbar2">                
+                <button 
+                    className="processNumberButton"
                     type="button"
                     onClick={()=>alert('조심')}>원자재정보입력
-                    </button>
+                </button>
+            </div>
 
 
-                    <div className="planPInfo">공정자재</div>
-                    <button 
-                    className="processNumberButton2"
+
+            <div className="planTitleContainer">
+                <div className="planPInfo">공정자재
+                </div>
+            </div>
+            <div className="planbar2">
+                <button 
+                    className="processNumberButton"
                     type="button"
                     onClick={()=>alert('조심')}>공정정보 입력
-                    </button>
-                    <div className="planbar5">
+                </button>
+            </div>
+
+
+            <div className="planTitleContainer">
+                <div className="plancompelte">
                         생산완료예정일
-                    </div>
-                        <input
+                </div>
+            </div>
+            <div className="planbar1">
+                <input
                         type="date"
                         required
-                            className="planNumbername1"
-                        />
-                    </div>
-                </div>
+                        className="planNumbername1"
+                />
+            </div>
+            <div className="planTitleContainer">
+                <button
+                className="orderNumberButton2"
+                type="button"                
+              >
+                저장
+              </button>
+              <button
+                className="orderNumberButton3"
+                type="button"                
+              >
+                취소
+              </button>
+            </div>
+        
+        
+        </div>
             
 
 

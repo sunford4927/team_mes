@@ -23,7 +23,7 @@ function App() {
               <HiMenuAlt3 size={26} className="cursor-pointer" />
             </div>
           </div>
-        
+
         </section>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -31,6 +31,8 @@ function App() {
           <Route path="/monitoring" element={<MoniToring />} />
           <Route path="/NewR" element={<NewRagister />} />
           <Route path="/order" element={<Orders />} />
+
+
 
 
         </Routes>
@@ -42,7 +44,7 @@ function App() {
 
 
 export default App;
-//<div className='others'>other pages</div> */ 
+//<div className='others'>other pages</div> */
 
 
 

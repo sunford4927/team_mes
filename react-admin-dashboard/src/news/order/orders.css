@@ -1,103 +1,72 @@
-.orderTitle {
-    flex: 1;
-    padding: 15px;
-    font-size: 16px;
-    margin: -5px 0px 20px -20px;
-    
-}
-
-.orderR {
-    flex: 1;
-    font-size: 14px;
-    padding: 15px;
-    margin: -30px 0px 20px -20px;
-}
-.orderclassification{
-    margin: 0px  0px 0px 0px;
-}
-.ordernext {
-    padding-left: 100px;
-    margin-top: -50px;
-    font-size: 0.001in;
-    color:red;
-}
-
-.pp{
-    color: red;
-}
-
-.orderclassification{
-    font-size: 12px;
-    padding: 20px;
-    margin-bottom: 10px
-}
 .order {
     padding: 20px;
     font-size: 12px;
+    margin: 0px 0px 0px -20px;
     
-    
-}
 
-.P{
+}
+.O{
     color: red;
 }
-
-.ordernext1 {
+.ordernext{
     padding-left: 810px;
     margin-top: -15px;
-    
 }
-.orderNumbername {
+
+.orderNumbername{
     background: #FFFFFF;
     width: 900px;
     margin-right: 20px;
     padding: 5px;
     margin: 0px 8px 30px 8px ;
 }
-
-.orderclassification{
-    margin-bottom: -20px;
-}
-.orderNumberButton{
-    width: 80px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background: #232323;
-}
-
-.orderNumbername1 {
+.orderNumbername1{
     background: #FFFFFF;
     width: 990px;
     padding: 5px;
     margin: 10px 10px 40px 8px ;
 }
 
-.planNumbername2 {
-    background: #FFFFFF;
-    width: 900px;
-    padding: 5px;
-    margin: 10px 10px 40px 8px;
-}
-.orderNumberButton1{
+.orderNumberButton {
     width: 80px;
+    height: 30px;
     border: none;
     border-radius: 5px;
     color: white;
     background: #232323;
 }
+.orderNumberButton1{
+    width: 110px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+}
+.ordermaterial{
 
 
+    margin: 10px 0px 0px 10px;
 
-.planmaterial{
-    margin: 30px 0px 0px 10px;
 }
 
+.orderPInfo{
 
-.planPInfo{
-    margin: 30px 0px 0px 10px;
+    margin: 10px 0px 0px 10px;
 
 }
-.planbar5 {
-    margin: 30px 0px 0px 10px;
+.orderNumberButton2{
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+    margin: 0px 40px 0px 810px;
+}
+.orderNumberButton3{
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #232323;
+    margin: 0px 0px 0px 0px;
 }

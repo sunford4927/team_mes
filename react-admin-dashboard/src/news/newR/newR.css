@@ -1,34 +1,37 @@
-.processTitle {
-    flex: 1;
+
+.processPR{
+    -webkit-box-shadow: 5px 5px 5px 5px #000000;
+    box-shadow:  5px 10px 10px -5px #000000;
+    border-radius: 5px;
+
+
+}
+.processTitle{
+    padding: 19px;
+    margin: -10px 10px 0px 0px;
+}
+
+.processR{
+    padding: 19px;
+    margin: -30px 10px 0px 0px;
+}
+.processnext{
+    padding: 19px;
+    margin: -55px 10px 0px 100px;
+    color: red;
+
+}
+.proceeclassification{
     padding: 15px;
-    font-size: 16px;
-    
-}
+    margin: -30px 10px 0px 0px;
 
-.processR {
-    flex: 1;
-    position: relative;
-    padding:15px;
-    margin-top: -30px;
-}
 
-.processnext {
-    padding-left: 110px;
-    margin-top: -50px;
-    font-size: 0.001in;
-    color:red;
+}
+.button{
+    margin: -10px 10px 10px 10px;
+
 }
 
 .pp{
     color: red;
 }
-
-.proceeclassification{
-    font-size: 12px;
-    padding: 20px;
-    margin-bottom: 10px
-}
-
-
-
-

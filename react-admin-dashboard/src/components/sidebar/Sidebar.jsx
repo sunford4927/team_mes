@@ -15,10 +15,12 @@ export default function Sidebar() {
                 <Link to ={"/"}>
                     <h3 className="sidebarTitle"> <HomeWorkIcon /> 기준정보관리</h3>
                 </Link>                    
-                <ul className="sidebarList">                    
+                <ul className="sidebarList"> 
+                    <Link to ="/staff" >                  
                     <li className="sidebarListItem">                        
                         사원정보 관리                        
                     </li>
+                    </Link>
                     <li className="sidebarListItem">
                         고객정보 관리
                     </li>
