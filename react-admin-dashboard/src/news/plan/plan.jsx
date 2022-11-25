@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import './plan.css';
 
@@ -6,6 +7,28 @@ import './plan.css';
 
 
 export default function Plan() {
+
+    function testData(){
+        axios.post("http://127.0.0.1:8000/plans/",{
+            flag: "p",
+            lot_num: "LOT_ORDER333_SJ",
+            order_code: "",
+            item_code: "P0043A",
+            quantity: 9999999,
+            due_date: "2022-07-15",
+            reg_date: "2022-11-23",
+            reg_id: "",
+            mod_date: "2022-11-23",
+            mod_id: "",
+            plan_name: "테스트생산SJ"
+        })
+        .then(function(resposne){
+                console.log("성공")
+        })
+        .then(function(resposne){
+
+        })
+    }
     return(
         <div className="plan">
             <div className="planTitleContainer">
@@ -115,7 +138,8 @@ export default function Plan() {
             <div className="planTitleContainer">
                 <button
                 className="orderNumberButton2"
-                type="button"                
+                type="button" 
+                onClick={testData}              
               >
                 저장
               </button>

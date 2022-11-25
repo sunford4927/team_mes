@@ -1,5 +1,4 @@
 import React from "react"; 
-import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/featuredinfo/FeaturedInfo";
 import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
@@ -13,12 +12,7 @@ const Home = () => {
         
             <div className="home">
                 <FeaturedInfo />
-                <Chart
-                data
-                title="User Analytics"
-                grid
-                dataKey="Active User"
-            />
+                
             <div className="homeWidgets">
                 <WidgetSm />
                 <WidgetLg />

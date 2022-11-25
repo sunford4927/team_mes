@@ -1,15 +1,31 @@
-import React  from "react";
+import React, { useState } from "react";
 import './topbar.css'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
+import { FiArrowLeftCircle,FiArrowRightCircle} from "react-icons/fi";
+
 
 export default function Topbar() {
+    const [menuCollapse, setMenuCollapse] = useState(false)   
+const menuIconClick = () => {    
+    menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+};
     return (
+        
         <div className="topbar">
+            
             <div className="topbarWrapper">
-                <div className="topLeft">
-                    <span className="logo">거북이</span>
+                <div className="logo">
+                    
+                    <p> {menuCollapse? "Logo": "거북이"}</p>
+                </div>
+                <div className="closemenu" onClick={menuIconClick}>
+                    {menuCollapse?(
+                        <FiArrowRightCircle/>) :(
+                            <FiArrowLeftCircle/>
+                        )
+                        }                    
                 </div>
                 <div className="topRight">
                     {/* tobarIcon */}
@@ -28,7 +44,8 @@ export default function Topbar() {
 
                 </div>
                 
-            </div>            
+            </div>
+                        
         </div>
     )
 }
