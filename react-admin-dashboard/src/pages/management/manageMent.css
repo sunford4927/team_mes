@@ -1,40 +1,39 @@
 .management {
-    margin-top: -200px;
-    flex: 4;    
-    padding: 10px;
+    margin-top: -193px;
+    flex: 4;        
     position: relative;
+    color: #ffffff;
+
     
 }
 
 .managementTitleContainer {
-    padding: 15px;
-    display: flex;
-    margin: -10px 0px -20px -30px;
-    font-size: 5px;
+    margin: -30px 0px 10px 0px;
+    font-size: 15px;
     
 }
 
 .managementContainer {
     display: flex;
     white-space: nowrap;
-    margin: -10px 0px -20px -30px;
-    font-size: 10px;
+    margin: 0px 0px -20px -30px;
+    font-size: 15px;
 }
 
 .managementnumber{    
     flex: 0.7;    
-    padding: 20px;
+    margin:0px 0px 0px 30px
     
 }
 .managementnumber1 {
     width: 150px;
-    margin: 0px 0px 0px 10px ;
+    margin: 0px 0px 0px 5px ;
     
 }
 .managementname {
     flex: 0.6;
-    margin: 23px 0px 0px 0px;
-    padding: 0px;
+    margin: 0px 0px 0px 10px;
+    
     
     
 }
@@ -48,7 +47,7 @@
 .managementdate {
     flex: 1;
     padding: 0px 230px 0px 0px ;
-    margin: 23px 10px 0px 10px;
+    margin: 0px 10px 0px 5px;
 
 }
 
@@ -63,7 +62,7 @@
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
+    color: #b0bec5;
     font-size: 16px;
     background: #232323;
     margin-right: 5px;
@@ -79,8 +78,7 @@
     cursor: pointer;
     font-size: 16px;
     color: #333333;
-    background: #FFFFFF;
-    color: #FFFFFF;
+    color:#b0bec5;
     background: #232323;
 
 

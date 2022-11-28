@@ -22,7 +22,7 @@ export default function Sidebar() {
 
                 <ul className="sidebarList"> 
 
-                    <Link to="/info/Staff" >                  
+                    <Link to="/Staff" >                  
                     <li className="sidebarListItem">                        
                         사원정보 관리                        
                     </li>

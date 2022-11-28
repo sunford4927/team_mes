@@ -1,6 +1,7 @@
 .product {
     flex: 1;
-    padding: 10px;    
+    padding: 10px;
+
     
 }
 
@@ -8,6 +9,7 @@
     display: flex;
     margin: 50px 0px -30px -15px;
     font-size: 0.875rem;
+    color: #ffffff;
     
       
     

@@ -8,6 +8,8 @@ import NewRagister from './news/newragister/NewRagister'
 import MoniToring from './pages/monitoring/MoniToring'
 import Orders from './news/order/Orders'
 
+import Info from './information/info/Info'
+
 
 
 function App() {
@@ -24,11 +26,8 @@ function App() {
           <Route path="/monitoring" element={<MoniToring />} />
           <Route path="/NewR" element={<NewRagister />} />
           <Route path="/order" element={<Orders />} />
+          <Route path="/info" element={<Info />} />
         </Routes>
-
-
-
-
 
 
       </div>

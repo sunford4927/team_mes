@@ -76,7 +76,7 @@ const UserList = () => {
         rows={dummyData}
         disableSelectionOnClick
         columns={columns}
-        pageSize={6}
+        pageSize={10}
         rowsPerPageOptions={[5]}
         // getRowId={(r) => r.id}
       ></DataGrid>
