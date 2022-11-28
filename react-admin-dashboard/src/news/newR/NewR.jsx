@@ -10,6 +10,7 @@ export default function NewR() {
 
     const eventcatch=(e)=> {
       
+      console.log(e.target.value)
       setEvent(e.target.value);
       console.log(event);
     }

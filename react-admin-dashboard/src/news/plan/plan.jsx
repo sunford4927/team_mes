@@ -1,11 +1,13 @@
 import React from "react";
 import './plan.css';
-
+// import Modal from "Modal"
 
 
 
 
 export default function Plan() {
+
+
     return(
         <div className="plan">
             <div className="planTitleContainer">
@@ -23,7 +25,7 @@ export default function Plan() {
                 <button 
                     className="processNumberButton1"
                     type="button"
-                    onClick={()=>alert('조심')}>중복확인
+                   >중복확인
                 </button>
             </div>
 
@@ -51,10 +53,10 @@ export default function Plan() {
                     placeholder="찾기 버튼을 통해 제품을 선택해주세요"
                     className="planNumbername"
                 />
-                <button 
+                <button
                     className="processNumberButton1"
                     type="button"
-                    onClick={()=>alert('조심')}>찾기
+                    >찾기
                 </button>
             </div>
 
@@ -81,11 +83,11 @@ export default function Plan() {
                 <button 
                     className="processNumberButton"
                     type="button"
-                    onClick={()=>alert('조심')}>원자재정보입력
+                    >원자재정보입력
                 </button>
             </div>
 
-
+    
 
             <div className="planTitleContainer">
                 <div className="planPInfo">공정자재
@@ -95,7 +97,7 @@ export default function Plan() {
                 <button 
                     className="processNumberButton"
                     type="button"
-                    onClick={()=>alert('조심')}>공정정보 입력
+                    >공정정보 입력
                 </button>
             </div>
 
@@ -126,14 +128,10 @@ export default function Plan() {
                 취소
               </button>
             </div>
-        
+            
         
         </div>
-            
-
-
-            
-        )
+    )
 
 }
 
