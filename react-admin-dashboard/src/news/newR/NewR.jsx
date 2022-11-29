@@ -5,17 +5,22 @@ import Orders from "../order/Orders";
 import Plan from "../plan/Plan";
 // import { SettingsSystemDaydreamTwoTone } from "@material-ui/icons";
 
-export default function NewR() {
-  const [event, setEvent] = useState("");
-
-    const eventcatch=(e)=> {
+    const NewR = (props) => {
+      const [event, setEvent] = useState("");
+      const [orders, setOrders] = useState(props.orders);
+      const [customers, setCustomers] = useState(props.customers);
+      const [items, setItems] = useState(props.items);
+      const [plan, setPlan] = useState(props.plan);
+      // console.log(items)
+      const eventcatch = (e) => {
+        console.log(e.target.value);
+        setEvent(e.target.value);
+        setOrders(orders);
+        setCustomers(customers);
+        setItems(items);
+        setPlan(plan);
+      };
       
-      console.log(e.target.value)
-      setEvent(e.target.value);
-      console.log(event);
-    }
-
-  
   return (
     <div className="processPR">      
       <div className="processMenu">
@@ -49,9 +54,12 @@ export default function NewR() {
             onChange={eventcatch}
           />      
           <label>수주</label>
-          {event =='O'? <Orders/>: <Plan/>}
+          {event =='O'? <Orders/>: <Plan item = {items} event={event}/>}
       </div>    
       </div>      
+      
     </div>
   );
 }
+
+export default NewR;

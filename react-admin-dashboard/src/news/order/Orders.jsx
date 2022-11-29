@@ -1,8 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import "./orders.css";
 
-export default function Orders() {
-  
+
+const Orders=(props)=> {
+  const [event, setEvent] = useState(props.event);
+  const [orders, setOrders] = useState(props.orders);
+  const [customers, setCustomers] = useState(props.customers);
+  const [items, setItems] = useState(props.items);
+  const [plan, setPlan] = useState(props.plan);
+  const onclick = () => {
+   setEvent(event);
+    setOrders(orders)
+    setCustomers(customers)
+    setItems(items)
+    setPlan(plan)
+  };
   return (
     <div className="order">
       <div className="orderTitleContainer">
@@ -140,3 +152,4 @@ export default function Orders() {
     
   );
 }
+export default Orders;

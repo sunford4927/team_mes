@@ -12,8 +12,7 @@
     cursor:pointer;
     
 /* 폴더 모양 만들기 */
-    -webkit-box-shadow: 0px 0px 12px -1px #000000;
-    box-shadow:  0px 0px 12px -1px #000000;
+   
 }
 
 .featuredTitle {
