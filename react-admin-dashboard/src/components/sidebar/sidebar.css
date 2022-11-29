@@ -1,9 +1,16 @@
+.sidebar{
+    background-color: #063146;
+    
+    color:white
+
+}
+
+
 .sidebarList{
     list-style:none;
     position: sticky;
-    top: 200px;
+    top: 0px;
     
-  
   
     
     

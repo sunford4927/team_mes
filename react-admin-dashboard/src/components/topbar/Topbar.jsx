@@ -18,7 +18,10 @@ const menuIconClick = () => {
             <div className="topbarWrapper">
                 <div className="logo">
                     
-                    <p> {menuCollapse? "Logo": "거북이"}</p>
+                    <p> {menuCollapse? <img 
+                                            className="turtle"
+                                            src="images/turtle_log.png" 
+                                            alt ="log"/> : "거북이"}</p>
                 </div>
                 <div className="closemenu" onClick={menuIconClick}>
                     {menuCollapse?(
