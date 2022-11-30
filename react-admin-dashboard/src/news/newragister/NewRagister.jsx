@@ -3,7 +3,7 @@ import axios from "axios";
 import React , { useState, useEffect } from "react";
  
 
-const NRagiser = () => {
+export default function NRagiser ()  {
     const [plan, setPlan] = useState("");
     const [orders, setOrders] = useState("");
     const [customers, setCustomers] = useState("");
@@ -38,6 +38,3 @@ const NRagiser = () => {
 
     )
 };
-
-
-export default NRagiser;
