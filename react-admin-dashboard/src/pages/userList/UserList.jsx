@@ -26,8 +26,8 @@ const UserList = () => {
           }
         }
       }
+      // console.log(plans[i]["item_code"])
     }
-
       for (var u = 0; u < plans.length; u++) {
         for (var y = 0; y < items.length; y++) {
           if (plans[u]["item_code"] == items[y]["item_code"]) {
@@ -35,7 +35,7 @@ const UserList = () => {
           }
         }
       }
-      console.log(plans)
+      // console.log(plans)
   }
 
   const columns = [
@@ -58,6 +58,7 @@ const UserList = () => {
           "http://127.0.0.1:8000/customers/"
         );
         const result_data3 = await axios.get("http://127.0.0.1:8000/items/");
+        // console.log(result_data1)
         setDummyData(Make_ID(result.data));
         setOrders(
           Make_Table(result.data, result_data1.data, result_data2.data, result_data3.data)
@@ -71,7 +72,7 @@ const UserList = () => {
   return (
     <div className="userList">
       <ManageMent />
-      <Product />
+      <Product list= {dummyData} />
       <DataGrid
         rows={dummyData}
         disableSelectionOnClick
