@@ -1,0 +1,17 @@
+.monitoring{
+    display: flex;
+    margin: 200px 100px;
+    
+}
+​
+.chart_one{
+    
+    margin: auto;
+}
+.chart_two{
+    margin: 0px 100px 0px 100px;
+}
+​
+.chart_thr{
+    margin: auto;
+}

@@ -1,11 +1,18 @@
 import "./modal.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Modal(props) {
+
   function closeModal() {
     props.closeModal();
   }
 
+function data_name(e){
+  props.update(e.target.innerText)
+  props.closeModal();
+  // console.log(e.target.innerText)
+
+}
   useEffect(function(){
     console.log(props.nameArray)
   },[])
@@ -17,14 +24,16 @@ function Modal(props) {
           ✖
         </button>
 
-        <h1>예약내역</h1>
+        <h1 className="item_name">제품명</h1>
         {props.nameArray.map(function(data){
-            return <h1 style={{color:"black"}}>{data}</h1>
+            return <div className="item_data"><button name="abc" onClick={data_name}>{data}</button></div>
+            
         })}
       </div>
     </div>
   );
 }
+
 
 export default Modal;
 

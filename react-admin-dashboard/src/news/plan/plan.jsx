@@ -43,23 +43,23 @@ export default function Plan({ item, event }) {
 
   useEffect(() => {
       const seedata = async () => {
-        alert(`등록이 완료되었습니다.`);
-        nav('/users')
-      try {
-        console.log(item_list);
-        console.log(event_a);
-        console.log(save);
-        const item_b = item_con(item_list, japum);
-        console.log(item_b);
-        await axios.post("http://127.0.0.1:8000/plans/", {
-          flag: event_a,
+          try {
+              console.log(item_list);
+              console.log(event_a);
+              console.log(save);
+              const item_b = item_con(item_list, japum);
+              console.log(item_b);
+              await axios.post("http://127.0.0.1:8000/plans/", {
+                  flag: event_a,
           lot_num: LotNum,
           item_code: item_b["item_code"],
           quantity: num_quantity,
           due_date: date,
           plan_name: sangsan,
-        });
-      } catch (error) {
+        }); 
+        // alert(`등록이 완료되었습니다.`);
+        // nav('/users')
+    } catch (error) {
         console.error(error);
        
     }
@@ -69,6 +69,7 @@ seedata();
 }, [save]);
 const [modalState, setModalState] = useState(false);
 const [proNames, setProNames] = useState([]);
+const [testname, settestname] = useState();
 async function openPro(){
     //모달창을 띄워서 제품 정보를 띄우는 기능
     const item_a = await axios.get('http://127.0.0.1:8000/items/')
@@ -84,6 +85,9 @@ async function openPro(){
     setModalState(!modalState);
 
 }
+useEffect(() => {
+console.log(testname)
+},[testname])
 
   return (
     <div className="plan">
@@ -113,6 +117,7 @@ async function openPro(){
       <div className="planTitleContainer">
       {modalState ? (
         <Modal
+          update ={settestname}
           closeModal={() => setModalState(!modalState)}
           nameArray = {proNames}
         ></Modal>
@@ -138,6 +143,7 @@ async function openPro(){
       </div>
       <div className="planbar">
         <input
+          value={testname}
           type="text"
           required
           placeholder="찾기 버튼을 통해 제품을 선택해주세요"

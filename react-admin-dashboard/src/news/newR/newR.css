@@ -3,16 +3,18 @@
     -webkit-box-shadow: 5px 5px 5px 5px #000000;
     box-shadow:  5px 10px 10px -5px #000000;
     border-radius: 5px;
-    color: #ffffff;
+    color: #000000;
 
 }
 .processMenu{
-    color: #ffffff;
+    color: #000000;
 
 }
 .processTitle{
     padding: 19px;
     margin: -10px 10px 0px 0px;
+    color: #000000;
+    
 }
 
 .processR{

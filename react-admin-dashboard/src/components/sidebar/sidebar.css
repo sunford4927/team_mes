@@ -1,7 +1,7 @@
 .sidebar{
-    background-color: #063146;
+    background-color: #525252;
     
-    color:white
+    color:rgb(255, 255, 255)
 
 }
 
@@ -10,14 +10,21 @@
     list-style:none;
     position: sticky;
     top: 0px;
-    
-  
+    margin: 10px;
+    padding-left: 20px;
     
     
   
 }
 
+li{
+    margin: 10px;
+}
 a{
     text-decoration: none;
-    color:white
+    color:rgb(255, 255, 255)
+}
+
+.sidebarTitle{
+    text-align: center;
 }
