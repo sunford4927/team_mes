@@ -1,6 +1,8 @@
 import { getByTestId, getByText } from "@testing-library/react";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 import './plan.css';
 // import Modal from "Modal"
 
@@ -9,6 +11,7 @@ import './plan.css';
 
 export default function Plan(props) {
 
+    const nav = useNavigate();
     const [LotNum, setLotNum] = useState('')
     const [sangsan, setsangsan] = useState('')
     const [japum, setjapum] = useState('')
@@ -35,7 +38,6 @@ export default function Plan(props) {
 
 
     const seedata = async () => {
-        
         try {
             const item_a = await axios.get('http://127.0.0.1:8000/items/')
             
@@ -52,15 +54,45 @@ export default function Plan(props) {
             
         } catch (error) {
             console.error(error);
-            
+           alert(`등록이 완료되었습니다.`);
+           nav('/users')
+           
         }
     };
 
+    const [modalState, setModalState] = useState(false);
+    const [proNames, setProNames] = useState([]);
+    async function openPro(){
+        //모달창을 띄워서 제품 정보를 띄우는 기능
+        const item_a = await axios.get('http://127.0.0.1:8000/items/')
+        console.log(item_a.data)
+        let proArray = item_a.data
+        let proNameArray =[]
+        for(let i =0; i<proArray.length;i++){
+            proNameArray.push(proArray[i].item_name);
+        }
+        
+        console.log(proNameArray)
+        setProNames(proNameArray);
+        setModalState(!modalState);
+
+    }
+   
 
 
-
+    
+        
     return (
+
         <div className="plan">
+            {modalState ? (
+        <Modal
+          closeModal={() => setModalState(!modalState)}
+          nameArray = {proNames}
+        ></Modal>
+      ) : (
+        ""
+      )}
             <div className="planTitleContainer">
                 <span className="P"> * </span>
                 <label> LOT번호  </label>
@@ -113,6 +145,7 @@ export default function Plan(props) {
                 <button
                     className="processNumberButton1"
                     type="button"
+                    onClick={openPro}
                 >찾기
                 </button>
             </div>
@@ -184,7 +217,8 @@ export default function Plan(props) {
                     className="orderNumberButton2"
                     type="button"
                     onClick={seedata}
-                >
+                    
+                >  
                     저장
                 </button>
                 <button
