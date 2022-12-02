@@ -1,57 +1,69 @@
-.management {
-    margin-top: -193px;
-    flex: 4;
+/* .client {
+    flex: 4;        
     position: relative;
     color: #000000;
+
+    
 }
-.managementTitleContainer {
-    margin: -30px 0px 10px 0px;
+
+.clientTitleContainer {
     font-size: 15px;
+    
 }
-.managementContainer {
+
+.clientContainer {
     display: flex;
     white-space: nowrap;
-    margin: 0px 0px -20px -30px;
     font-size: 15px;
 }
-.managementnumber{
-    flex: 0.7;
-    margin:0px 0px 0px 30px
+
+.clientnumber{    
+    flex: 0.7;    
+    
 }
-.managementnumber1 {
+.clientnumber1 {
     width: 150px;
-    margin: 0px 0px 0px 5px ;
+    
 }
-.managementname {
+.clientcode{
     flex: 0.6;
-    margin: 0px 0px 0px 10px;
+
 }
-.managementname1{
+.clientname {
+    flex: 0.6;  
+    
+    
+}
+
+
+.clientname1{
     width: 150px;
-    margin: 1px 10px 0px 10px ;
 }
-.managementdate {
+
+.clientdate {
     flex: 1;
-    padding: 0px 230px 0px 0px ;
-    margin: 0px 10px 0px 5px;
+
 }
+
 .search{
     width: 150px;
-    margin: 0px 0px 0px 10px;
 }
-.managementAddButton{
+.clientAddButton{
     width: 80px;
     height: 40px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    color: #B0BEC5;
+    color: #b0bec5;
     font-size: 16px;
     background: #232323;
     margin-right: 5px;
+    
+
 }
-.managementAddButton1 {
+
+.clientAddButton1 {
     width: 100px;
     height: 40px;
     padding: 5px;
@@ -61,5 +73,9 @@
     color: #333333;
     color:#b0bec5;
     background: #232323;
+
+
+
 }
+ */
 

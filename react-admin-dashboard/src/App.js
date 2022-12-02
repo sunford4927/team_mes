@@ -26,12 +26,12 @@ function App() {
 
 
         <Routes>
-          <Route path='/Staff' element={<Staff/>}/>
-          <Route path='/info/Client' element={<Client/>}/>
-          <Route path='/info/Material' element={<Material/>}/>
-          <Route path='/info/Item' element={<Item/>}/>
-          <Route path='/info/Process' element={<Process/>}/>
-          <Route path='/info/Machine' element={<Machine/>}/>
+          <Route path='/Staff' element={<Staff />} />
+          <Route path='/info/Client' element={<Client />} />
+          <Route path='/info/Material' element={<Material />} />
+          <Route path='/info/Item' element={<Item />} />
+          <Route path='/info/Process' element={<Process />} />
+          <Route path='/info/Machine' element={<Machine />} />
           <Route exact path="/" element={<Home />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/monitoring" element={<MoniToring />} />
