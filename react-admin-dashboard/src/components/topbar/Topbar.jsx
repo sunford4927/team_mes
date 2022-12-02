@@ -21,7 +21,8 @@ const menuIconClick = () => {
                     <p> {menuCollapse? <img 
                                             className="turtle"
                                             src="images/turtle_log.png" 
-                                            alt ="log"/> : "거북이"}</p>
+                                            alt ="log"/> : "거북이"}
+                                            </p>
                 </div>
                 <div className="closemenu" onClick={menuIconClick}>
                     {menuCollapse?(

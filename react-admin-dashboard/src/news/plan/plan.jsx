@@ -27,8 +27,9 @@ export default function Plan({ item, event }) {
   const event_a = event;
   const num_quantity = Number(quantity);
   const item_list = item;
-  const nav = useNavigate();
+  
 
+  
   function item_con(itembox, japum) {
     var list = [];
     for (var i = 0; i < itembox.length; i++) {
@@ -212,9 +213,9 @@ console.log(testname)
         <button className="orderNumberButton2" type="button" onClick={setSave}>
           저장
         </button>
-        <button className="orderNumberButton3" type="button">
+        {/* <button className="orderNumberButton3" type="button">
           취소
-        </button>
+        </button> */}
       </div>
     </div>
   );
