@@ -21,6 +21,7 @@
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "reactstrap": "^9.1.5",
     "recharts": "^2.1.16",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.0"
