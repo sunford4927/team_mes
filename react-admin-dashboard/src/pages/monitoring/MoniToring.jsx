@@ -3,6 +3,7 @@ import "./moniToring.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
+import Sidebar from '../../components/sidebar/Sidebar'
 
 
 
@@ -86,8 +87,13 @@ export default function MoniToring() {
     console.log(percent3);
   }, [num3]);
   return (
+
+ 
+
     <div className="monitoring">
-      
+      <div className="bar">
+    <Sidebar/>
+    </div>
       <div className="chart_one">
         <CircularProgressbar className="Chart1" value={percent1} text={Math.floor(percent1)+"%"} />
       </div>
@@ -97,9 +103,8 @@ export default function MoniToring() {
       <div className="chart_thr">
         <CircularProgressbar className="Chart3" value={percent3} text={Math.floor(percent3)+"%"} />
       </div>
-      
-    </div>
-      
+      </div>
+
   );
 }
 

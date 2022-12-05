@@ -24,9 +24,9 @@ function App() {
   return (
     <Router>
       
-      <Topbar />
+      {window.location.href=== "http://localhost:3000/" ? '' : <Topbar />}
       <div className="container">
-        <Sidebar />
+      {window.location.href=== "http://localhost:3000/" ? '' : <Sidebar />}
 
 
         <Routes>
