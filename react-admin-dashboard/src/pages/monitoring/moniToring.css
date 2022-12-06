@@ -5,8 +5,12 @@
 }
 ​
 .chart_one{
-    
+    display: flex;
     margin: auto;
+}
+.CircularProgressbar-path{
+    width: 100px;
+    height:  100px;
 }
 .chart_two{
     margin: 0px 100px 0px 100px;
@@ -15,3 +19,6 @@
 .chart_thr{
     margin: auto;
 }
+
+
+

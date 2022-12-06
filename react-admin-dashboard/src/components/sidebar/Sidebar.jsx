@@ -5,7 +5,7 @@ import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {Link} from 'react-router-dom'
 import { FiArrowLeftCircle,FiArrowRightCircle} from "react-icons/fi";
-import { useState } from "react";
+import { useState,useEffect,useRef } from "react";
 
 
 export default function Sidebar() {
@@ -13,6 +13,11 @@ export default function Sidebar() {
     const menuIconClick = () => {    
         menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
     };
+    
+  
+
+  
+
     return (
         
     <div className="sidebar">
@@ -20,6 +25,7 @@ export default function Sidebar() {
         <div className="logo">
                     
                     <p> {menuCollapse? <img 
+                    style={{left:"100px", zIndex:999999}}
                                             className="turtle"
                                             src="images/turtle_log.png" 
                                             alt ="log"/> : "거북이"}
@@ -39,14 +45,7 @@ export default function Sidebar() {
                 </Link>
 
                 <ul className="sidebarList"> 
-
-                    <Link to="/Staff" >                  
-                    <li className="sidebarListItem">                        
-                        사원정보 관리                        
-                    </li>
-                    </Link>
-
-
+                    
                     <Link to ="/info/Client">
                     <li className="sidebarListItem">
                         고객정보 관리                    

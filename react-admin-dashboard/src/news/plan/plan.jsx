@@ -27,7 +27,7 @@ export default function Plan({ item, event }) {
   const event_a = event;
   const num_quantity = Number(quantity);
   const item_list = item;
-  
+  const nav =  useNavigate();
 
   
   function item_con(itembox, japum) {
@@ -58,8 +58,8 @@ export default function Plan({ item, event }) {
           due_date: date,
           plan_name: sangsan,
         }); 
-        // alert(`등록이 완료되었습니다.`);
-        // nav('/users')
+        alert(`등록이 완료되었습니다.`);
+        nav('/users')
     } catch (error) {
         console.error(error);
        
