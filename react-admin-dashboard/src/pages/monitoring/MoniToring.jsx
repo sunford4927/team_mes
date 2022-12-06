@@ -92,7 +92,6 @@ export default function MoniToring() {
 
     <div className="monitoring">
       <div className="bar">
-    <Sidebar/>
     </div>
       <div className="chart_one">
         <CircularProgressbar className="Chart1" value={percent1} text={Math.floor(percent1)+"%"} />
