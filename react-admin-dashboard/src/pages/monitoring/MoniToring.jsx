@@ -4,7 +4,13 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
 
-
+// function Title() {
+//   return (
+//     <div>
+//       <h1>공정별 생산진행율 현황</h1>
+//     </div>
+//   )
+// }
 
 function math1(num, valuecount) {
   return (num / valuecount) * 100;
@@ -15,6 +21,7 @@ function math2(num, valuecount) {
 function math3(num, valuecount) {
   return (num / valuecount) * 100;
 }
+
 export default function MoniToring() {
   const [num1, setNum1] = useState();
   // const [indata1, setIndata1] = useState();
@@ -28,6 +35,7 @@ export default function MoniToring() {
   const [percent1, setPercent1] = useState(0);
   const [percent2, setPercent2] = useState(0);
   const [percent3, setPercent3] = useState(0);
+
   useEffect(() => {
     console.log("Test1");
     const outdata = async () => {
@@ -86,20 +94,26 @@ export default function MoniToring() {
     console.log(percent3);
   }, [num3]);
   return (
-    <div className="monitoring">
-      
-      <div className="chart_one">
-        <CircularProgressbar className="Chart1" value={percent1} text={Math.floor(percent1)+"%"} />
+    <div>
+      <div className="title">
+      <h1>공정별 생산진행율 현황</h1>
       </div>
-      <div className="chart_two">
-        <CircularProgressbar className="Chart2" value={percent2} text={Math.floor(percent2)+"%"} />
+      <div className="monitoring">
+        <div className="chart_one">
+          <CircularProgressbar className="Chart1" value={percent1} text={Math.floor(percent1) + "%"} />
+          <div>1공장</div>
+        </div>
+        <div className="chart_two">
+          <CircularProgressbar className="Chart2" value={percent2} text={Math.floor(percent2) + "%"} />
+          <div>2공장</div>
+        </div>
+        <div className="chart_thr">
+          <CircularProgressbar className="Chart3" value={percent3} text={Math.floor(percent3) + "%"} />
+          <div>3공장</div>
+        </div>
+
       </div>
-      <div className="chart_thr">
-        <CircularProgressbar className="Chart3" value={percent3} text={Math.floor(percent3)+"%"} />
-      </div>
-      
     </div>
-      
   );
 }
 

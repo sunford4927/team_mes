@@ -1,3 +1,6 @@
+.title{
+    text-align: center;
+}
 .monitoring{
     display: flex;
     margin: 200px 100px;
