@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-
+import './process.css'
 
 export default function Process(){
     return (

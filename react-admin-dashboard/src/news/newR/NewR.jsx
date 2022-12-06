@@ -26,8 +26,8 @@ export default function NewR({ orders, customers, items, plan }) {
 
   return (
     <div className="processPR">
-      <div className="processMenu">
         <h3 className="processTitle">생산 계획 관리</h3>
+      <div className="processMenu">
         <h5 className="processR">생산 계획 등록 </h5>
         <h6 className="processnext">* 필수 항목</h6>
         <div className="proceeclassification">
@@ -38,19 +38,18 @@ export default function NewR({ orders, customers, items, plan }) {
         <div className="button">
           <input
             type="radio"
-            className="processAddButton"
+            className="processchangeButton"
             id="rd1"
             name="flag"
             value="P"
             onChange={eventcatch}
-            chechked
           />
 
           <label>계획</label>
 
           <input
             type="radio"
-            className="processAddButton"
+            className="processchangeButton"
             id="rd2"
             name="flag"
             value="O"

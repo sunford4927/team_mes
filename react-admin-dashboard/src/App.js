@@ -20,13 +20,14 @@ import Join from './components/join/Join'
 
 
 
+
 function App() {
   return (
     <Router>
-      
-      {window.location.href=== "http://localhost:3000/" ? '' : <Topbar />}
+
+      {window.location.href === "http://localhost:3000/" ? '' : <Topbar />}
       <div className="container">
-      {window.location.href=== "http://localhost:3000/" ? '' : <Sidebar />}
+        {window.location.href === "http://localhost:3000/" ? '' : <Sidebar />}
 
 
         <Routes>

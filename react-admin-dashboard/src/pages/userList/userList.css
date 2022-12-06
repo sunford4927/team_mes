@@ -1,20 +1,7 @@
 .userList {
 grid: 4px;
     
-    margin: 200px 0px 0px 13px;
-    
-}
-
-
-.MuiDataGrid-main{
-    display: grid;
-    border-color: 1px solid rgba(6,49,70,1)
-
-
-    
-}
-.css-204u17-MuiDataGrid-main{
-    border-color: 1px solid rgba(6,49,70,1)
+    margin: 220px 0px 0px 13px;
     
 }
 
