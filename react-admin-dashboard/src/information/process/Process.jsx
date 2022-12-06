@@ -1,6 +1,35 @@
-import { Link } from "react-router-dom"
 import './process.css'
-
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid} from '@mui/x-data-grid';
+import { Link } from "react-router-dom"
+const columns = [
+    { field: 'id', headerName: 'No', width: 90 },
+    {
+      field: 'clientname',
+      headerName: '제품코드',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'clientcode',
+      headerName: '제품명',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'phone',
+      headerName: '분류',
+      type: 'number',
+      width: 110,
+      editable: true,
+    },
+    
+  ];
+  
+  const rows = [
+   
+  ];
 export default function Process(){
     return (
         <div className="process">
@@ -50,6 +79,16 @@ export default function Process(){
                 
             
             </div>
+            <Box sx={{ height: 700, width: '103%',  margin:0, }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        disableSelectionOnClick
+        experimentalFeatures={{ newEditingApi: true }}
+      />
+    </Box>
         </div>
     )
 }

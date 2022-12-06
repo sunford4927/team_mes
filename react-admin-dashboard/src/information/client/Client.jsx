@@ -4,33 +4,44 @@ import { DataGrid} from '@mui/x-data-grid';
 import { Link } from '@mui/material';
 import './client.css'
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'id', headerName: 'No', width: 90 },
   {
-    field: 'firstName',
-    headerName: 'First name',
+    field: 'clientname',
+    headerName: '고객명',
     width: 150,
     editable: true,
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
+    field: 'clientcode',
+    headerName: '고객코드',
     width: 150,
     editable: true,
   },
   {
-    field: 'age',
-    headerName: 'Age',
+    field: 'phone',
+    headerName: '전화번호',
     type: 'number',
     width: 110,
     editable: true,
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
+    field: 'manager',
+    headerName: '담당자',    
     sortable: false,
     width: 160,
    
+  },
+  {
+    field: 'managerphone',
+    headerName: '담당자 연락처',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'manageremail',
+    headerName: '담당자 이메일',
+    width: 150,
+    editable: true,
   },
 ];
 
@@ -96,13 +107,12 @@ export default function DataGridDemo() {
           
                   
           </div>
-    <Box sx={{ height: 700, width: '310%',  margin:0, }}>
+    <Box sx={{ height: 700, width: '103%',  margin:0, }}>
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        checkboxSelection
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}
       />

@@ -1,6 +1,39 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid} from '@mui/x-data-grid';
 import { Link } from "react-router-dom"
 import "./item.css"
-
+const columns = [
+    { field: 'id', headerName: 'No', width: 90 },
+    {
+      field: 'clientname',
+      headerName: '제품코드',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'clientcode',
+      headerName: '제품명',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'phone',
+      headerName: '분류',
+      width: 110,
+      editable: true,
+    },
+    {
+      field: 'manager',
+      headerName: '사양',    
+      sortable: false,
+      width: 160,
+     
+    },
+]
+  const rows = [
+   
+  ];
 
 export default function Item() {
     return (
@@ -51,6 +84,16 @@ export default function Item() {
                 
             
             </div>
+            <Box sx={{ height: 700, width: '103%',  margin:0, }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        disableSelectionOnClick
+        experimentalFeatures={{ newEditingApi: true }}
+      />
+    </Box>
         </div>
     )
 }
