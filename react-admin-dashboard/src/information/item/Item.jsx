@@ -1,8 +1,55 @@
 import { Link } from "react-router-dom"
 import "./item.css"
+import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
 
 
 export default function Item() {
+    const [data, setData] = useState('');
+    function Make_ID(dummyData) {
+      for (var i =0; i < dummyData.length; i++) {
+        dummyData[i]["id"] = i+1;
+      }
+      return dummyData;
+    }
+    const columns = [
+      { field: "id", headerName: "ID", width: 90 },
+      {
+        field: "item_code",
+        headerName: "원자재 코드",
+        width: 150,
+      },
+      {
+        field: "item_name",
+        headerName: "원자재 명",
+        width: 150,
+      },
+      {
+        field: "sort",
+        headerName: "분류",
+        width: 150,
+      },
+      {
+        field: "spec",
+        headerName: "사양",
+        width: 150,
+      },
+    ];
+  
+    useEffect(() => {
+      const getdata = async () => {
+        try {
+          const result = await axios.get("http://127.0.0.1:8000/items/");
+          console.log(data);
+          setData(Make_ID(result.data));
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      getdata();
+    }, []);
     return (
         <div className="item">
             <div className= "itemTitleContainer">
@@ -51,6 +98,15 @@ export default function Item() {
                 
             
             </div>
+            <Box sx={{ height: 700, width: "310%", margin: 0 }}>
+        <DataGrid
+          rows={data}
+          columns={columns}
+          pageSize={7}
+          rowsPerPageOptions={[5]}
+          disableSelectionOnClick
+        />
+      </Box>
         </div>
     )
 }

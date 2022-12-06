@@ -1,7 +1,50 @@
 import { Link } from "react-router-dom"
 import './process.css'
+import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
 
 export default function Process(){
+    const [data, setData] = useState('');
+    function Make_ID(dummyData) {
+      for (var i = 0; i < dummyData.length; i++) {
+        dummyData[i]["id"] = i+1;
+      }
+      return dummyData;
+    }
+    const columns = [
+      { field: "id", headerName: "ID", width: 90 },
+      {
+        field: "process_code",
+        headerName: "공정 코드",
+        width: 150,
+      },
+      {
+        field: "process_name",
+        headerName: "공정 명",
+        width: 150,
+      },
+      {
+        field: "sort",
+        headerName: "분류",
+        width: 150,
+      },
+      
+    ];
+  
+    useEffect(() => {
+      const getdata = async () => {
+        try {
+          const result = await axios.get("http://127.0.0.1:8000/process/");
+          console.log(data);
+          setData(Make_ID(result.data));
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      getdata();
+    }, []);
     return (
         <div className="process">
             <div className= "processTitleContainer">
@@ -50,6 +93,16 @@ export default function Process(){
                 
             
             </div>
+            <Box sx={{ height: 700, width: "310%", margin: 0 }}>
+        <DataGrid
+          rows={data}
+          columns={columns}
+          pageSize={7}
+          rowsPerPageOptions={[5]}
+          disableSelectionOnClick
+        />
+      </Box>
         </div>
+
     )
 }
