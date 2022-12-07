@@ -2,44 +2,45 @@
     flex: 4;        
     position: relative;
     color: #000000;
-    padding: 30px;
-
-    
+    padding: 30px;    
 }
 
-.clientTitleContainer {
-    font-size: 15px;
-    
-}
 
-.clientContainer {
+.clientContainer{
     display: flex;
     white-space: nowrap;
-    font-size: 15px;
 }
 
-.clientnumber{    
-    flex: 0.7;    
+
+
+.clientnumber{
+    flex: 0.7;
+    width: 150px;
     
 }
+
 .clientnumber1 {
     width: 150px;
     
 }
+
 .clientcode{
-    flex: 0.6;
-    margin: 0px 0px 0px -10px;
+    flex: 0.7;
+    margin: 0px 0px 10px 77px;
+
 
 }
+
 .clientname {
     flex: 0.6;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 20px;
     
 }
 
 
 .clientname1{
-    width: 150px;
+    width: 130px;
+    
 }
 
 .clientdate {
@@ -47,9 +48,7 @@
     flex: 1;
 }
 
-.search{
-    width: 150px;
-}
+
 .clientAddButton{
     width: 80px;
     height: 40px;
@@ -73,11 +72,58 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: #333333;
     color:#b0bec5;
     background: #232323;
-    margin: 0px -30px 0px 10px;
+    margin: 0px -40px 20px 10px;
 
 }
 
 
+
+
+
+
+
+
+.itemcode{
+    flex: 0.7;
+
+}
+
+.itemname{
+    flex: 0.6;
+    margin: 0px 0px 0px -350px;
+
+}
+
+.itemdate{
+    flex: 0.6;
+    margin: 0px 0px 0px -300px;
+}
+
+.itemAddButton{
+    width: 80px;
+    height: 40px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #b0bec5;
+    font-size: 16px;
+    background: #232323;
+    margin-right: 5px;
+    margin: 0px 0px 0px 20px;
+}
+
+.itemAddButton1{
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333333;
+    color:#b0bec5;
+    background: #232323;
+    margin: 0px -30px 0px 10px;
+}
