@@ -1,52 +1,27 @@
 /* 탑 부분 전체 */
 .topbar { 
-       
+    flex:4px;
+    margin: -30px 0px 0px 180px;
     height: 50px;
     padding: 10px;
     background-color: #ffffff;
     
 } 
-.turtle{
-    /* 거북이 이미지 size */
-    height :50px;
-    margin: 0px 0px 0px 0px;
-    width :50px;
 
 
-}
-.closemenu {
-    color: #000;
-    position: absolute;
-    margin: 0px 0px 0px 150px;
-    z-index: 9999;
-    line-height: 20px;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 22px;
-    top: 50px;
-    cursor: pointer;
-  }
 .topbarWrapper {
     border-bottom: 2px solid rgb(0, 0, 0);
     height: 100%;
+    
+
+    z-index: 9999;
     margin-top: 3px;
     display: flex;
     align-items: conter;
     justify-content: space-between;
 }
 
-.logo {
-    font-weight: bold;
-    font-size: 30px;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    margin: -30px 0px 0px 30px;
-    list-style:none;
 
-
-
-    
-}
 .topbarIconContainer {
     position: relative;
     margin-right: 10px;
@@ -63,6 +38,7 @@
     height: 15px;
     width: 15px;
 
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,5 +49,10 @@
 .topRight {
     display: flex;
     align-items: center;
+    margin: 0px 0px 0px 1230px;
     
+}
+.turtle{
+    width: 0px;
+    height: 10px;
 }

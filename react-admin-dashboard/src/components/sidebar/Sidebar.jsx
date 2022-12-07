@@ -1,19 +1,43 @@
 import React from "react";
 import './sidebar.css'
 import HomeWorkIcon from '@mui/icons-material/HomeWork'
-
 import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
 import SettingsIcon from '@mui/icons-material/Settings';
-
 import {Link} from 'react-router-dom'
+import { FiArrowLeftCircle,FiArrowRightCircle} from "react-icons/fi";
+import { useState,useEffect,useRef } from "react";
 
+
+export default function Sidebar() {
+    const [menuCollapse, setMenuCollapse] = useState(false)   
+    const menuIconClick = () => {    
+        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+    };
+    
+  
 
   
-export default function Sidebar() {
+
     return (
         
     <div className="sidebar">
         <div className="sidebarWrapper">
+        <div className="logo">
+                    
+                    <p> {menuCollapse? <img 
+                    style={{left:"100px", zIndex:999999}}
+                                            className="turtle"
+                                            src="images/turtle_log.png" 
+                                            alt ="log"/> : "거북이"}
+                                            </p>
+                </div>
+                <div className="closemenu" onClick={menuIconClick}>
+                    {menuCollapse?(
+                        <FiArrowRightCircle/>) :(
+                            <FiArrowLeftCircle/>
+                        )
+                        }                    
+                </div>
             <div className="sidebarMenu">
                 
                 <Link to ={"/info"}>
@@ -21,14 +45,7 @@ export default function Sidebar() {
                 </Link>
 
                 <ul className="sidebarList"> 
-
-                    <Link to="/Staff" >                  
-                    <li className="sidebarListItem">                        
-                        사원정보 관리                        
-                    </li>
-                    </Link>
-
-
+                    
                     <Link to ="/info/Client">
                     <li className="sidebarListItem">
                         고객정보 관리                    
@@ -70,7 +87,7 @@ export default function Sidebar() {
 
             <div className="sidebarMenu">
                 
-                <h3 className="sidebarTitle"> <Person2SharpIcon />생산관리</h3>
+                <h3 className="sidebarTitle1"> <Person2SharpIcon />생산관리</h3>
                 
                 <ul className="sidebarList">
                     <Link to='/users'>
@@ -91,7 +108,7 @@ export default function Sidebar() {
                 </ul>
             </div>           
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle"> <SettingsIcon />시스템관리</h3>
+                <h3 className="sidebarTitle2"> <SettingsIcon />시스템관리</h3>
                 <ul className="sidebarList">
                     <li className="sidebarListItem">                        
                         환경변수 관리

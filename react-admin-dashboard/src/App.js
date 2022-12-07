@@ -14,30 +14,37 @@ import Item from './information/item/Item'
 import Process from './information/process/Process'
 import Machine from './information/machine/Machine'
 import Info from './information/info/Info'
+import Login from './components/login/Login'
+import Join from './components/join/Join'
+
+
 
 
 
 function App() {
   return (
     <Router>
-      <Topbar />
+
+      {window.location.href === "http://localhost:3000/" ? '' : <Topbar />}
       <div className="container">
-        <Sidebar />
+        {window.location.href === "http://localhost:3000/" ? '' : <Sidebar />}
 
 
         <Routes>
-          <Route path='/Staff' element={<Staff/>}/>
-          <Route path='/info/Client' element={<Client/>}/>
-          <Route path='/info/Material' element={<Material/>}/>
-          <Route path='/info/Item' element={<Item/>}/>
-          <Route path='/info/Process' element={<Process/>}/>
-          <Route path='/info/Machine' element={<Machine/>}/>
-          <Route exact path="/" element={<Home />} />
+          <Route path='/Staff' element={<Staff />} />
+          <Route path='/info/Client' element={<Client />} />
+          <Route path='/info/Material' element={<Material />} />
+          <Route path='/info/Item' element={<Item />} />
+          <Route path='/info/Process' element={<Process />} />
+          <Route path='/info/Machine' element={<Machine />} />
+          <Route exact path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/monitoring" element={<MoniToring />} />
           <Route path="/NewR" element={<NewRagister />} />
           <Route path="/order" element={<Orders />} />
           <Route path="/info" element={<Info />} />
+          <Route path="/join" element={<Join />} />
         </Routes>
 
 

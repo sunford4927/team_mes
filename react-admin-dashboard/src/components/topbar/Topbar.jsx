@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './topbar.css'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
-import { FiArrowLeftCircle,FiArrowRightCircle} from "react-icons/fi";
+
 
 
 export default function Topbar() {
-    const [menuCollapse, setMenuCollapse] = useState(false)   
-const menuIconClick = () => {    
-    menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-};
+    const[imgLeft,setimgLeft]=useState(0);
+
+    useEffect(function(){
+        if(imgLeft<1300){
+         setTimeout(()=>  setimgLeft(imgLeft+50),1300);          
+        }else{
+            setimgLeft(0)
+        }
+     },[imgLeft])
+
     return (
         
         <div className="topbar">
-            
-            <div className="topbarWrapper">
-                <div className="logo">
-                    
-                    <p> {menuCollapse? <img 
+            <img 
+                    style={{position:"sticky",left:imgLeft}}
                                             className="turtle"
                                             src="images/turtle_log.png" 
-                                            alt ="log"/> : "거북이"}
-                                            </p>
-                </div>
-                <div className="closemenu" onClick={menuIconClick}>
-                    {menuCollapse?(
-                        <FiArrowRightCircle/>) :(
-                            <FiArrowLeftCircle/>
-                        )
-                        }                    
-                </div>
+                                            alt ="log"/>
+            
+            <div className="topbarWrapper">
+                
                 <div className="topRight">
                     {/* tobarIcon */}
                     <div className="topbarIconContainer">

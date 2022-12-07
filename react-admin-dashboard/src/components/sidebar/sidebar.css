@@ -1,22 +1,25 @@
 .sidebar{
     background-color: #525252;
-    
-    color:rgb(255, 255, 255)
-
+    color:rgb(255, 255, 255);
+    margin: -40px 0px 0px 0px
 }
-
-
-.sidebarList{
+.sidebarTitle{
+    margin: -30px 0px 0px -20px;
+}
+.sidebarTitle1{
+    margin: 20px 0px 0px 0px;
+    
+    
+}.sidebarTitle2{
+    margin: 20px 0px 0px 0px;
+}
+.sidebarList{    
     list-style:none;
     position: sticky;
     top: 0px;
-    margin: 10px;
+    margin: 10px 0px 0px 10px;
     padding-left: 20px;
-    
-    
-  
 }
-
 li{
     margin: 10px;
 }
@@ -24,7 +27,49 @@ a{
     text-decoration: none;
     color:rgb(255, 255, 255)
 }
-
 .sidebarTitle{
     text-align: center;
+}
+.logo {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin: -30px 0px 70px 10px;
+    list-style:none;    
+}
+.closemenu {
+    color:white;
+    position: absolute;
+    margin: -70px 0px 0px 135px;
+    z-index: 9999;
+    line-height: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+.turtle{
+    /* 거북이 이미지 size */
+    animation-direction:normal;
+    height :55px;    
+    width :100px;
+    margin: 4px 0px -30px 0px
+    
+}
+@media screen and(max-width: 768px){
+    .sidebar
+    {
+        flex-direction: column;
+        align-items: flex-start
+
+    }
+    .sidebarTitle{
+        flex-direction: column;
+    }
+    .sidebarList{
+        flex-direction: column;
+        align-items:center;
+    }
 }
