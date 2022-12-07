@@ -40,7 +40,7 @@ function Login() {
           localStorage.setItem("token", res.data.token);
           // 사용하려면 App.js에서 /로 라우팅해야 한다
           localStorage.setItem("userId", id); // 로그인할때 유저ID 저장
-          window.location.replace("/home");
+          window.location.replace("/info/Client");
         } else {
           setId("");
           setPassword("");
@@ -57,22 +57,36 @@ function Login() {
 
   return (
     <div className="login-div">
-      <div className="form-div">
-        <h5>로그인</h5>
-        <hr />
+      <div className="form-div"> 
+      
+            <img 
+                   
+                                            className="loginturtle"
+                                            src="images/turtle_log.png" 
+                                            alt ="log"/>      
+          
+          <h4>Cloud기반 MES 개발 </h4>
+          <h5>Cloud Foundation MES Develop</h5>
+          <hr /> 
+                 
         <Form inline onSubmit={onSubmit}>
           <FormGroup floating>
+          <Label className="loginId">아이디 </Label>
+
             <Input
+              className="loginIdname"
               id="loginId"
               name="loginId"
-              placeholder="Id"
+              placeholder="ID"
               type="string"
               value={id}
               onChange={onChangeId}
             />
-            <Label className="loginId">아이디</Label>
           </FormGroup>{" "}
+
           <FormGroup floating>
+          <Label className="loginPassword">비밀번호 </Label>
+
             <Input
               id="loginPassword"
               name="loginPassword"
@@ -81,18 +95,27 @@ function Login() {
               value={password}
               onChange={onChangePassword}
             />
-            <Label className="loginPassword">비밀번호</Label>
           </FormGroup>{" "}
+
+
           <Button className="login-btn" type="submit">
             로그인
           </Button>
+
         </Form>
+
+
         <div className="join-btn-div">
           <Link to="/join">
             <span className="join-link">회원가입</span>
           </Link>
         </div>
       </div>
+      <img 
+      className="window"
+      src="images/login.png"
+      alt="login"/>
+      
     </div>
   );
 }

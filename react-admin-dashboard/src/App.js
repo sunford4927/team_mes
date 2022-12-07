@@ -24,9 +24,9 @@ function App() {
   return (
     <Router>
 
-      {window.location.href === "http://localhost:3000/" ? '' : <Topbar />}
+      {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Topbar />}
       <div className="container">
-        {window.location.href === "http://localhost:3000/" ? '' : <Sidebar />}
+        {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Sidebar />}
 
 
         <Routes>

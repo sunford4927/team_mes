@@ -76,7 +76,7 @@ function Join() {
 
   return (
     <div className="join-div">
-      <div className="form-div">
+      <div className="form-div1">
         <h5>회원가입</h5>
         <hr />
         <Form onSubmit={onSubmit}>
@@ -124,6 +124,7 @@ function Join() {
           </Button>
         </Form>
       </div>
+      
     </div>
   );
 }
