@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
-import './process.css'
+import './process.css';
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 export default function Process(){
     const [data, setData] = useState('');

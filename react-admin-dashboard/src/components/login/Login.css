@@ -1,50 +1,56 @@
-.login-div{
-    text-align: center;
-    align-content: center;
-}
-.form-div{
-    background-color: #fff;
-    border:1px solid rgba(0,0,0,.125);
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
-    border-radius: 20px;
-    width: 300px;
-    display: inline-block;
-    padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.title-link,
-.title-link:hover{
-    color: #344767;
-    text-decoration: none;
-    font-weight: bold;
+
+.window{
+    background-attachment: fixed;
+    position: absolute; 
+    top: 0; 
+    left: 100; 
+    right: 0; 
+    bottom: 0;
+    width: 1000px;
+    height: 740px
 }
 
-.form-div h5{
+
+
+.loginId,
+.loginPassword{
+    color: #90caf9;
+    font-weight: bold;
+    margin: 100px 10px 0px 0px;
+}
+/* 로그인 위쪽 부분 */
+.loginturtle{
+    height :55px;    
+    width :100px;
+    margin: 0px 0px 0px 220px
+}
+.form-div h4{
     font-weight: bold;
     font-size: 17px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 0px 0px 0px 180px;
 }
+.form-div h5{
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0px 0px 30px 165px;
+}
+
+
 
 .login-btn{
     width:100%;
     margin-top:10px;
-    background-color: coral !important;
-    border-color: coral !important;
+    background-color: #90caf9 !important;
+    border-color:#90caf9 !important;
+    color:#263238;
+    
 }
-.join-btn-div{
-    display: flex;
-    flex-direction: row-reverse;
+
+.loginIdname{
+    margin: 50px 0px -20px 15px;
+
 }
-.join-btn-div a{
-    text-decoration: none;
-}
+
 .join-link{
-    color:gray;
-    font-size:10px;
-    margin-top: 5px;
-}
-.mb-3{
-    margin-top:20px;
+    margin: 0px 0px 0px 430px
 }
