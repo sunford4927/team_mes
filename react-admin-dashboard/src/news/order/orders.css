@@ -53,24 +53,24 @@ border-radius: 10px;
 border: 1px solid #e9ecef;
 
 }
-
+/* 찾기, 중복확인 버튼 */
 .orderNumberButton {
     width: 80px;
-    height: 30px;
-    border: none;
+    height: 30px;    
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #1e88e5;
+background: #FFFFFF;
     
 }
 
-/* 공정정보 */
+/* 공정정보 원자재 정보 입력*/
 .orderNumberButton1{
-    width: 110px;
-    border: none;
+    width: 120px;
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #1e88e5;
+background: #FFFFFF;
     margin: 10px 0px 0px 10px;
 
 }
@@ -79,6 +79,7 @@ border: 1px solid #e9ecef;
     margin: -20px 0px 0px 10px;
 }
 
+/* 공정정보 입력 */
 .orderPInfo{
 
     margin: 10px 0px 0px 10px;
@@ -93,19 +94,19 @@ border: 1px solid #e9ecef;
 /* 저장버튼 */
 .orderNumberButton2{
     width: 80px;
-    border: none;
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #FFFFFF;
+background: #283593;
     margin: 0px 40px 0px 810px;
 }
 
 /* 취소버튼 */
 .orderNumberButton3{
     width: 80px;
-    border: none;
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #FFFFFF;
+background: #5d99c6;
     margin: 0px 0px 0px 0px;
 }

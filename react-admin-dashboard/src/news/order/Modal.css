@@ -12,9 +12,7 @@
   }
   /* modal창 head */
   .item_name{
-    margin-top: -20px;
-    color: #283593;
-    
+    margin-top: 0px;
   }
   /* modal창 body */
   .item_data{
@@ -23,15 +21,15 @@
   /* modal창 */
   .modalBody {
     position: absolute;
-    width: 500px;
-    height: 200px;
-    padding: 30px;
+    width: 300px;
+    height: 350px;
+    padding: 40px;
     text-align: center;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    
-    
-    -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
   }
   
   
@@ -40,13 +38,12 @@
     top: 15px;
     right: 15px;
     border: none;
-    color: #283593;
+    color: rgba(0, 0, 0, 0.7);
     background-color: transparent;
     font-size: 20px;
   }
   
   #modalCloseBtn:hover {
     cursor: pointer;
-    
   }
   

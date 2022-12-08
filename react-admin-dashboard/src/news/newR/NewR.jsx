@@ -3,14 +3,17 @@ import "./newR.css";
 
 import Orders from "../order/Orders";
 import Plan from "../plan/Plan";
+
 // import { SettingsSystemDaydreamTwoTone } from "@material-ui/icons";
 
 export default function NewR({ orders, customers, items, plan }) {
-  const [event, setEvent] = useState("");
+  const [event, setEvent] = useState("P");
   const [orders_a, setOrders] = useState('');
   const [customers_a, setCustomers] = useState('');
   const [items_a, setItems] = useState('');
   const [plan_a, setPlan] = useState('');
+  // 뒤로가기 기능 구현
+
   console.log(items_a);
   const eventcatch = (e) => {
     console.log(e.target.value);
@@ -22,6 +25,7 @@ export default function NewR({ orders, customers, items, plan }) {
     setCustomers(customers);
     setItems(items);
     setPlan(plan);
+    setEvent(event)
   }, [event]);
 
   return (
@@ -56,7 +60,7 @@ export default function NewR({ orders, customers, items, plan }) {
             onChange={eventcatch}
           />
           <label>수주</label>
-          {event == "O" ? <Orders event={event} order={orders_a} item={items_a}/> : <Plan item={items_a} event={event} />}
+          {event == "O" ? <Orders event={event} order={orders_a} item={items_a} /> : <Plan item={items_a} event={event} />}
         </div>
       </div>
     </div>

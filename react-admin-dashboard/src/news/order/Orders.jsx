@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./orders.css";
 import axios from "axios";
+import Modal from "./Modal";
+import { useNavigate } from "react-router-dom";
 
 export default function Orders({ order , event, item }) {
+  const nav = useNavigate();
   //수주, 계획 value 값
   const [eventing, setEventing] = useState(event);
   //수주 테이블
@@ -25,6 +28,9 @@ export default function Orders({ order , event, item }) {
   const [save, setSave] = useState('');
   //등록날짜
   const [date, setdate]  = useState('');
+  const [plan, setPlan] = useState('')
+  const [customer, setCustomer] = useState('')
+  const [quantity,setQuantity] = useState('')
 
   function item_code(itembox, itemname) {
     var list = [];
@@ -37,13 +43,98 @@ export default function Orders({ order , event, item }) {
     console.log(list);
     return list;
   }
+    // 뒤로가기 구현
+    function back(e){
+      if(e.target.value == 'end'){
+        nav('/users')
+      }
+    }
+    // function duplecation(plan, Lotnum){
+
+    // }
 
 
 
+  const [modalState, setModalState] = useState(false);
+  const [proNames, setProNames] = useState([]);
+  const [testname, settestname] = useState();
+  async function openPro() {
+    //모달창을 띄워서 제품 정보를 띄우는 기능
+    const item_a = await axios.get("http://127.0.0.1:8000/orders/");
+    const item_b = await axios.get("http://127.0.0.1:8000/plans/");
+    const item_c = await axios.get("http://127.0.0.1:8000/customers/");
+    console.log(item_a.data);
+    let proArray = item_a.data;
+    let proNameArray = [];
+    for (let i = 0; i < proArray.length; i++) {
+      proNameArray.push(proArray[i].order_code);
+    }
+    setCustomer(item_c.data)
+    setPlan(item_b.data)
+    setOrders(proArray)
+    console.log(proNameArray);
+    setProNames(proNameArray);
+    setModalState(!modalState);
+  }
+  useEffect(() => {
+    console.log(testname);
+    if(testname == '차전자피식이섬유'){
+      setItemName(testname)
+    }else{
+      data(testname,order,plan,customer)
+    }
+    console.log(plan)
+  }, [testname]);
+  useEffect(() => {
+    console.log(customername);
+  }, [customername]);
+  useEffect(() => {
+    console.log(quantity);
+  }, [quantity]);
+  async function openPro2() {
+    //모달창을 띄워서 제품 정보를 띄우는 기능
+    const item_a = await axios.get("http://127.0.0.1:8000/items/");
+    console.log(item_a.data);
+    let proArray = item_a.data;
+    let proNameArray = [];
+    for (let i = 0; i < proArray.length; i++) {
+      proNameArray.push(proArray[i].item_name);
+    }
+    console.log(proNameArray);
+    setProNames(proNameArray);
+    setModalState(!modalState);
+  }
+  useEffect(() => {
+    if(testname !== '차전자피식이섬유'){
+      setOrder_code(testname)
+    }
+    console.log(testname);
+  }, [testname]);
+function data(testname, orders,plans, customers){
+  
+  for (var i = 0; i < plans.length; i++) {
+    
+    for (var j = 0; j < orders.length; j++) {
+      if (plans[i]['order_code'] == orders[j]["order_code"]) {
+        plans[i]["customer_code"] = orders[j]["customer_code"];
+      }
+      for (var k = 0; k < customers.length; k++) {
+        if (plans[i]["customer_code"] == customers[k]["customer_code"]) {
+          plans[i]["customer_name"] = customers[k]["customer_name"];
+        }
+      }
+    }
+  }
+  console.log(plans)
+  for(var y=0; y<plans.length; y++){
+    if(testname == plans[y]['order_code']){
+      setCustomerName(plans[y]['customer_name'])
+      setQuantity(plans[y]['quantity'])
+    }
+  }
+  
 
-  const onclick = () => {
-    // setEvent(event);
-  };
+}
 
   useEffect(() => {
     const outdata = async () => {
@@ -55,12 +146,15 @@ export default function Orders({ order , event, item }) {
           lot_num: Lotnum,
           order_code: order_code,
           item_code: code['item_code'],
-          quantity: 20000,
+          quantity: quantity,
           due_date: date,
           plan_name: productname,
         });
+        alert(`등록이 완료되었습니다.`);
+        nav("/users");
       } catch (error) {
         console.error(error);
+        
       }
     };
 
@@ -73,17 +167,28 @@ export default function Orders({ order , event, item }) {
         <label className="ordercode"> 수주코드 </label>
       </div>
       <div className="orderbar">
+      {modalState ? (
+          <Modal
+            update={settestname}
+            closeModal={() => setModalState(!modalState)}
+            nameArray={proNames}
+            item={item}
+          ></Modal>
+        ) : (
+          ""
+        )}
         <input
           type="text"
+          value={order_code}
           required
           placeholder="찾기버튼을 통해 수주코드를 선택해주세요"
           className="orderNumbername"
-          onChange={(e)=>setOrder_code(e.target.value)}
+          // onChange={(e)=>upload(testname)}
         />
         <button
           className="orderNumberButton"
           type="button"
-          onClick={() => alert("코드를 입력해주세요")}
+          onClick={openPro}
         >
           찾기
         </button>
@@ -104,8 +209,9 @@ export default function Orders({ order , event, item }) {
         />
         <button
           className="orderNumberButton"
+
           type="button"
-          onClick={() => alert("조심")}
+          // onClick={}
         >
           중복확인
         </button>
@@ -132,6 +238,7 @@ export default function Orders({ order , event, item }) {
       <div className="orderbar1">
         <input
           type="text"
+          value={customername}
           required
           placeholder="수주코드를 선택하시면 해당 고객명이 입력됩니다"
           className="orderNumbername1"
@@ -145,6 +252,7 @@ export default function Orders({ order , event, item }) {
       </div>
       <div className="orderbar">
         <input
+          value={itemname}
           type="text"
           required
           placeholder="찾기버튼을 통해 제품을 선택해 주세요"
@@ -154,7 +262,7 @@ export default function Orders({ order , event, item }) {
         <button
           className="orderNumberButton"
           type="button"
-          onClick={() => alert("제품을 찾아주세요")}
+          onClick={openPro2}
         >
           찾기
         </button>
@@ -165,6 +273,7 @@ export default function Orders({ order , event, item }) {
       </div>
       <div className="orderbar">
         <input
+          value={quantity}
           type="text"
           required
           placeholder="수주코드를 선택하시면 해당제품의 수량이 입력됩니다"
@@ -193,17 +302,18 @@ export default function Orders({ order , event, item }) {
         >
           공정정보 입력
         </button>
+
       </div>
 
-      <div className="orderTitleContainer">
         <div className="ordercompelte">생산완료예정일</div>
+      <div className="orderTitleContainer">
         <input type="date" required className="orderNumbername1" onChange={(e) =>setdate(e.target.value)} />
       </div>
       <div className="planTitleContainer">
         <button className="orderNumberButton2" type="button" onClick={setSave}>
           저장
         </button>
-        <button className="orderNumberButton3" type="button">
+        <button className="orderNumberButton3" type="button" value='end' onClick={back}>
           취소
         </button>
       </div>

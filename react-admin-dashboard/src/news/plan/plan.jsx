@@ -3,9 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
-import './plan.css';
-
-
+import "./plan.css";
 
 export default function Plan({ item, event }) {
   //Lot 번호
@@ -27,11 +25,16 @@ export default function Plan({ item, event }) {
   const event_a = event;
   const num_quantity = Number(quantity);
   const item_list = item;
-  const nav =  useNavigate();
-
-  
+  const nav = useNavigate();
+  // 뒤로가기 구현
+  function back(e){
+    if(e.target.value == 'end'){
+      nav('/users')
+    }
+  }
   function item_con(itembox, japum) {
     var list = [];
+    console.log(japum)
     for (var i = 0; i < itembox.length; i++) {
       if (itembox[i]["item_name"] == japum) {
         list["item_code"] = itembox[i]["item_code"];
@@ -43,53 +46,50 @@ export default function Plan({ item, event }) {
   }
 
   useEffect(() => {
-      const seedata = async () => {
-          try {
-              console.log(item_list);
-              console.log(event_a);
-              console.log(save);
-              const item_b = item_con(item_list, japum);
-              console.log(item_b);
-              await axios.post("http://127.0.0.1:8000/plans/", {
-                  flag: event_a,
+    const seedata = async () => {
+      try {
+        const item_b = item_con(item_list, japum);
+        console.log(item_b)
+        await axios.post("http://127.0.0.1:8000/plans/", {
+          flag: event_a,
           lot_num: LotNum,
           item_code: item_b["item_code"],
           quantity: num_quantity,
           due_date: date,
           plan_name: sangsan,
-        }); 
+        });
         alert(`등록이 완료되었습니다.`);
-        nav('/users')
-    } catch (error) {
+        nav("/users");
+      } catch (error) {
         console.error(error);
-       
-    }
-};
+      }
+    };
 
-seedata();
-}, [save]);
-const [modalState, setModalState] = useState(false);
-const [proNames, setProNames] = useState([]);
-const [testname, settestname] = useState();
-async function openPro(){
+    seedata();
+  }, [save]);
+  const [modalState, setModalState] = useState(false);
+  const [proNames, setProNames] = useState([]);
+  const [testname, settestname] = useState();
+  async function openPro() {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get('http://127.0.0.1:8000/items/')
-    console.log(item_a.data)
-    let proArray = item_a.data
-    let proNameArray =[]
-    for(let i =0; i<proArray.length;i++){
-        proNameArray.push(proArray[i].item_name);
+    const item_a = await axios.get("http://127.0.0.1:8000/items/");
+    console.log(item_a.data);
+    let proArray = item_a.data;
+    let proNameArray = [];
+    for (let i = 0; i < proArray.length; i++) {
+      proNameArray.push(proArray[i].item_name);
     }
-    
-    console.log(proNameArray)
+
+    console.log(proNameArray);
     setProNames(proNameArray);
     setModalState(!modalState);
-
-}
-useEffect(() => {
-console.log(testname)
-},[testname])
-
+  }
+  useEffect(() => {
+    console.log(testname);
+  }, [testname]);
+  function tell() {
+    alert("아이디 또는 비밀번호가 일치하지 않습니다");
+  }
   return (
     <div className="plan">
       <div className="planTitleContainer">
@@ -107,7 +107,7 @@ console.log(testname)
           onChange={(e) => setLotNum(e.target.value)}
         />
         <button
-          className="processNumberButton1"
+          className="planNumberButton1"
           type="button"
           // onClick={}
         >
@@ -116,15 +116,15 @@ console.log(testname)
       </div>
 
       <div className="planTitleContainer">
-      {modalState ? (
-        <Modal
-          update ={settestname}
-          closeModal={() => setModalState(!modalState)}
-          nameArray = {proNames}
-        ></Modal>
-      ) : (
-        ""
-      )}
+        {modalState ? (
+          <Modal
+            update={settestname}
+            closeModal={() => setModalState(!modalState)}
+            nameArray={proNames}
+          ></Modal>
+        ) : (
+          ""
+        )}
         <span className="P"> * </span>
         <label> 생산명 </label>
       </div>
@@ -149,11 +149,13 @@ console.log(testname)
           required
           placeholder="찾기 버튼을 통해 제품을 선택해주세요"
           className="planNumbername"
-          onChange={(e) => setjapum(e.target.value)}
+          onChange={(e) => setjapum(testname)}
         />
-        <button className="processNumberButton1" 
-        type="button"
-        onClick={openPro}>
+        <button
+          className="planNumberButton1"
+          type="button"
+          onClick={openPro}
+        >
           찾기
         </button>
       </div>
@@ -177,7 +179,7 @@ console.log(testname)
       </div>
       <div className="planbar2">
         <button
-          className="processNumberButton"
+          className="planNumberButton"
           type="button"
           onChange={(e) => setonezazae(e.target.value)}
         >
@@ -190,7 +192,7 @@ console.log(testname)
       </div>
       <div className="planbar2">
         <button
-          className="processNumberButton"
+          className="planNumberButton"
           type="button"
           onChange={(e) => setgongjungzazae(e.target.value)}
         >
@@ -210,10 +212,10 @@ console.log(testname)
         />
       </div>
       <div className="planTitleContainer">
-        <button className="orderNumberButton2" type="button" onClick={setSave}>
+        <button className="planNumberButton2" type="button" onClick={setSave}>
           저장
         </button>
-        <button className="orderNumberButton3" type="button">
+        <button className="planNumberButton3" type="button" onClick={back} value='end'>
           취소
         </button>
       </div>
