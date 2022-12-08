@@ -11,10 +11,10 @@ export default function NRagiser ()  {
     useEffect(() => {
         const Plansgetdata = async () => {
             try {
-                const result_data1 = await axios.get("http://127.0.0.1:8000/orders/");
-                const result_data2 = await axios.get("http://127.0.0.1:8000/customers/");
-                const result_data3 = await axios.get("http://127.0.0.1:8000/items/");
-                const result_data4 = await axios.get("http://127.0.0.1:8000/plans/");
+                const result_data1 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/orders/");
+                const result_data2 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/customers/");
+                const result_data3 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
+                const result_data4 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
                 setOrders(result_data1.data);
                 setCustomers(result_data2.data);
                 setItems(result_data3.data);
