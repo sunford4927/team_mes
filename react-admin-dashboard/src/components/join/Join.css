@@ -3,13 +3,15 @@
 	margin: 10px auto;
 	border: 1px solid #000000;
 	position: relative;
+    color: #90caf9;
 }
 
 .login-div{
     display: flex;
-    margin: 200px 400px;
+    margin: 200px 400px;   
 }
 
+/* 회원가입에 부분에 글자 적는 부분 */
 .join-div{
     text-align: center;
     align-content: center;
@@ -21,18 +23,20 @@
     border:1px solid #fff;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
     height: 100px;
-    width: 497px;
+    width: 300px;
     display: inline-block;
     padding: 20px;
     margin: -210px 0px -200px -410px;
     position: center;
 }
 
-
-.form-div1{
-    text-align: left;
-    display: inline- block;
+/* 회원가입 */
+.form-div1 h5{
+    color: #90caf9;
+    font-weight: bold;
+    font-size: 30px;
 }
+
 
 
 
@@ -41,17 +45,18 @@
 .join-btn{
     width:100%;
     margin-top:30px;
-    background-color: #ffd479 !important;
-    border-color: #ffd479 !important;
+    background-color: #90caf9 !important;
+    border-color: #90caf9 !important;
 }
+
 
 /* 가입 취소 버튼 */
 .back-btn{
     width:100%;
     margin-top:5px;
     background-color: #fff !important;
-    border-color: coral !important;
-    color: coral !important;
+    border-color: #90caf9 !important;
+    color: #263238 !important;
 }
 
 .mb-3{
@@ -66,5 +71,9 @@
     font-size: 14px;
     margin-top: 10px;
     margin-bottom: 3px !important;
+    color: #90caf9;
+    font-weight: bold;
+
+    
 }
 

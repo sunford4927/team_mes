@@ -5,19 +5,18 @@ import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {Link} from 'react-router-dom'
 import { FiArrowLeftCircle,FiArrowRightCircle} from "react-icons/fi";
-import { useState,useEffect,useRef } from "react";
-import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap"
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
-
+import { useState,useEffect,useRef, useN } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
+    const nav = useNavigate();
     const [menuCollapse, setMenuCollapse] = useState(false)   
     const menuIconClick = () => {    
         menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
     };
+    function home(){
+        nav('/info/Client')
+    }
     
   
 
@@ -30,11 +29,12 @@ export default function Sidebar() {
         <div className="sidebarWrapper">
         <div className="logo">
                     
-                    <p> {menuCollapse? <img 
+                    <p onClick ={home}   > {menuCollapse? <img 
                     style={{left:"100px", zIndex:999999}}
                                             className="turtle"
                                             src="images/turtle_log.png" 
                                             alt ="log"/> : "거북이"}
+                                            
                                             </p>
                 </div>
                 <div className="closemenu" onClick={menuIconClick}>

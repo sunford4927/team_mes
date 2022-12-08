@@ -2,38 +2,46 @@
 .processPR{
 padding: 30px;
 margin: 0px 0px 0px -25px;
+color:#ffffff;
+
 }
 /* 생산계획 관리 큰 제목 부분*/
 .processTitle{
-    padding: 19px;
+    padding: 0px;
     margin: -10px 10px 0px 0px;
     color: #000000;
+    
     
 }
 /* 생산계획 이후로 부분 */
 .processMenu{
     color: #000000;
-    padding: 30px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px #eeeeee;
+    box-shadow:  0px 0px 5px 0px #eeeeee;
+    border-radius: 10px;
 }
 
 .processR{
     padding: 19px;
-    margin: -30px 10px 0px 0px;
+    margin: -20px 0px 0px -10px;
 }
+
 .processnext{
     padding: 19px;
-    margin: -55px 10px 0px 100px;
+    margin: -55px 10px 0px 90px;
     color: red;
+    
 
 }
 .proceeclassification{
     padding: 15px;
-    margin: 0px 10px 0px 0px;
-
-
+    margin: -20px 10px 0px 0px;
 }
+
+
 .button{
-    margin: 0px 10px 10px 10px;
+    margin: 0px 10px 10px 30px;
 
 }
 

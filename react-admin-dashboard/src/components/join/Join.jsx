@@ -124,6 +124,10 @@ function Join() {
           </Button>
         </Form>
       </div>
+      <img 
+      className="window"
+      src="images/login.png"
+      alt="login"/>
       
     </div>
   );

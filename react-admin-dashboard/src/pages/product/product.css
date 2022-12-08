@@ -14,13 +14,14 @@
       
     
 }
-
+/* 생산계획정보 */
 .productTitle{
     position: relative;
     padding: 15px;
     font-size: 13px;
 }
 
+/* 총 생산건의 검색 결과 내용 */
 .productTitleNext {
     flex:1px;
     padding: 0px;
@@ -30,17 +31,18 @@
     
 }
 
+/* 신규등록 */
 .productAddButton{
     width: 90px;
-    height: 40px;
+    height: 30px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
     font-size: 16px;
-    background: #232323;
-    margin: 15px -10px 0px 0px;
+    margin: 10px -10px 0px 0px;
+    color: #FFFFFF;
+background: #005cb2;
 }
 
 

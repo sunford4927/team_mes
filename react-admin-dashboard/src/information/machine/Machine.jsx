@@ -95,11 +95,11 @@ export default function Machine(){
             
             </div>
 
-            <Box sx={{ height: 700, width: '103%',  margin:0, }}>
+            <Box sx={{ height: 475, width: '90%',  margin:0, }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
+        pageSize={7}
         rowsPerPageOptions={[5]}
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}

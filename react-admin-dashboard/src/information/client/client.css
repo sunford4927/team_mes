@@ -2,79 +2,148 @@
     flex: 4;        
     position: relative;
     color: #000000;
-    padding: 30px;    
 }
 
-
+/* 고객 정보 관리 입력 모든 것  */
 .clientContainer{
-    display: flex;
+    display: grid;
     white-space: nowrap;
+    
+
 }
 
 
-
+/* 고객명 부분 */
 .clientnumber{
     flex: 0.7;
-    width: 150px;
+    width: 130px;
+    white-space: normal;
     
 }
-
+/* 고객명 바 부분 */
 .clientnumber1 {
-    width: 150px;
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
     
 }
 
-.clientcode{
-    flex: 0.7;
-    margin: 0px 0px 10px 77px;
 
+
+/* 고객코드 부분 */
+.clientcode{
+    flex: 0.6;
+    margin: 20px 0px 0px 0px;
+    width: 130px;
+    white-space: normal;
 
 }
 
+/* 고객 코드 바 부분 */
+.clientcode1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+
+}
+
+
+/* 담당자 부분 */
 .clientname {
     flex: 0.6;
-    margin: 0px 0px 0px 20px;
-    
-}
-
-
-.clientname1{
     width: 130px;
+    margin: 20px 0px 0px 0px;
+    white-space: normal;    
+}
+
+/* 담당자 바 부분 */
+.clientname1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef    
+}
+
+
+
+/* 등록일시 부분 */
+.clientdate {
+    flex: 1;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
     
 }
 
-.clientdate {
-    margin: 0px 0px 0px 20px;
-    flex: 1;
+.control{
+    margin: -50px 0px 0px 0px; 
+
+}
+/* 등록일시 왼쪽 꺼 */
+.search{
+    height: 30px;
+    width: 500px;
+    margin: 0px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef 
+}
+/* 등록일시 오른쪽 꺼 */
+.search1{
+    height: 30px;
+    width: 500px;
+    margin: -10px 0px 0px 0px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef 
 }
 
-
+/* 검색 부분 */
 .clientAddButton{
     width: 80px;
-    height: 40px;
+    height: 30px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    color: #b0bec5;
     font-size: 16px;
-    background: #232323;
     margin-right: 5px;
-    margin: 0px 0px 0px 20px;
+    margin: 10px 0px 0px 920px;
+    color: #FFFFFF;
+    background: #283593;
     
 
 }
-
+/* 검색 초기화 부분  */
 .clientAddButton1 {
     width: 100px;
-    height: 40px;
+    height: 30px;
+    border:none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color:#b0bec5;
-    background: #232323;
-    margin: 0px -40px 20px 10px;
+    margin: -30px -40px 20px 1020px;
+    color: #49ff18;
+background: #FFF;
+text-shadow:  0 0 10px #FFF, 0 0 15px #FFF,0 0 40px #49FF18, 0 0 75px #49ff18;
 
 }
 
@@ -85,45 +154,6 @@
 
 
 
-.itemcode{
-    flex: 0.7;
 
-}
 
-.itemname{
-    flex: 0.6;
-    margin: 0px 0px 0px -350px;
 
-}
-
-.itemdate{
-    flex: 0.6;
-    margin: 0px 0px 0px -300px;
-}
-
-.itemAddButton{
-    width: 80px;
-    height: 40px;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #b0bec5;
-    font-size: 16px;
-    background: #232323;
-    margin-right: 5px;
-    margin: 0px 0px 0px 20px;
-}
-
-.itemAddButton1{
-    width: 100px;
-    height: 40px;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #333333;
-    color:#b0bec5;
-    background: #232323;
-    margin: 0px -30px 0px 10px;
-}
