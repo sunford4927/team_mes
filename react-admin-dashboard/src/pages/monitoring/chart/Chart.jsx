@@ -1,10 +1,13 @@
+import { red } from "@mui/material/colors";
+import "./chart.css";
+
 const ProgressBar = (props) => {
     const { bgcolor, completed } = props;
   
     const containerStyles = {
       height: 20,
-      width: '100%',
-      backgroundColor: "#e0e0de",
+      width: '200%',
+      backgroundColor: "blue",
       borderRadius: 50,
       margin: 50
     }
@@ -12,7 +15,7 @@ const ProgressBar = (props) => {
     const fillerStyles = {
       height: '100%',
       width: `${completed}%`,
-      backgroundColor: bgcolor,
+      backgroundColor: red,
       borderRadius: 'inherit',
       textAlign: 'right'
     }
@@ -25,7 +28,7 @@ const ProgressBar = (props) => {
   
     return (
       <div style={containerStyles}>
-        <div style={fillerStyles}>
+        <div className="chart" style={fillerStyles}>
           <span style={labelStyles}>{`${completed}%`}</span>
         </div>
       </div>

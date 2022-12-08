@@ -10,7 +10,7 @@ const UserList = () => {
   const [orders, setOrders] = useState("");
   function Make_ID(dummyData) {
     for (var i = 0; i < dummyData.length; i++) {
-      dummyData[i]["id"] = i;
+      dummyData[i]["id"] = i+1;
     }
     return dummyData;
   }
