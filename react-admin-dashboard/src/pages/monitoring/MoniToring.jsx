@@ -141,17 +141,17 @@ export default function MoniToring(props) {
       {
         field: "item_code",
         headerName: "LOT번호",
-        width: 150,
+        width: 180,
       },
       {
         field: "item_name",
         headerName: "생산명",
-        width: 150,
+        width: 180,
       },
       {
         field: "sort",
         headerName: "계획수량",
-        width: 150,
+        width: 180,
       },
       {
         field: "spec",
@@ -183,19 +183,14 @@ export default function MoniToring(props) {
     },[]);
   return (
     
-      <div className="monitoring">
-
-
-        <div className="item">
-            <div className= "itemTitleContainer">
-                <h3 className="itemTitle">생산 모니터링</h3>
+      <div className="Monitoring">
+        <div className="monitoring">
+            <div className= "monitoringContainer">
+                <h3 className="monitoringTitle">생산 모니터링</h3>
             </div>
-            <div className="itemContainer">
-                <div className="itemcode">
-                    <label>생산 모니터링  </label>
-                </div>
+            <div className="monitoringContainer"> 
             </div>
-            <Box sx={{ height: 700, width: "650%", margin: 0 }}>
+            <Box sx={{ height: 700, width: "550%", margin: 1 }}>
         <DataGrid
           rows={data}
           columns={columns}

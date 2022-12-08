@@ -1,9 +1,8 @@
-.monitoring{
-    display: flex;
-    margin: 200px 100px;
-    
+.monitoringcode1{
+    margin: 0px 0px 0px 20px;
 }
-​
+
+
 .chart_one{
     display: flex;
     margin: auto;
@@ -26,8 +25,8 @@
     }
 /* 표의 header*/
 .MuiDataGrid-columnHeaders {
-    color: white;
-    background-color: #777777;
+    color: #b6ffff;
+    background-color: #1e88e5;
 }
 /* 표 내용  */
 .MuiDataGrid-cellContent{
