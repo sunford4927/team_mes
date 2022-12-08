@@ -93,11 +93,11 @@ export default function Process(){
                 
             
             </div>
-            <Box sx={{ height: 700, width: "310%", margin: 0 }}>
+            <Box sx={{ height: 370, width:"90%", margin: 0 }}>
         <DataGrid
           rows={data}
           columns={columns}
-          pageSize={7}
+          pageSize={5}
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
         />

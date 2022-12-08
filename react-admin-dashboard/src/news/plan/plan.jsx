@@ -107,7 +107,7 @@ export default function Plan({ item, event }) {
           onChange={(e) => setLotNum(e.target.value)}
         />
         <button
-          className="processNumberButton1"
+          className="planNumberButton1"
           type="button"
           // onClick={}
         >
@@ -152,7 +152,7 @@ export default function Plan({ item, event }) {
           onChange={(e) => setjapum(testname)}
         />
         <button
-          className="processNumberButton1"
+          className="planNumberButton1"
           type="button"
           onClick={openPro}
         >
@@ -179,7 +179,7 @@ export default function Plan({ item, event }) {
       </div>
       <div className="planbar2">
         <button
-          className="processNumberButton"
+          className="planNumberButton"
           type="button"
           onChange={(e) => setonezazae(e.target.value)}
         >
@@ -192,7 +192,7 @@ export default function Plan({ item, event }) {
       </div>
       <div className="planbar2">
         <button
-          className="processNumberButton"
+          className="planNumberButton"
           type="button"
           onChange={(e) => setgongjungzazae(e.target.value)}
         >
@@ -212,10 +212,10 @@ export default function Plan({ item, event }) {
         />
       </div>
       <div className="planTitleContainer">
-        <button className="orderNumberButton2" type="button" onClick={setSave}>
+        <button className="planNumberButton2" type="button" onClick={setSave}>
           저장
         </button>
-        <button className="orderNumberButton3" type="button" onClick={back} value='end'>
+        <button className="planNumberButton3" type="button" onClick={back} value='end'>
           취소
         </button>
       </div>

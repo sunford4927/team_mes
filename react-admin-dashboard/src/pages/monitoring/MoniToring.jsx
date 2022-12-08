@@ -52,7 +52,13 @@ export default function MoniToring(props) {
   }
 
   const testData = [
-    { bgcolor: "#6a1b9a", completed: Math.floor(percent1) },
+    {completed: Math.floor(percent1) },
+    {completed: Math.floor(percent2) },
+    {completed: Math.floor(percent3) },
+    {completed: 100 },
+    {completed: 100 },
+    {completed: 100 },
+    {completed: 100},
   ];
   
   useEffect(() => {
@@ -62,7 +68,8 @@ export default function MoniToring(props) {
         const logdata = await axios.get("http://127.0.0.1:8000/productionlog/");
         const result = await axios.get("http://127.0.0.1:8000/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
-    
+        setData(Make_ID(result.data))
+        
 
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
@@ -79,8 +86,7 @@ export default function MoniToring(props) {
         for (var i = 326; i < 452; i += 3) {
           data_list3.push(logdata.data[i]);
         }
-        console.log(data_list1[data_list1.length - 1]["metalgoodcnt"]);
-        console.log(data_list2[data_list2.length - 1]["metalgoodcnt"]);
+        
         // console.log(data_list3)
         setValuecount1(data_list1[data_list1.length - 1]["metalgoodcnt"]);
         setValuecount2(data_list2[data_list2.length - 1]["metalgoodcnt"]);
@@ -97,7 +103,7 @@ export default function MoniToring(props) {
           }
           console.log(j);
         }, 1000);
-        console.log(num2);
+      
 
         // math(data_list)
       } catch (error) {
@@ -113,11 +119,11 @@ export default function MoniToring(props) {
   }, [num1]);
   useEffect(() => {
     setPercent2(math2(num2, valuecount2));
-    console.log(percent2);
+    
   }, [num2]);
   useEffect(() => {
     setPercent3(math3(num3, valuecount3));
-    console.log(percent3);
+    
   }, [num3]);
     const [data, setData] = useState('');
     function Make_ID(dummyData) {
@@ -127,46 +133,78 @@ export default function MoniToring(props) {
       return dummyData;
     }
     
+  
+
     const columns = [
-      {field: "id", headerName: "ID", width: 120 },
+      {field: "id", headerName: "ID", width: 40 },
       {
-        field: "item_code",
+        headerAlign: 'center',
+        field: "lot_num",
         headerName: "LOT번호",
-        width: 150,
+        width: 100,
+        align: "center"
       },
       {
-        field: "item_name",
+        headerAlign: 'center',
+        field: "plan_name",
         headerName: "생산명",
-        width: 150,
+        width: 130,
+        align: "center"
+
       },
       {
-        field: "sort",
+        field: "quantity",
         headerName: "계획수량",
-        width: 150,
+        width: 80,
+        align: "center"
+
       },
       {
+        field: "due_date",
+        headerName: "생산등록날짜",
+        width: 150,
+        align: "center",
+        headerAlign: 'center',
+      },
+      {
+        headerAlign: 'center',
+        field: "reg_date",
+        headerName: "생산완료날짜",
+        width: 150,
+        align: "center"
+
+      },
+      {
+        headerAlign: 'center',
         field: "spec",
         headerName: "생산진행상태",
-        width: 400,
+        width: 420,
         
         renderCell : (props)=>{
-            // console.log(props)
+            
          return(
-          <div id='bar'><ProgressBar key={0} bgcolor={testData[0]['bgcolor']} completed={testData[0]['completed']}/></div>
+          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed}/></div>
+           
+          
          )
         }
         
       },
+      
     ];
+    // console.log(percent1,percent2,percent3)
     useEffect(() => {
       const getdata = async() => {
         try {
             const result = await axios.get("http://127.0.0.1:8000/items/");
             const result1 = await axios.get("http://127.0.0.1:8000/plans/");
-            console.log(Math.floor(percent1));
-            console.log(result)
+            
             result.data[0].spec =percent1 * 3;
-             setData(Make_ID(result.data, result1.data));
+            result.data[1].spec =percent2 * 3;
+            result.data[2].spec =percent3 * 3;
+
+             
+            
         } catch (error) {
           console.error(error);
         }
@@ -188,7 +226,7 @@ export default function MoniToring(props) {
             </div>
             <Box sx={{ height: 500, width: "580%", margin: 0 }}>
         <DataGrid
-          rows={data}
+          rows={data.slice(0,7)}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}

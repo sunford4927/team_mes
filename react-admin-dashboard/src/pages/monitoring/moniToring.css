@@ -2,7 +2,7 @@
     
     /* 표의 header*/
     .MuiDataGrid-columnHeaders {
-        
+        text-align: center;
         color: white;
         background-color: #777777;  
     }

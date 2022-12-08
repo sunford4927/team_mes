@@ -1,78 +1,112 @@
+/* 주문 전체 부분 */
 .order {
     padding: 20px;
-    font-size: 12px;
-    margin: 0px 0px 0px -20px;
+    font-size: 15px;
+    margin: -10px 0px 0px -10px;
     color: #000000;
 
 }
+/* *부분 */
 .O{
     color: red;
 }
+
+
+/* 중복되지않는 이쪽 */
 .ordernext{
     padding-left: 810px;
-    margin-top: -15px;
+    margin-top: -20px;
 }
-
+/* 수주 코드 or LOT 번호 placeholder or 제품명  */
 .orderNumbername{
-    background: #FFFFFF;
+    background: #eeeeee;
     width: 900px;
     margin-right: 20px;
     padding: 5px;
     margin: 0px 8px 30px 8px ;
-}
-.orderNumbername1{
-    background: #FFFFFF;
-    width: 990px;
-    padding: 5px;
-    margin: 10px 10px 40px 8px ;
-}
-.quantityNumbername{
-    background: #FFFFFF;
-    width: 990px;
-    padding: 5px;
-    margin: 10px 10px 40px 8px ;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 }
 
+/* 생산명, 고객명,  */
+.orderNumbername1{
+    background: #eeeeee;
+    width: 990px;
+    padding: 5px;
+    margin: 0px 10px 40px 8px ;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
+/* 수량 */
+.quantityNumbername{
+    background: #eeeeee;
+    width: 990px;
+    padding: 5px;
+    margin: 0px 10px 40px 8px ;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef;
+
+}
+/* 찾기, 중복확인 버튼 */
 .orderNumberButton {
     width: 80px;
-    height: 30px;
-    border: none;
+    height: 30px;    
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #1e88e5;
+background: #FFFFFF;
+    
 }
+
+/* 공정정보 원자재 정보 입력*/
 .orderNumberButton1{
-    width: 110px;
-    border: none;
+    width: 120px;
     border-radius: 5px;
-    color: white;
-    background: #232323;
-}
-.ordermaterial{
-
-
+    border-color: #c3fdff;
+    color: #1e88e5;
+background: #FFFFFF;
     margin: 10px 0px 0px 10px;
 
 }
+/* 원자재 정보입력 */
+.ordermaterial{
+    margin: -20px 0px 0px 10px;
+}
 
+/* 공정정보 입력 */
 .orderPInfo{
 
     margin: 10px 0px 0px 10px;
 
 }
+
+
+/* 생산완료예정일 */
+.ordercompelte{
+    margin: 10px 0px 0px 10px;
+}
+/* 저장버튼 */
 .orderNumberButton2{
     width: 80px;
-    border: none;
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #FFFFFF;
+background: #283593;
     margin: 0px 40px 0px 810px;
 }
+
+/* 취소버튼 */
 .orderNumberButton3{
     width: 80px;
-    border: none;
     border-radius: 5px;
-    color: white;
-    background: #232323;
+    border-color: #c3fdff;
+    color: #FFFFFF;
+background: #5d99c6;
     margin: 0px 0px 0px 0px;
 }

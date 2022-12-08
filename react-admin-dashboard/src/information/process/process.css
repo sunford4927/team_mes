@@ -2,52 +2,83 @@
     flex: 4;        
     position: relative;
     color: #000000;
-    padding: 30px;
 }
+/* 공정 정보 관리 모든 것  */
 .processContainer{
-    display: flex;
+    display: grid;
     white-space: nowrap;
 }
-
+/* 공정 정보코드 */
 .processcode{
     flex: 0.7;
+    width: 130px;
+    white-space: normal;
 
 }
+/* 공정 정보 코드 바 */
+.processcode1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
 
+
+/* 공정명 */
 .processname{
     flex: 0.6;
-    margin: 0px 0px 0px -350px;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
+    white-space: normal
 
 }
+/* 공정명 바 */
+.processname1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
 
+/* 공정 일시 */
 .processdate{
-    flex: 0.6;
-    margin: 0px 0px 0px -300px;
+    flex: 1;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
 }
-
+/* 공정 검색 */
 .processAddButton{
     width: 80px;
-    height: 40px;
+    height: 30px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    color: #b0bec5;
     font-size: 16px;
-    background: #232323;
     margin-right: 5px;
-    margin: 0px 0px 0px 20px;
+    margin: 10px 0px 0px 920px;
+    color: #FFFFFF;
+    background: #283593;
 }
-
+/* 공정 검색 초기화 */
 .processAddButton1{
     width: 100px;
-    height: 40px;
+    height: 30px;
     padding: 5px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: #333333;
-    color:#b0bec5;
-    background: #232323;
-    margin: 0px -30px 0px 10px;
+    color: #49ff18;
+background: #FFF;
+text-shadow:  0 0 10px #FFF, 0 0 15px #FFF,0 0 40px #49FF18, 0 0 75px #49ff18;
+    margin: -30px -40px 20px 1020px;
 }

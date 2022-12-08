@@ -55,18 +55,28 @@ function Login() {
       });
   };
 
+  const[imgLeft,setimgLeft]=useState(0);
+
+  useEffect(function(){
+      if(imgLeft<150){
+       setTimeout(()=>  setimgLeft(imgLeft+15),150);          
+      }else{
+          setimgLeft(0)
+      }
+   },[imgLeft])
+
   return (
     <div className="login-div">
       <div className="form-div"> 
       
             <img 
-                   
+                   style={{position:"sticky",left:imgLeft}}
                                             className="loginturtle"
                                             src="images/turtle_log.png" 
                                             alt ="log"/>      
           
-          <h4>Cloud기반 MES 개발 </h4>
-          <h5>Cloud Foundation MES Develop</h5>
+          <h1 className="title">MES</h1>
+          
           <hr /> 
                  
         <Form inline onSubmit={onSubmit}>

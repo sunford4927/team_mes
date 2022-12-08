@@ -102,7 +102,7 @@ export default function DataGridDemo() {
           <span className="control"> ~ </span>
           <input
             type="date"
-            className="search"
+            className="search1"
             aria-label="생산완료예정일 검색 종료 기간"
             value
           />
@@ -112,7 +112,7 @@ export default function DataGridDemo() {
         </Link>
         <button className="clientAddButton1">검색 초기화</button>
       </div>
-      <Box sx={{ height: 700, width: "310%", margin: 0 }}>
+      <Box sx={{ height: 475, width: "90%", margin: 0 }}>
         <DataGrid
           rows={data}
           columns={columns}

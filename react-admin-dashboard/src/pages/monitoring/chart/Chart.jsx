@@ -1,23 +1,26 @@
-import { red } from "@mui/material/colors";
-import "./chart.css";
+
+import { useEffect } from "react";
 
 const ProgressBar = (props) => {
-    const { bgcolor, completed } = props;
-  
+    const { bgcolor, completed, num1, num2, num3 } = props;
+   useEffect(()=>{
+     
+   },[num2])
     const containerStyles = {
       height: 20,
       width: '200%',
-      backgroundColor: "blue",
+      backgroundColor: "#CCFFFF",
       borderRadius: 50,
-      margin: 50
+      margin: 50,
+      
     }
   
     const fillerStyles = {
       height: '100%',
       width: `${completed}%`,
-      backgroundColor: red,
+      backgroundColor: "#333399",
       borderRadius: 'inherit',
-      textAlign: 'right'
+      textAlign: 'center'
     }
   
     const labelStyles = {
@@ -25,6 +28,13 @@ const ProgressBar = (props) => {
       color: 'white',
       fontWeight: 'bold'
     }
+    // useEffect(()=>{
+    //   switch(){
+  
+    //     case 
+    //   }
+
+    // },[])
   
     return (
       <div style={containerStyles}>
