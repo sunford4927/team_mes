@@ -50,7 +50,7 @@ export default function Plan({ item, event }) {
       try {
         const item_b = item_con(item_list, japum);
         console.log(item_b)
-        await axios.post("http://127.0.0.1:8000/plans/", {
+        await axios.post("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/", {
           flag: event_a,
           lot_num: LotNum,
           item_code: item_b["item_code"],
@@ -72,7 +72,7 @@ export default function Plan({ item, event }) {
   const [testname, settestname] = useState();
   async function openPro() {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://127.0.0.1:8000/items/");
+    const item_a = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
     console.log(item_a.data);
     let proArray = item_a.data;
     let proNameArray = [];

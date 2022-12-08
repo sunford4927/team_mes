@@ -59,10 +59,10 @@ export default function MoniToring(props) {
     console.log("Test1");
     const outdata = async () => {
       try {
-        const logdata = await axios.get("http://127.0.0.1:8000/productionlog/");
-        const result = await axios.get("http://127.0.0.1:8000/plans/");
+        const logdata = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/productionlog/");
+        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
-        setResult(result.data)
+        
 
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
@@ -169,8 +169,8 @@ export default function MoniToring(props) {
     useEffect(() => {
       const getdata = async() => {
         try {
-            const result = await axios.get("http://127.0.0.1:8000/items/");
-            const result1 = await axios.get("http://127.0.0.1:8000/plans/");
+            const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
+            const result1 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
             //console.log(data);
             console.log(result)
             result.data[0].spec = 100;
