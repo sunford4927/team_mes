@@ -131,17 +131,3 @@ export default function Sidebar() {
     )           
 }
 
-<FormGroup>
-                  <Input
-                    id="exampleSelect"
-                    name="select"
-                    type="select"
-                  >
-                    <option selected>
-                      별점 순으로 정렬
-                    </option>
-                    <option>
-                      가격이 낮은 순으로 정렬
-                    </option>
-                  </Input>
-                </FormGroup>
