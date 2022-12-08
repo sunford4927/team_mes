@@ -65,8 +65,8 @@ export default function MoniToring(props) {
     console.log("Test1");
     const outdata = async () => {
       try {
-        const logdata = await axios.get("http://127.0.0.1:8000/productionlog/");
-        const result = await axios.get("http://127.0.0.1:8000/plans/");
+        const logdata = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/productionlog/");
+        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
         setData(Make_ID(result.data))
         

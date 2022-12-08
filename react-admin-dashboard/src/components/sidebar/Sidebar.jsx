@@ -25,6 +25,7 @@ export default function Sidebar() {
     return (
         
     <div className="sidebar">
+      
         <div className="sidebarWrapper">
         <div className="logo">
                     
@@ -44,41 +45,32 @@ export default function Sidebar() {
                         }                    
                 </div>
             <div className="sidebarMenu">
-                
+
                 <Link to ={"/info"}>
                     <h3 className="sidebarTitle"> <HomeWorkIcon /> 기준정보관리</h3>                                      
                 </Link>
 
                 <ul className="sidebarList"> 
-                    
                     <Link to ="/info/Client">
                     <li className="sidebarListItem">
                         고객정보 관리                    
                     </li>
                     </Link>
-
-
                     <Link to ="/info/Material">
                     <li className="sidebarListItem">
                         원자재정보관리
                     </li>
                     </Link>
-
-
                     <Link to ="/info/Item">
                     <li className="sidebarListItem">
                         제품정보 관리
                     </li>
                     </Link>
-
-
                     <Link to ="/info/Process">
                     <li className="sidebarListItem">
                         공정정보 관리
                     </li>
                     </Link>
-
-
                     <Link to ="/info/Machine">
 
                     <li className="sidebarListItem">
@@ -88,7 +80,6 @@ export default function Sidebar() {
                 </ul>
 
             </div>
-
 
             <div className="sidebarMenu">
                 
@@ -139,3 +130,4 @@ export default function Sidebar() {
     </div>
     )           
 }
+

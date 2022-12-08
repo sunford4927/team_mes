@@ -45,7 +45,7 @@ export default function Material() {
     useEffect(() => {
       const getdata = async () => {
         try {
-          const result = await axios.get("http://127.0.0.1:8000/materials/");
+          const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/materials/");
           console.log(data);
           setData(Make_ID(result.data));
         } catch (error) {
