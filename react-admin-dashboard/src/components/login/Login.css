@@ -6,7 +6,7 @@
     left: 100; 
     right: 0; 
     bottom: 0;
-    width: 1000px;
+    width: 1200px;
     height: 740px
 }
 
@@ -18,22 +18,23 @@
     font-weight: bold;
     margin: 100px 10px 0px 0px;
 }
+
 /* 로그인 위쪽 부분 */
 .loginturtle{
     height :55px;    
     width :100px;
-    margin: 0px 0px 0px 220px
+    margin: 0px 0px 0px 0px
 }
-.form-div h4{
+
+
+/* MES 부분 */
+.form-div h1{
     font-weight: bold;
-    font-size: 17px;
-    margin: 0px 0px 0px 180px;
+    font-size: 40px;
+    margin: 0px 0px 0px 120px;
+    color: #90caf9;
 }
-.form-div h5{
-    font-weight: bold;
-    font-size: 13px;
-    margin: 0px 0px 30px 165px;
-}
+
 
 
 
@@ -51,6 +52,8 @@
 
 }
 
+/* 메인 회원가입 버튼 */
 .join-link{
-    margin: 0px 0px 0px 430px
+    margin: 0px 0px 0px 235px;
+    color:#90caf9;
 }

@@ -1,44 +1,65 @@
 .management {
-    margin-top: -193px;
+    margin: -218px 0px 0px -10px;
     flex: 4;
     position: relative;
     color: #000000;
 }
-.managementTitleContainer {
-    margin: -30px 0px 10px 0px;
-    font-size: 15px;
-}
+
+
 .managementContainer {
-    display: flex;
+    display: grid;
     white-space: nowrap;
-    margin: 0px 0px -20px -30px;
-    font-size: 15px;
 }
+/* 생상계획관리 에서 LOT 번호  */
 .managementnumber{
     flex: 0.7;
-    margin:0px 0px 0px 30px
+    width: 130px;
+    margin: 0px 0px 0px 0px;
+
+    white-space: normal;
 }
+/* LOT 번호 바  */
 .managementnumber1 {
-    width: 150px;
-    margin: 0px 0px 0px 5px ;
+    height: 30px;
+    width: 1145px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 }
+
+/* 제품명 */
 .managementname {
     flex: 0.6;
-    margin: 0px 0px 0px 10px;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
+    white-space: normal
 }
+
+/* 제품명 바 */
 .managementname1{
-    width: 150px;
-    margin: 1px 10px 0px 10px ;
+    height: 30px;
+    width: 1145px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 }
+
+/* 생상완료예정일 */
 .managementdate {
     flex: 1;
-    padding: 0px 230px 0px 0px ;
-    margin: 0px 10px 0px 5px;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
 }
-.search{
-    width: 150px;
-    margin: 0px 0px 0px 10px;
-}
+
+
+
+/* 검색버튼 */
 .managementAddButton{
     width: 80px;
     height: 40px;
@@ -50,7 +71,9 @@
     font-size: 16px;
     background: #232323;
     margin-right: 5px;
+    margin: 10px 0px 0px 970px;
 }
+/* 검색 초기화 버튼 */
 .managementAddButton1 {
     width: 100px;
     height: 40px;
@@ -61,5 +84,6 @@
     color: #333333;
     color:#b0bec5;
     background: #232323;
+    margin: -39px -40px -10px 1070px;
 }
 

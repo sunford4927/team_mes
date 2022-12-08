@@ -1,27 +1,34 @@
 .plan {
     padding: 20px;
-    font-size: 12px;
+    font-size: 15px;
     margin: 0px 0px 0px -20px;
-    color: #000000;
-    
-    
+    color: #000000;    
 }
 
 .P{
     color: red;
 }
-
+.planTitleContainer{
+    margin: -10px 0px 0px 10px;
+}
+/* 중복되지 않는  이쪽 */
 .plannext {
     padding-left: 810px;
     margin-top: -15px;
     
 }
+
+/* LOT번호, 찾기 바 */
 .planNumbername {
-    background: #FFFFFF;
+    background: #eeeeee;
     width: 900px;
     margin-right: 20px;
     padding: 5px;
-    margin: 0px 8px 30px 8px ;
+    margin: 0px 8px 30px 20px ;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 }
 
 .processNumberButton{
@@ -31,12 +38,16 @@
     color: white;
     background: #232323;
 }
-
+/* 생산명, 수량 */
 .planNumbername1 {
-    background: #FFFFFF;
+    background: #eeeeee;
     width: 990px;
     padding: 5px;
-    margin: 10px 10px 40px 8px ;
+    margin: 0px 10px 40px 20px ;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 }
 
 
@@ -46,6 +57,7 @@
     border: none;
     border-radius: 5px;
     color: white;
+    margin: 0px 0px 0px 20px;
     background: #232323;
 }
 .processNumberButton1{
@@ -59,7 +71,7 @@
 
 
 .planmaterial{
-    margin: 5px 0px 0px 10px;
+    margin: -10px 0px 0px 10px;
 }
 
 
@@ -68,7 +80,7 @@
 
 }
 .plancompelte{
-    margin: 10px 10px 5px 0px;
+    margin: 20px 10px 5px 10px;
 
 }
 .orderNumberButton2{

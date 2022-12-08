@@ -4,7 +4,7 @@ import { createUseGridApiEventHandler, DataGrid } from "@mui/x-data-grid";
 import ManageMent from "../management/ManageMent";
 import Product from "../product/Product";
 import axios from "axios";
-
+import { Box } from "@mui/system";
 const UserList = () => {
   const [dummyData, setDummyData] = useState("");
   const [orders, setOrders] = useState("");
@@ -72,6 +72,7 @@ const UserList = () => {
   return (
     <div className="userList">
       <ManageMent />
+      <Box sx={{ height: 600, width: "104%", margin: -1  }}>
       <Product list= {dummyData} />
       <DataGrid
         rows={dummyData}
@@ -81,6 +82,7 @@ const UserList = () => {
         rowsPerPageOptions={[5]}
         // getRowId={(r) => r.id}
       ></DataGrid>
+      </Box>
     </div>
   );
 };

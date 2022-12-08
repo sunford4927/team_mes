@@ -2,29 +2,66 @@
     flex: 4;        
     position: relative;
     color: #000000;
-    padding: 30px;
+    
 }
+/* 제품 정보 관리 모든 것  */
 .itemContainer{
-    display: flex;
+    display: grid;
     white-space: nowrap;
 }
 
+
+/* 제품 코드 */
 .itemcode{
     flex: 0.7;
+    width: 130px;
+    white-space: normal;
+
+}
+/* 제품코드 바 부분 */
+.itemcode1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
 
 }
 
+/* 제품명 */
 .itemname{
     flex: 0.6;
-    margin: 0px 0px 0px -350px;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
+    white-space: normal
+
 
 }
+/* 제품명 바 */
+.itemname1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 10px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
 
+/* 등록일시  */
 .itemdate{
-    flex: 0.6;
-    margin: 0px 0px 0px -300px;
+    flex: 1;
+    width: 130px;
+    margin: 20px 0px 0px 0px;
 }
 
+
+
+/* 제품검색 */
 .itemAddButton{
     width: 80px;
     height: 40px;
@@ -36,9 +73,11 @@
     font-size: 16px;
     background: #232323;
     margin-right: 5px;
-    margin: 0px 0px 0px 20px;
+    margin: 10px 0px 0px 920px;
 }
 
+
+/* 검색 초기화 */
 .itemAddButton1{
     width: 100px;
     height: 40px;
@@ -49,5 +88,5 @@
     color: #333333;
     color:#b0bec5;
     background: #232323;
-    margin: 0px -30px 0px 10px;
+   margin: -39px -40px 20px 1020px;
 }

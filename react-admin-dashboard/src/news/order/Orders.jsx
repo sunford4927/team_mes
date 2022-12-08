@@ -70,7 +70,7 @@ export default function Orders({ order , event, item }) {
     <div className="order">
       <div className="orderTitleContainer">
         <span className="O"> * </span>
-        <label> 수주코드 </label>
+        <label className="ordercode"> 수주코드 </label>
       </div>
       <div className="orderbar">
         <input
@@ -83,7 +83,7 @@ export default function Orders({ order , event, item }) {
         <button
           className="orderNumberButton"
           type="button"
-          onClick={() => alert("조심")}
+          onClick={() => alert("코드를 입력해주세요")}
         >
           찾기
         </button>
@@ -154,7 +154,7 @@ export default function Orders({ order , event, item }) {
         <button
           className="orderNumberButton"
           type="button"
-          onClick={() => alert("조심")}
+          onClick={() => alert("제품을 찾아주세요")}
         >
           찾기
         </button>
@@ -174,18 +174,18 @@ export default function Orders({ order , event, item }) {
       </div>
 
       <div className="orderTitleContainer">
-        <div className="ordermaterial">원자재</div>
+        <div className="ordermaterial">원자재정보입력</div>
         <button
           className="orderNumberButton1"
           type="button"
           onClick={() => alert("조심")}
         >
-          원자재정보입력
+          원자재정보 입력
         </button>
       </div>
 
       <div className="orderTitleContainer">
-        <div className="orderPInfo">공정자재</div>
+        <div className="orderPInfo">공정정보</div>
         <button
           className="orderNumberButton1"
           type="button"

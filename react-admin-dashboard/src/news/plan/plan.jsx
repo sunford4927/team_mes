@@ -213,9 +213,9 @@ console.log(testname)
         <button className="orderNumberButton2" type="button" onClick={setSave}>
           저장
         </button>
-        {/* <button className="orderNumberButton3" type="button">
+        <button className="orderNumberButton3" type="button">
           취소
-        </button> */}
+        </button>
       </div>
     </div>
   );
