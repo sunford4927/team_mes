@@ -5,6 +5,8 @@ import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
 import ProgressBar from "./chart/Chart";
 import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap"
+import Box from '@mui/material/Box';
+import { DataGrid } from "@mui/x-data-grid";
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
 
@@ -35,9 +37,7 @@ export default function MoniToring(props) {
   const [percent2, setPercent2] = useState(0);
   const [percent3, setPercent3] = useState(0);
   const [result, setResult] = useState([]);
-  const testData = [
-    { bgcolor: "#6a1b9a", completed: Math.floor(percent1) },
-  ];
+
 
   function math1(num, valuecount) {
     return (num / valuecount) * 100;
@@ -49,7 +49,12 @@ export default function MoniToring(props) {
     return (num / valuecount) * 100;
   }
 
-
+  function cheel(){
+    const testData = [
+      { bgcolor: "#6a1b9a", completed: Math.floor(percent1) },
+    ];
+    return <ProgressBar key={0} bgcolor={testData[0]['bgcolor']} completed={testData[0]['completed']}/>
+  }
   useEffect(() => {
     console.log("Test1");
     const outdata = async () => {
@@ -114,46 +119,93 @@ export default function MoniToring(props) {
     setPercent3(math3(num3, valuecount3));
     console.log(percent3);
   }, [num3]);
-console.log(testData[0]['completed'])
+    const [data, setData] = useState('');
+    function Make_ID(dummyData) {
+      for (var i =0; i < dummyData.length; i++) {
+        dummyData[i]["id"] = i+1;
+      }
+      return dummyData;
+    }
+    const ProgressBar = (props) => {
+      const { bgcolor, completed } = props;
+      return (
+        <div>
+          <div>
+            <span>{`${completed}%`}</span>
+          </div>
+        </div>
+      );
+    };
+    const columns = [
+      {field: "id", headerName: "ID", width: 120 },
+      {
+        field: "item_code",
+        headerName: "LOT번호",
+        width: 150,
+      },
+      {
+        field: "item_name",
+        headerName: "생산명",
+        width: 150,
+      },
+      {
+        field: "sort",
+        headerName: "계획수량",
+        width: 150,
+      },
+      {
+        field: "spec",
+        headerName: "생산진행상태",
+        width: 500,
+        renderCell : (props)=>{
+            console.log(props)
+         return(
+          <div id='bar' style={{backgroundColor:"red", width:props.row.spec}}>{cheel()}</div>
+         )
+        }
+        //ProgressBar
+      },
+    ];
+    useEffect(() => {
+      const getdata = async() => {
+        try {
+            const result = await axios.get("http://127.0.0.1:8000/items/");
+            const result1 = await axios.get("http://127.0.0.1:8000/plans/");
+            //console.log(data);
+            console.log(result)
+            result.data[0].spec = 100;
+             setData(Make_ID(result.data, result1.data));
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      getdata();
+    },[]);
   return (
     
       <div className="monitoring">
 
 
-        <Table  className="no-wrap mt-3 align-middle table-table" responsive borderless striped bordered hover size="sm" variant="dark">
-            <thead>
-              <tr>
-                <th>NO</th>
-                <th>LOT번호</th>
-                <th className="table-score">생산명</th>
-                <th>계획수량</th>
-                <th>생산완료예정일</th>
-                <th>생산계획등록일</th>
-                <th>생산진행상태</th>
-              </tr>
-            </thead>
-            <tbody>
-              {result.map((tdata, index) => (
-                <tr key={index} className="border-top table-tr">
-                  <td>
-                    <div className="d-flex align-items-center p-2">
-                        <h6 className="mb-0">{index}</h6>
-                    </div>
-                  </td>
-                  <td>{tdata.lot_num}</td>
-                  <td>
-                    {tdata.plan_name}
-                  </td>
-                  <td>{tdata.quantity}</td>
-                  <td>{tdata.reg_date}</td>
-                  <td>{tdata.due_date}</td>
-                  <td>
-                    <ProgressBar key={index} bgcolor={testData[0]['bgcolor']} completed={testData[0]['completed']}/>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+        <div className="item">
+            <div className= "itemTitleContainer">
+                <h3 className="itemTitle">생산 모니터링</h3>
+            </div>
+            <div className="itemContainer">
+                <div className="itemcode">
+                    <label>생산 모니터링  </label>
+                </div>
+            </div>
+            <Box sx={{ height: 700, width: "650%", margin: 0 }}>
+        <DataGrid
+          rows={data}
+          columns={columns}
+          pageSize={7}
+          rowsPerPageOptions={[5]}
+          disableSelectionOnClick
+        >
+        </DataGrid>
+      </Box>
+        </div>
 
 
       </div>
