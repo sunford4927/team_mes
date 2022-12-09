@@ -39,12 +39,6 @@ export default function MoniToring(props) {
   const [percent2, setPercent2] = useState(0);
   // 3라인 생산율
   const [percent3, setPercent3] = useState(0);
-<<<<<<< HEAD
-=======
-  
-
-
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
   function math1(num, valuecount) {
     return (num / valuecount) * 100;
   }
@@ -55,7 +49,6 @@ export default function MoniToring(props) {
     return (num / valuecount) * 100;
   }
 
-<<<<<<< HEAD
   // 차트에 들어갈 데이터 주머니
   const testData = [
     // completed : 현재생산율   num : 현재생산수량
@@ -67,18 +60,6 @@ export default function MoniToring(props) {
     {completed: 100, num:20000},
     {completed: 100, num:40000},
   ];
-=======
-  const testData = [
-    {completed: Math.floor(percent1) },
-    {completed: Math.floor(percent2) },
-    {completed: Math.floor(percent3) },
-    {completed: 100 },
-    {completed: 100 },
-    {completed: 100 },
-    {completed: 100},
-  ];
-  
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
   useEffect(() => {
     console.log("Test1");
     const outdata = async () => {
@@ -87,10 +68,6 @@ export default function MoniToring(props) {
         const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
         setData(Make_ID(result.data))
-<<<<<<< HEAD
-=======
-        
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
 
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
@@ -107,11 +84,6 @@ export default function MoniToring(props) {
         for (var i = 326; i < 452; i += 3) {
           data_list3.push(logdata.data[i]);
         }
-<<<<<<< HEAD
-=======
-        
-        // console.log(data_list3)
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
         setValuecount1(data_list1[data_list1.length - 1]["metalgoodcnt"]);
         setValuecount2(data_list2[data_list2.length - 1]["metalgoodcnt"]);
         setValuecount3(data_list3[data_list3.length - 1]["metalgoodcnt"]);
@@ -128,11 +100,6 @@ export default function MoniToring(props) {
           }
           console.log(j);
         }, 1000);
-<<<<<<< HEAD
-=======
-      
-
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
         // math(data_list)
       } catch (error) {
         console.error(error);
@@ -147,17 +114,9 @@ export default function MoniToring(props) {
   }, [num1]);
   useEffect(() => {
     setPercent2(math2(num2, valuecount2));
-<<<<<<< HEAD
   }, [num2]);
   useEffect(() => {
     setPercent3(math3(num3, valuecount3));
-=======
-    
-  }, [num2]);
-  useEffect(() => {
-    setPercent3(math3(num3, valuecount3));
-    
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
   }, [num3]);
     const [data, setData] = useState('');
     function Make_ID(dummyData) {
@@ -166,15 +125,8 @@ export default function MoniToring(props) {
       }
       return dummyData;
     }
-<<<<<<< HEAD
     const columns = [
       // 데이터 그리드 내용삽입을위한 형식지정
-=======
-    
-  
-
-    const columns = [
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
       {field: "id", headerName: "ID", width: 40 },
       {
         headerAlign: 'center',
@@ -189,20 +141,12 @@ export default function MoniToring(props) {
         headerName: "생산명",
         width: 130,
         align: "center"
-<<<<<<< HEAD
-=======
-
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
       },
       {
         field: "quantity",
         headerName: "계획수량",
         width: 80,
         align: "center"
-<<<<<<< HEAD
-=======
-
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
       },
       {
         field: "due_date",
@@ -217,35 +161,18 @@ export default function MoniToring(props) {
         headerName: "생산완료날짜",
         width: 150,
         align: "center"
-<<<<<<< HEAD
-=======
-
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
       },
       {
         headerAlign: 'center',
         field: "spec",
         headerName: "생산진행상태",
         width: 420,
-<<<<<<< HEAD
         renderCell : (props)=>{
          return(
           <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
           count={props.row.quantity} id={props.row.id}/></div>
          )
         }
-=======
-        
-        renderCell : (props)=>{
-            
-         return(
-          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed}/></div>
-           
-          
-         )
-        }
-        
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
       },
       
     ];
@@ -255,29 +182,15 @@ export default function MoniToring(props) {
         try {
             const result = await axios.get("http://127.0.0.1:8000/items/");
             const result1 = await axios.get("http://127.0.0.1:8000/plans/");
-<<<<<<< HEAD
             result.data[0].spec =percent1 * 3;
             result.data[1].spec =percent2 * 3;
             result.data[2].spec =percent3 * 3;
-=======
-            
-            result.data[0].spec =percent1 * 3;
-            result.data[1].spec =percent2 * 3;
-            result.data[2].spec =percent3 * 3;
-
-             
-            
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
         } catch (error) {
           console.error(error);
         }
       };
       getdata();
     },[percent1]);
-<<<<<<< HEAD
-=======
-    
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
   return (
       <div className="monitoring">
         <div className="item">
@@ -285,10 +198,6 @@ export default function MoniToring(props) {
                 <h3 className="itemTitle">생산 모니터링</h3>
             </div>
             <div className="itemContainer">
-<<<<<<< HEAD
-=======
-            
->>>>>>> c559724b7773523ebf7ac58f843565370bcdf473
             </div>
             <Box sx={{ height: 500, width: "580%", margin: 0 }}>
         <DataGrid

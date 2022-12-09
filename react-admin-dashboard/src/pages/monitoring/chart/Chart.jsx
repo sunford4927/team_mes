@@ -3,6 +3,7 @@ import { borderColor } from "@mui/system";
 import { Switch } from "@material-ui/core";
 import { useEffect, useState } from "react";
 const ProgressBar = (props) => {
+    const {completed, num, count, id} = props;
     function math1(num, valuecount) {
       // 생산율 구하는 공식함수
       return (num / valuecount) * 100;
