@@ -1,0 +1,29 @@
+.pip{
+    display: flex;
+    margin: 0px -700px 0px 50px;
+}
+
+
+.pip1{
+    flex: 4px;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
+
+.pip2{
+    flex: 4px;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}
+
+.pip3{
+    flex: 4px;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef
+}

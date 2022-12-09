@@ -15,17 +15,19 @@ import Machine from './information/machine/Machine'
 import Info from './information/info/Info'
 import Login from './components/login/Login'
 import Join from './components/join/Join'
-
+import Report from './components/report/Report'
 
 
 
 
 function App() {
   return (
+
     <Router>
 
       {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Topbar />}
       <div className="container">
+
         {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Sidebar />}
 
 
@@ -43,6 +45,8 @@ function App() {
           <Route path="/order" element={<Orders />} />
           <Route path="/info" element={<Info />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/report" element={<Report />} />
+
         </Routes>
 
 

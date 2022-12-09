@@ -97,14 +97,14 @@ export default function Sidebar() {
                         생산 모니터링
                     </li>
                     </Link>
-                    
-                    <li className="sidebarListItem">                       
+                    <Link to= 'report'>
+                    <li 
+                    className="sidebarListItem"> 
                         생산보고서
                     </li>
+                    </Link>
                 </ul>
-            </div>           
-            
-            
+            </div>            
         </div>
     </div>
     )           
