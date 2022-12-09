@@ -34,9 +34,10 @@
 }
 
 
-
+ /* 사이드바 */
 li{
     margin: 10px;
+    color: white;
 }
 
 a{
