@@ -131,26 +131,26 @@ export default function MoniToring(props) {
       {
         headerAlign: 'center',
         field: "lot_num",
-        headerName: "LOT번호",
+        headerName: "LOT 번호",
         width: 100,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "plan_name",
-        headerName: "생산명",
+        headerName: "생산 명",
         width: 130,
         align: "center"
       },
       {
         field: "quantity",
-        headerName: "계획수량",
+        headerName: "계획 수량",
         width: 80,
         align: "center"
       },
       {
         field: "due_date",
-        headerName: "생산등록날짜",
+        headerName: "생산 등록 날짜",
         width: 150,
         align: "center",
         headerAlign: 'center',
@@ -158,14 +158,14 @@ export default function MoniToring(props) {
       {
         headerAlign: 'center',
         field: "reg_date",
-        headerName: "생산완료날짜",
+        headerName: "생산 완료 날짜",
         width: 150,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "spec",
-        headerName: "생산진행상태",
+        headerName: "생산 진행 상태",
         width: 450,
         
         renderCell : (props)=>{
@@ -221,7 +221,7 @@ export default function MoniToring(props) {
             </div>
             <div className="itemContainer">
             </div>
-            <Box sx={{ height: 500, width: "680%", margin: 0 }}>
+            <Box sx={{ height: 500, width: "680%", marginTop: "50px" }}>
         <DataGrid
           rows={data.slice(0,7)}
           columns={columns}

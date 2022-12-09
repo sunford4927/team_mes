@@ -23,14 +23,14 @@ export default function DataGridDemo() {
     },
     {
       field: "customer_name",
-      headerName: "고객명",
+      headerName: "고객 명",
       width: 180,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "customer_code",
-      headerName: "고객코드",
+      headerName: "고객 코드",
       width: 150,
       align: "center",
       headerAlign: 'center',
@@ -130,7 +130,7 @@ export default function DataGridDemo() {
         </Link>
         <button className="clientAddButton1">검색 초기화</button>
       </div>
-      <Box sx={{ height: 475, width: "90%", margin: 0 }}>
+      <Box sx={{ height: 490, width: "89%", marginLeft: "30px" }}>
         <DataGrid
           rows={data}
           columns={columns}

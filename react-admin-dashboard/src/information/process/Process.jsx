@@ -105,7 +105,7 @@ export default function Process() {
 
 
       </div>
-      <Box sx={{ height: 370, width: "90%", margin: 0 }}>
+      <Box sx={{ height: 380, width: "89%", marginLeft: "30px" }}>
         <DataGrid
           rows={data}
           columns={columns}

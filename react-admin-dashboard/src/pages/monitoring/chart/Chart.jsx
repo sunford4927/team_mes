@@ -11,9 +11,9 @@ const ProgressBar = (props) => {
 
   const containerStyles = {
     height: 20,
-
+    
     // 생산진행상태바 가로길이
-    width: '170%',
+    width: '410%',
     // 상태바 배경색
     backgroundColor: "#918f88",
     borderRadius: 50,
@@ -25,13 +25,15 @@ const ProgressBar = (props) => {
     backgroundColor: "#333399",
     borderRadius: 'inherit',
     textAlign: 'center',
+    transition: 'width 1s ease-in-out',
 
   }
   const labelStyles = {
     padding: 5,
     // 상태바 Text
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    position: "fixed",
   }
 
   return (
