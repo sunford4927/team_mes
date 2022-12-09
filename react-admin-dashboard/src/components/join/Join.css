@@ -69,11 +69,23 @@
     display: block;
     margin-left: 5px;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 3px !important;
     color: #90caf9;
     font-weight: bold;
 
     
 }
-
+    /* 회원가입 input box */
+.join-id{
+    width: 175px;
+}
+.join-pw{
+    width: 175px;
+}
+.join-pwcheck{
+    width: 175px;
+}
+.join-email{
+    width: 175px;
+}

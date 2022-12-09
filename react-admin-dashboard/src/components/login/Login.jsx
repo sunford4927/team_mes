@@ -75,7 +75,7 @@ function Login() {
                                             src="images/turtle_log.png" 
                                             alt ="log"/>      
           
-          <h1>MES</h1>
+          <h1 className="title">MES</h1>
           
           <hr /> 
                  

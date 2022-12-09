@@ -1,55 +1,49 @@
-.monitoring{
-    display: flex;
-    margin: 200px 100px;
+
     
-}
-​
-.chart_one{
-    display: flex;
-    margin: auto;
-}
-.CircularProgressbar-path{
-    width: 100px;
-    height:  100px;
-}
-.chart_two{
-    margin: 0px 100px 0px 100px;
-}
-​
-.chart_thr{
-    margin: auto;
-}
-
-.userList {
-    grid: 4px;
-        margin: 220px 0px 0px 13px;
+    /* 표의 header*/
+    .MuiDataGrid-columnHeaders {
+        text-align: center;
+        color: white;
+        background-color: #777777;  
     }
-/* 표의 header*/
-.MuiDataGrid-columnHeaders {
-    color: white;
-    background-color: #777777;
-}
-/* 표 내용  */
-.MuiDataGrid-cellContent{
-    color: #000000;
-    border-color: 1px solid rgba(6,49,70,1)
-}
-/* header 아래쪽 선 */
-.css-1w5m2wr-MuiDataGrid-virtualScroller{
-    border: 1px solid rgba(6,49,70,1)
-}
-/* 아래번호 */
-.MuiTablePagination-displayedRows{
-    color: #000000;
-    border-color: 1px solid rgba(6,49,70,1)
-}
-/* 페이지 넘기는 것  */
-.MuiButtonBase-root{
-    color: #FFFFFF;
-    border-color: 1px solid rgba(6,49,70,1)
-}
-/* 바닥에 화살표 */
-.MuiSvgIcon-root{
-    color: rgb(0, 0, 0);
-}
+    
+    /* 표 내용  */
+    .MuiDataGrid-cellContent{
+        color: #000000;
+        border-color: 1px solid rgba(6,49,70,1)
+    
+    }
+    
+    
+    
+    /* header 아래쪽 선 */
+    .css-1w5m2wr-MuiDataGrid-virtualScroller{
+        border: 1px solid rgba(6,49,70,1)
+    }
+    
+    
+    
+    /* 아래번호 */
+    .MuiTablePagination-displayedRows{
+        color: #000000;
+        border-color: 1px solid rgba(6,49,70,1)
+    }
+    
+    
+    /* 페이지 넘기는 것  */
+    .MuiButtonBase-root{
+        color: #ffffff;
+        border-color: 1px solid rgba(6,49,70,1)
+    
+    }
+    
+    /* 바닥에 화살표 */
+    .MuiSvgIcon-root{
+        color: rgb(0, 0, 0);
+        
+    }
 
+
+    .bar{
+        text-align: center;
+    }
