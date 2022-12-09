@@ -9,41 +9,59 @@ export default function DataGridDemo() {
   const [data, setData] = useState('');
   function Make_ID(dummyData) {
     for (var i = 0; i < dummyData.length; i++) {
-      dummyData[i]["id"] = i+1;
+      dummyData[i]["id"] = i + 1;
     }
     return dummyData;
   }
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { 
+      field: "id",
+      headerName: "ID",
+      width: 50,
+      align: "center",
+      headerAlign: 'center',
+    },
     {
       field: "customer_name",
       headerName: "고객명",
-      width: 150,
+      width: 180,
+      align: "center",
+      headerAlign: 'center',
     },
     {
       field: "customer_code",
       headerName: "고객코드",
       width: 150,
+      align: "center",
+      headerAlign: 'center',
     },
     {
       field: "customer_phone",
       headerName: "전화번호",
-      width: 150,
+      width: 180,
+      align: "center",
+      headerAlign: 'center',
     },
     {
       field: "representative_name",
       headerName: "담당자",
-      width: 150,
+      width: 100,
+      align: "center",
+      headerAlign: 'center',
     },
     {
       field: "representative_phone",
       headerName: "담당자 번호",
-      width: 150,
+      width: 180,
+      align: "center",
+      headerAlign: 'center',
     },
     {
       field: "representative_email",
       headerName: "담당자 이메일",
-      width: 150,
+      width: 280,
+      align: "center",
+      headerAlign: 'center',
     },
   ];
 

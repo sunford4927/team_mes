@@ -31,6 +31,7 @@
 /* MES 부분 */
 .form-div h2{
     font-weight: bold;
+<<<<<<< HEAD
     font-size: 30px;
     margin: 0px 0px 0px 80px;
     color: #90caf9;
@@ -42,6 +43,16 @@
     font-size: 10px;
     margin: 0px 0px 0px 60px;
     color: #90caf9;
+=======
+    font-size: 40px;
+    margin: 0px 0px 0px 60px;
+    color: #90caf9;
+}
+
+/* 회사 이름 */
+.title{
+    
+>>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
 }
 
 

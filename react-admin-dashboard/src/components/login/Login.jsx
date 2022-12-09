@@ -75,8 +75,14 @@ function Login() {
                                             src="images/turtle_log.png" 
                                             alt ="log"/>      
           
+<<<<<<< HEAD
           <h2 className="Title">광주 제약</h2>
           <h4 className="title">Gwang_Ju Pharmaceutical Company</h4>
+=======
+          <h3 className="Title">광주 제약</h3>
+          <h4 className="title">Gwang_Ju Pharmaceutical Company</h4>
+
+>>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
           
           <hr /> 
                  

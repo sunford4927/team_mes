@@ -5,55 +5,71 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 export default function Material() {
-    const [data, setData] = useState('');
-    function Make_ID(dummyData) {
-      for (var i = 0; i < dummyData.length; i++) {
-        dummyData[i]["id"] = i+1;
-      }
-      return dummyData;
+  const [data, setData] = useState('');
+  function Make_ID(dummyData) {
+    for (var i = 0; i < dummyData.length; i++) {
+      dummyData[i]["id"] = i + 1;
     }
-    const columns = [
-      { field: "id", headerName: "ID", width: 90 },
-      {
-        field: "material_code",
-        headerName: "원자재 코드",
-        width: 150,
-      },
-      {
-        field: "material_name",
-        headerName: "원자재 명",
-        width: 150,
-      },
-      {
-        field: "unit",
-        headerName: "단위",
-        width: 150,
-      },
-      {
-        field: "sort",
-        headerName: "분류",
-        width: 150,
-      },
-      {
-        field: "spec",
-        headerName: "사양",
-        width: 150,
-      },
-      
-    ];
-  
-    useEffect(() => {
-      const getdata = async () => {
-        try {
-          const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/materials/");
-          console.log(data);
-          setData(Make_ID(result.data));
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      getdata();
-    }, []);
+    return dummyData;
+  }
+  const columns = [
+    {
+      field: "id",
+      headerName: "ID",
+      width: 50,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "material_code",
+      headerName: "원자재 코드",
+      width: 150,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "material_name",
+      headerName: "원자재 명",
+      width: 350,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "unit",
+      headerName: "단위",
+      width: 80,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "sort",
+      headerName: "분류",
+      width: 225,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "spec",
+      headerName: "사양",
+      width: 225,
+      align: "center",
+      headerAlign: 'center',
+    },
+
+  ];
+
+  useEffect(() => {
+    const getdata = async () => {
+      try {
+        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/materials/");
+        console.log(data);
+        setData(Make_ID(result.data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getdata();
+  }, []);
   return (
     <div className="material">
       <div className="materialTitleContainer">
