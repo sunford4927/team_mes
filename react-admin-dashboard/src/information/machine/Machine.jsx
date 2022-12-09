@@ -22,7 +22,6 @@ const columns = [
     {
       field: 'phone',
       headerName: '라인명',
-      type: 'number',
       width: 110,
       editable: true,
     },

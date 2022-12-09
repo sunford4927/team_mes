@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./moniToring.css";
-import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
 import ProgressBar from "./chart/Chart";
-import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap"
+
 import Box from '@mui/material/Box';
 import { DataGrid } from "@mui/x-data-grid";
+
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
-
 // function dic(result){
-//   var dic_list = []
+//   var dic_list = [] 
 //   var moniter_dic = {}
 //   for(var u=0; u<result.length; u++){
 //     moniter_dic[u]['lot_num'] = result[u]['lot_num'];
@@ -21,24 +20,26 @@ import { DataGrid } from "@mui/x-data-grid";
 //     var moniter_dic = {}
 //   }
 // }
-
 export default function MoniToring(props) {
-  
+  // 1라인 실시간 생산량
   const [num1, setNum1] = useState(0);
   // const [indata1, setIndata1] = useState();
   const [valuecount1, setValuecount1] = useState("0");
+  // 2라인 실시간 생산량
   const [num2, setNum2] = useState(0);
   // const [indata2, setIndata2] = useState();
   const [valuecount2, setValuecount2] = useState("0");
+  // 3라인 실시간 생산량
   const [num3, setNum3] = useState(0);
   // const [indata3, setIndata3] = useState();
+  // 3라인에 들어올 데이터의 개수
   const [valuecount3, setValuecount3] = useState("0");
+  // 1라인 생산율
   const [percent1, setPercent1] = useState(0);
+  // 2라인 생산율
   const [percent2, setPercent2] = useState(0);
+  // 3라인 생산율
   const [percent3, setPercent3] = useState(0);
-  const [result, setResult] = useState([]);
-
-
   function math1(num, valuecount) {
     return (num / valuecount) * 100;
   }
@@ -48,13 +49,17 @@ export default function MoniToring(props) {
   function math3(num, valuecount) {
     return (num / valuecount) * 100;
   }
-
-  function cheel(){
-    const testData = [
-      { bgcolor: "#6a1b9a", completed: Math.floor(percent1) },
-    ];
-    return <ProgressBar key={0} bgcolor={testData[0]['bgcolor']} completed={testData[0]['completed']}/>
-  }
+  // 차트에 들어갈 데이터 주머니
+  const testData = [
+    // completed : 현재생산율   num : 현재생산수량
+    {completed: Math.floor(percent1), num:num1},
+    {completed: Math.floor(percent2), num:num2},
+    {completed: Math.floor(percent3), num:num3},
+    {completed: 100, num:20000},
+    {completed: 100, num:20000},
+    {completed: 100, num:20000},
+    {completed: 100, num:40000},
+  ];
   useEffect(() => {
     console.log("Test1");
     const outdata = async () => {
@@ -62,14 +67,13 @@ export default function MoniToring(props) {
         const logdata = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/productionlog/");
         const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
-        
-
+        setData(Make_ID(result.data))
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
         for (var i = 324; i < 450; i += 3) {
           data_list1.push(logdata.data[i]);
         }
-        // 데이터 1라인별로 모아서 저장        
+        // 데이터 1라인별로 모아서 저장
         var data_list2 = [];
         for (var i = 325; i < 451; i += 3) {
           data_list2.push(logdata.data[i]);
@@ -79,12 +83,10 @@ export default function MoniToring(props) {
         for (var i = 326; i < 452; i += 3) {
           data_list3.push(logdata.data[i]);
         }
-        console.log(data_list1[data_list1.length - 1]["metalgoodcnt"]);
-        console.log(data_list2[data_list2.length - 1]["metalgoodcnt"]);
-        // console.log(data_list3)
         setValuecount1(data_list1[data_list1.length - 1]["metalgoodcnt"]);
         setValuecount2(data_list2[data_list2.length - 1]["metalgoodcnt"]);
         setValuecount3(data_list3[data_list3.length - 1]["metalgoodcnt"]);
+        // console.log(data_list3)
         var j = 0;
         var timer = setInterval(function () {
           if (j < 42) {
@@ -97,8 +99,6 @@ export default function MoniToring(props) {
           }
           console.log(j);
         }, 1000);
-        console.log(num2);
-
         // math(data_list)
       } catch (error) {
         console.error(error);
@@ -113,11 +113,9 @@ export default function MoniToring(props) {
   }, [num1]);
   useEffect(() => {
     setPercent2(math2(num2, valuecount2));
-    console.log(percent2);
   }, [num2]);
   useEffect(() => {
     setPercent3(math3(num3, valuecount3));
-    console.log(percent3);
   }, [num3]);
     const [data, setData] = useState('');
     function Make_ID(dummyData) {
@@ -126,73 +124,93 @@ export default function MoniToring(props) {
       }
       return dummyData;
     }
-    const ProgressBar = (props) => {
-      const { bgcolor, completed } = props;
-      return (
-        <div>
-          <div>
-            <span>{`${completed}%`}</span>
-          </div>
-        </div>
-      );
-    };
     const columns = [
-      {field: "id", headerName: "ID", width: 120 },
+      // 데이터 그리드 내용삽입을위한 형식지정
+      {field: "id", headerName: "ID", width: 40 },
       {
-        field: "item_code",
+        headerAlign: 'center',
+        field: "lot_num",
         headerName: "LOT번호",
-        width: 180,
+        width: 100,
+        align: "center"
       },
       {
-        field: "item_name",
+        headerAlign: 'center',
+        field: "plan_name",
         headerName: "생산명",
-        width: 180,
+        width: 130,
+        align: "center"
       },
       {
-        field: "sort",
+        field: "quantity",
         headerName: "계획수량",
-        width: 180,
+        width: 80,
+        align: "center"
       },
       {
+        field: "due_date",
+        headerName: "생산등록날짜",
+        width: 150,
+        align: "center",
+        headerAlign: 'center',
+      },
+      {
+        headerAlign: 'center',
+        field: "reg_date",
+        headerName: "생산완료날짜",
+        width: 150,
+        align: "center"
+      },
+      {
+        headerAlign: 'center',
         field: "spec",
         headerName: "생산진행상태",
-        width: 500,
+        width: 420,
+        
         renderCell : (props)=>{
-            console.log(props)
-         return(
-          <div id='bar' style={{backgroundColor:"red", width:props.row.spec}}>{cheel()}</div>
+          return(
+           <div className="moitoringqq">
+
+          
+          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
+          count={props.row.quantity} id={props.row.id}/>
+          <button className="Monitorinedit">edit</button>          
+          </div>
+          
+           
+          </div>
+          
+          
          )
         }
-        //ProgressBar
       },
     ];
+    // console.log(percent1,percent2,percent3)
     useEffect(() => {
       const getdata = async() => {
         try {
-            const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
-            const result1 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
-            //console.log(data);
-            console.log(result)
-            result.data[0].spec = 100;
-             setData(Make_ID(result.data, result1.data));
+            const result = await axios.get("http://127.0.0.1:8000/items/");
+            const result1 = await axios.get("http://127.0.0.1:8000/plans/");
+            result.data[0].spec =percent1 * 3;
+            result.data[1].spec =percent2 * 3;
+            result.data[2].spec =percent3 * 3;
         } catch (error) {
           console.error(error);
         }
       };
       getdata();
-    },[]);
+    },[percent1]);
   return (
-    
-      <div className="Monitoring">
-        <div className="monitoring">
-            <div className= "monitoringContainer">
-                <h3 className="monitoringTitle">생산 모니터링</h3>
+      <div className="monitoring">
+        <div className="item">
+            <div className= "itemTitleContainer">
+                <h3 className="itemTitle">생산 모니터링</h3>
             </div>
-            <div className="monitoringContainer"> 
+            <div className="itemContainer">
             </div>
-            <Box sx={{ height: 700, width: "550%", margin: 1 }}>
+            <Box sx={{ height: 500, width: "680%", margin: 0 }}>
         <DataGrid
-          rows={data}
+          rows={data.slice(0,7)}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}
@@ -201,9 +219,6 @@ export default function MoniToring(props) {
         </DataGrid>
       </Box>
         </div>
-
-
       </div>
-  
   );
 }

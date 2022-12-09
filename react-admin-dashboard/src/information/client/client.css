@@ -24,7 +24,7 @@
 .clientnumber1 {
     height: 30px;
     width: 1095px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 0px 0px 30px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -48,7 +48,7 @@ border: 1px solid #e9ecef
 .clientcode1{
     height: 30px;
     width: 1095px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 0px 0px 30px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -70,7 +70,7 @@ border: 1px solid #e9ecef
 .clientname1{
     height: 30px;
     width: 1095px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 0px 0px 30px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -89,7 +89,7 @@ border: 1px solid #e9ecef
 }
 
 .control{
-    margin: -50px 0px 0px 0px; 
+    margin: -50px 0px 0px 10px; 
 
 }
 /* 등록일시 왼쪽 꺼 */
@@ -107,7 +107,7 @@ border: 1px solid #e9ecef
 .search1{
     height: 30px;
     width: 500px;
-    margin: -10px 0px 0px 0px;
+    margin: -10px 0px 0px 15px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -125,7 +125,7 @@ border: 1px solid #e9ecef
     cursor: pointer;
     font-size: 16px;
     margin-right: 5px;
-    margin: 10px 0px 0px 920px;
+    margin: 10px 0px 0px 940px;
     color: #FFFFFF;
     background: #283593;
     
@@ -135,15 +135,13 @@ border: 1px solid #e9ecef
 .clientAddButton1 {
     width: 100px;
     height: 30px;
-    border:none;
-    padding: 5px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin: -30px -40px 20px 1020px;
-    color: #49ff18;
-background: #FFF;
-text-shadow:  0 0 10px #FFF, 0 0 15px #FFF,0 0 40px #49FF18, 0 0 75px #49ff18;
+    margin: -30px -40px 20px 1030px;
+    color: #FFFFFF;
+    background: #283593;
 
 }
 
