@@ -58,9 +58,9 @@ border: 1px solid #e9ecef;
     width: 80px;
     height: 30px;    
     border-radius: 5px;
-    border-color: #c3fdff;
-    color: #1e88e5;
-background: #FFFFFF;
+    color: #FFFFFF;
+    border: none;
+    background: #283593;
     
 }
 
@@ -68,9 +68,9 @@ background: #FFFFFF;
 .orderNumberButton1{
     width: 120px;
     border-radius: 5px;
-    border-color: #c3fdff;
-    color: #1e88e5;
-background: #FFFFFF;
+    color: #FFFFFF;
+    border: none;
+    background: #283593;
     margin: 10px 0px 0px 10px;
 
 }
@@ -95,18 +95,18 @@ background: #FFFFFF;
 .orderNumberButton2{
     width: 80px;
     border-radius: 5px;
-    border-color: #c3fdff;
+    border: none;
     color: #FFFFFF;
-background: #283593;
-    margin: 0px 40px 0px 810px;
+    background: #283593;
+    margin: 0px 40px 0px 840px;
 }
 
 /* 취소버튼 */
 .orderNumberButton3{
     width: 80px;
+    border: none;
     border-radius: 5px;
-    border-color: #c3fdff;
     color: #FFFFFF;
-background: #5d99c6;
-    margin: 0px 0px 0px 0px;
+    background: #283593;
+    margin: 0px 40px 0px -30px;
 }

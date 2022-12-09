@@ -103,29 +103,8 @@ export default function Sidebar() {
                     </li>
                 </ul>
             </div>           
-            <div className="sidebarMenu">
-                <h3 className="sidebarTitle2"> <SettingsIcon />시스템관리</h3>
-                <ul className="sidebarList">
-                    <li className="sidebarListItem">                        
-                        환경변수 관리
-                    </li>
-                    <li className="sidebarListItem">                        
-                        사용자그룹 관리
-                    </li>
-                    <li className="sidebarListItem">                       
-                        메뉴권한 관리
-                    </li>
-                    <li className="sidebarListItem">                       
-                        공지사항 관리
-                    </li>
-                    <li className="sidebarListItem">                       
-                        접속이력 현황
-                    </li>
-                    <li className="sidebarListItem">                       
-                        일일접속건수
-                    </li>
-                </ul>
-            </div>
+            
+            
         </div>
     </div>
     )           
