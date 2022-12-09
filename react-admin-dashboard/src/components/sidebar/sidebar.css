@@ -2,11 +2,13 @@
     background-attachment: fixed;
     background-color:#1e88e5;
     color:#b6ffff;
+
     margin: -70px 30px -120px -10px
     
 }
 /* 기준정보관리 헤더 */
 .sidebarTitle{
+    
     margin: -30px 0px 0px 45px;
     font-weight: bold;
     color: #b6ffff;

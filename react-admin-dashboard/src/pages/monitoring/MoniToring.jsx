@@ -6,6 +6,7 @@ import ProgressBar from "./chart/Chart";
 
 import Box from '@mui/material/Box';
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
@@ -49,10 +50,6 @@ export default function MoniToring(props) {
   function math3(num, valuecount) {
     return (num / valuecount) * 100;
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
   // 차트에 들어갈 데이터 주머니
   const testData = [
     // completed : 현재생산율   num : 현재생산수량
@@ -72,10 +69,6 @@ export default function MoniToring(props) {
         const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
         setData(Make_ID(result.data))
-<<<<<<< HEAD
-=======
-
->>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
         for (var i = 324; i < 450; i += 3) {
@@ -158,7 +151,7 @@ export default function MoniToring(props) {
       {
         field: "due_date",
         headerName: "생산등록날짜",
-        width: 130,
+        width: 150,
         align: "center",
         headerAlign: 'center',
       },
@@ -166,40 +159,44 @@ export default function MoniToring(props) {
         headerAlign: 'center',
         field: "reg_date",
         headerName: "생산완료날짜",
-        width: 130,
+        width: 150,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "spec",
         headerName: "생산진행상태",
-<<<<<<< HEAD
-        width: 420,
+        width: 450,
         
         renderCell : (props)=>{
           return(
-           <div className="moitoringqq">
+                      
+          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
+          count={props.row.quantity} id={props.row.id}/>                  
+          </div>
 
           
-          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
-          count={props.row.quantity} id={props.row.id}/>
-          <button className="Monitorinedit">edit</button>          
-          </div>
           
-           
-          </div>
-          
-          
-=======
-        width: 500,
-        renderCell : (props)=>{
-         return(
-          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
-          count={props.row.quantity} id={props.row.id}/></div>
->>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
          )
         }
       },
+      {
+        headerAlign: 'center',
+        field: "Edit",
+        headerName: "",
+        width: 200,
+        
+        renderCell : (props)=>{
+          return(
+          <Link to='./detail'>            
+          <div className="edit">
+            <button className="detailinfo">상세 정보</button> 
+          </div>
+          </Link>
+
+          )
+        }
+      }          
     ];
     // console.log(percent1,percent2,percent3)
     useEffect(() => {
@@ -224,17 +221,13 @@ export default function MoniToring(props) {
             </div>
             <div className="itemContainer">
             </div>
-<<<<<<< HEAD
             <Box sx={{ height: 500, width: "680%", margin: 0 }}>
-=======
-            <Box sx={{ height: 500, width: "640%", margin: 0 }}>
->>>>>>> 32c183cafbc82de1afd7aca67a6d25c15f51b93b
         <DataGrid
           rows={data.slice(0,7)}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}
-          disableSelectionOnClick
+          disableSelectionOnClick          
         >
         </DataGrid>
       </Box>

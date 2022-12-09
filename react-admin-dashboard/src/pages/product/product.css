@@ -33,16 +33,16 @@
 
 /* 신규등록 */
 .productAddButton{
-    width: 90px;
+    width: 100px;
     height: 30px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin: 10px -10px 0px 0px;
+    margin: -10px -10px 0px 50px;
     color: #FFFFFF;
-background: #005cb2;
+    background: #283593;
 }
 
 
