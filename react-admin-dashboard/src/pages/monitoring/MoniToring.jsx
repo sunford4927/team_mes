@@ -151,7 +151,7 @@ export default function MoniToring(props) {
       {
         field: "due_date",
         headerName: "생산등록날짜",
-        width: 150,
+        width: 130,
         align: "center",
         headerAlign: 'center',
       },
@@ -159,7 +159,7 @@ export default function MoniToring(props) {
         headerAlign: 'center',
         field: "reg_date",
         headerName: "생산완료날짜",
-        width: 150,
+        width: 130,
         align: "center"
       },
       {

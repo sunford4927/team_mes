@@ -10,10 +10,11 @@ const UserList = () => {
   const [orders, setOrders] = useState("");
   function Make_ID(dummyData) {
     for (var i = 0; i < dummyData.length; i++) {
-      dummyData[i]["id"] = i+1;
+      dummyData[i]["id"] = i + 1;
     }
     return dummyData;
   }
+  // 계획데이터와 고객데이터를 통해 고객명을 가져옴
   function Make_Table(plans, orders, customers, items) {
     for (var i = 0; i < plans.length; i++) {
       for (var j = 0; j < orders.length; j++) {
@@ -28,28 +29,77 @@ const UserList = () => {
       }
       // console.log(plans[i]["item_code"])
     }
-      for (var u = 0; u < plans.length; u++) {
-        for (var y = 0; y < items.length; y++) {
-          if (plans[u]["item_code"] == items[y]["item_code"]) {
-            plans[u]["item_name"] = items[y]["item_name"];
-          }
+    for (var u = 0; u < plans.length; u++) {
+      for (var y = 0; y < items.length; y++) {
+        if (plans[u]["item_code"] == items[y]["item_code"]) {
+          plans[u]["item_name"] = items[y]["item_name"];
         }
       }
-      // console.log(plans)
+    }
+    // console.log(plans)
   }
-
+    // 생산계획정보 표
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "lot_num", headerName: "LOT번호", width: 160, },
-    { field: "order_code", headerName: "수주코드", width: 140 },
-    { field: "customer_name", headerName: "고객명", width: 160 },
-    { field: "item_name", headerName: "제품명", width: 160 },
-    { field: "quantity", headerName: "수량", width: 70 },
-    { field: "due_date", headerName: "생산완료예정일", width: 150 },
-    { field: "reg_date", headerName: "생산계획등록일", width: 150 },
+    {
+      field: "id",
+      headerName: "ID",
+      width: 50,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "lot_num",
+      headerName: "LOT번호",
+      width: 150,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "order_code",
+      headerName: "수주코드",
+      width: 150,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "customer_name",
+      headerName: "고객명",
+      width: 175,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "item_name",
+      headerName: "제품명",
+      width: 250,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "quantity",
+      headerName: "수량",
+      width: 70,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "due_date",
+      headerName: "생산완료예정일",
+      width: 150,
+      align: "center",
+      headerAlign: 'center',
+    },
+    {
+      field: "reg_date",
+      headerName: "생산계획등록일",
+      width: 150,
+      align: "center",
+      headerAlign: 'center',
+    },
   ];
 
   useEffect(() => {
+    // 기존 생산계획정보 및, 신규등록에 관한 데이터를 가져옴
     const Plansgetdata = async () => {
       try {
         const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
@@ -72,16 +122,16 @@ const UserList = () => {
   return (
     <div className="userList">
       <ManageMent />
-      <Box sx={{ height: 600, width: "104%", margin: -1  }}>
-      <Product list= {dummyData} />
-      <DataGrid
-        rows={dummyData}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5]}
+      <Box sx={{ height: 600, width: "104%", margin: -1 }}>
+        <Product list={dummyData} />
+        <DataGrid
+          rows={dummyData}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[5]}
         // getRowId={(r) => r.id}
-      ></DataGrid>
+        ></DataGrid>
       </Box>
     </div>
   );
