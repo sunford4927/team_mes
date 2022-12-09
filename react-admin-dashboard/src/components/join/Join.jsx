@@ -8,14 +8,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
-import { Check } from "@material-ui/icons";
 function Join() {
   // 뒤로가기
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
   };
-  // django 연결
   const [id, setId] = useState(""); // 아이디
   const [password, setPassword] = useState(""); // 비밀번호
   const [passwordCheck, setPasswordCheck] = useState(""); // 비밀번호 체크
@@ -61,10 +59,6 @@ function Join() {
           localStorage.clear();
         }
       })
-      // .catch((err) => {
-      //   console.clear();
-      //   alert("아이디 혹은 비밀번호가 일치하지 않습니다");
-      // });
   };
   function A() {
     // 회원가입 유효성 검사

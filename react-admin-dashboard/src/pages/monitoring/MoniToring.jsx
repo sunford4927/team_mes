@@ -174,14 +174,14 @@ export default function MoniToring(props) {
          )
         }
       },
+
       
     ];
     // console.log(percent1,percent2,percent3)
     useEffect(() => {
       const getdata = async() => {
         try {
-            const result = await axios.get("http://127.0.0.1:8000/items/");
-            const result1 = await axios.get("http://127.0.0.1:8000/plans/");
+            const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
             result.data[0].spec =percent1 * 3;
             result.data[1].spec =percent2 * 3;
             result.data[2].spec =percent3 * 3;
