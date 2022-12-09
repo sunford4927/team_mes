@@ -1,26 +1,31 @@
+/* 사이드바 자체 블럭 */
 .sidebar{
     background-attachment: fixed;
     background-color:#1e88e5;
     color:#b6ffff;
+
     margin: -70px 30px -120px -10px
     
 }
 /* 기준정보관리 헤더 */
 .sidebarTitle{
-    margin: -30px 0px 0px 45px;
+    font-size: 28px;
+    margin: 30px 0px 30px 15px;
     font-weight: bold;
-    color: #b6ffff;
+    color: white;
 }
 
 /* 생산관리 헤더 */
 .sidebarTitle1{
-    margin: 20px 0px 0px 45px;
+    font-size: 28px;
+    margin: 50px 0px 30px 40px;
     font-weight: bold;
+    color: white;
     
 }
 /* 시스템관리 헤더(나중에 지워도 됨) */
 .sidebarTitle2{
-    margin: 20px 0px 0px 45px;
+    margin: 20px 0px 0px 33px;
     font-weight: bold;
 }
 
@@ -29,19 +34,22 @@
     list-style:none;
     position: sticky;
     top: 0px;
-    margin: 10px 0px 0px 70px;
+    margin: 10px 15px 20px 50px;
     padding-left: 20px;
 }
 
 
-
+ /* 사이드바 */
 li{
-    margin: 10px;
+    margin: 30px 10px 10px 10px;
+    color: white;
+    font-size: 20px;
+    
 }
 
 a{
     text-decoration: none;
-    color:  #b6ffff;
+    color:  white;
     
     
 }
@@ -51,17 +59,17 @@ a{
 .logo {
     font-weight: bold;
     font-size: 35px;
-    color:  #b6ffff;
+    color:  white;
     cursor: pointer;
     padding: 0px 0px 0px 30px;
-    margin: -20px 0px 70px 10px;
+    margin: -25px 0px 0px 35px;
     list-style:none;    
 }
 
 .closemenu {
-    color:#b6ffff;
+    color:white;
     position: absolute;
-    margin: -100px 0px 0px 150px;
+    margin: -100px 0px 0px 170px;
     z-index: 9999;
     line-height: 20px;
     border-radius: 50%;
@@ -70,11 +78,6 @@ a{
     cursor: pointer;
   }
 
-.turtle{
-    /* 거북이 이미지 size */
-    animation-direction:normal;
-    height :55px;    
-    width :100px;
-    margin: 4px 0px -30px 0px
-    
-}
+
+
+

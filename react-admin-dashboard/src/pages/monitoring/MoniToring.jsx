@@ -3,13 +3,16 @@ import "./moniToring.css";
 import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
 import ProgressBar from "./chart/Chart";
-import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap"
+
 import Box from '@mui/material/Box';
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
+import Expd from './Expd'
+
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
 // function dic(result){
-//   var dic_list = []  
+//   var dic_list = [] 
 //   var moniter_dic = {}
 //   for(var u=0; u<result.length; u++){
 //     moniter_dic[u]['lot_num'] = result[u]['lot_num'];
@@ -48,7 +51,6 @@ export default function MoniToring(props) {
   function math3(num, valuecount) {
     return (num / valuecount) * 100;
   }
-
   // 차트에 들어갈 데이터 주머니
   const testData = [
     // completed : 현재생산율   num : 현재생산수량
@@ -68,7 +70,6 @@ export default function MoniToring(props) {
         const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
         setData(Make_ID(result.data))
-
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
         for (var i = 324; i < 450; i += 3) {
@@ -131,26 +132,26 @@ export default function MoniToring(props) {
       {
         headerAlign: 'center',
         field: "lot_num",
-        headerName: "LOT번호",
+        headerName: "LOT 번호",
         width: 100,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "plan_name",
-        headerName: "생산명",
+        headerName: "생산 명",
         width: 130,
         align: "center"
       },
       {
         field: "quantity",
-        headerName: "계획수량",
+        headerName: "계획 수량",
         width: 80,
         align: "center"
       },
       {
         field: "due_date",
-        headerName: "생산등록날짜",
+        headerName: "생산 등록 날짜",
         width: 150,
         align: "center",
         headerAlign: 'center',
@@ -158,24 +159,45 @@ export default function MoniToring(props) {
       {
         headerAlign: 'center',
         field: "reg_date",
-        headerName: "생산완료날짜",
+        headerName: "생산 완료 날짜",
         width: 150,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "spec",
-        headerName: "생산진행상태",
-        width: 420,
+        headerName: "생산 진행 상태",
+        width: 450,
+        
         renderCell : (props)=>{
-         return(
+          return(
+                      
           <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
-          count={props.row.quantity} id={props.row.id}/></div>
+          count={props.row.quantity} id={props.row.id}/>                  
+          </div>
+
+          
+          
          )
         }
       },
+      {
+        headerAlign: 'center',
+        field: "Edit",
+        headerName: "",
+        width: 200,
+        
+        renderCell : (props)=>{
+          return(
+          <Link to='./detail'>            
+          <div className="edit">
+            <button className="detailinfo">상세 정보</button> 
+          </div>
+          </Link>
 
-      
+          )
+        }
+      }          
     ];
     // console.log(percent1,percent2,percent3)
     useEffect(() => {
@@ -192,6 +214,7 @@ export default function MoniToring(props) {
       getdata();
     },[percent1]);
   return (
+
       <div className="monitoring">
         <div className="item">
             <div className= "itemTitleContainer">
@@ -199,14 +222,14 @@ export default function MoniToring(props) {
             </div>
             <div className="itemContainer">
             </div>
-            <Box sx={{ height: 500, width: "580%", margin: 0 }}>
+            <Box sx={{ height: 500, width: "680%", marginTop: "50px" }}>
+        <Expd peed={data}/>
         <DataGrid
-          rows={data.slice(0,7)}
+          rows={data}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}
-          disableSelectionOnClick
-          
+          disableSelectionOnClick          
         >
         </DataGrid>
       </Box>

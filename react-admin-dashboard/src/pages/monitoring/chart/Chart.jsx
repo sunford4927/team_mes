@@ -3,39 +3,45 @@ import { borderColor } from "@mui/system";
 import { Switch } from "@material-ui/core";
 import { useEffect, useState } from "react";
 const ProgressBar = (props) => {
-    const {completed, num, count, id} = props;
-    function math1(num, valuecount) {
-      // 생산율 구하는 공식함수
-      return (num / valuecount) * 100;
-    }
-      
-    const containerStyles = {
-      height: 20,
-      width: '100%',
-      backgroundColor: "#CCFFFF",
-      borderRadius: 50,
-      margin: 50,
-    }
-    const fillerStyles = {
-      height: '100%',
-      width: `${completed}%`,
-      backgroundColor: "#333399",
-      borderRadius: 'inherit',
-      textAlign: 'center',
-    }
-    const labelStyles = {
-      position:'fixed',
-      padding: 5,
-      color: 'white',
-      fontWeight: 'bold',
-    }
+  const { completed, num, count, id } = props;
+  function math1(num, valuecount) {
+    // 생산율 구하는 공식함수
+    return (num / valuecount) * 100;
+  }
 
-    return (
-      <div style={containerStyles}>
-        <div className="chart" style={fillerStyles}>
-        <span style={labelStyles}>{num > count?`${completed}% ${count}/${count}`:`${Math.floor(math1(num, count))}% ${num}/${count}`}</span>
-        </div>
+  const containerStyles = {
+    height: 20,
+    
+    // 생산진행상태바 가로길이
+    width: '410%',
+    // 상태바 배경색
+    backgroundColor: "#918f88",
+    borderRadius: 50,
+    margin: 50,
+  }
+  const fillerStyles = {
+    height: '100%',
+    width: `${completed}%`,
+    backgroundColor: "#333399",
+    borderRadius: 'inherit',
+    textAlign: 'center',
+    transition: 'width 1s ease-in-out',
+
+  }
+  const labelStyles = {
+    padding: 5,
+    // 상태바 Text
+    color: 'white',
+    fontWeight: 'bold',
+    position: "fixed",
+  }
+
+  return (
+    <div style={containerStyles}>
+      <div className="chart" style={fillerStyles}>
+        <span style={labelStyles}>{num > count ? `${completed}% ${count}/${count}` : `${Math.floor(math1(num, count))}% ${num}/${count}`}</span>
       </div>
-    );
-  };
-  export default ProgressBar;
+    </div>
+  );
+};
+export default ProgressBar;

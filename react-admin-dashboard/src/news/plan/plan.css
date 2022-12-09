@@ -11,6 +11,7 @@
 .planTitleContainer{
     margin: -10px 0px 0px 10px;
 }
+
 /* 중복되지 않는  이쪽 */
 .plannext {
     padding-left: 810px;
@@ -46,53 +47,59 @@ border-radius: 10px;
 border: 1px solid #e9ecef
 }
 
-/* 원자재,공정자재 */
+/* 원자재,공정자재 버튼*/
 .planNumberButton{
     width: 110px;
     height: 30px;
     border-radius: 5px;
-    margin: 0px 0px 0px 20px;
-    border-color: #c3fdff;
-    color: #1e88e5;
-background: #FFFFFF;
-;
+    border: none;
+    margin: 10px 0px 0px 20px;
+    color: #FFFFFF;
+    background: #283593;
 }
+
+/* 찾기, 중복확인 버튼 */
 .planNumberButton1{
     width: 80px;
     border-radius: 5px;
-    border-color: #c3fdff;
-    color: #1e88e5;
-background: #FFFFFF;
+    border: none;
+    color: #FFFFFF;
+    background: #283593;
 }
 
 
-
+/* 원자재 글자 */
 .planmaterial{
     margin: -10px 0px 0px 10px;
 }
 
-
+/* 공정자재 글자 */
 .planPInfo{
     margin: 20px 0px 0px 10px;
-
 }
+
+/* 생산완료예정일 */
 .plancompelte{
     margin: 20px 10px 5px 10px;
-
 }
+
+/* 저장버튼 */
 .planNumberButton2{
     width: 80px;
     border-radius: 5px;
-    border-color: #c3fdff;
     color: #FFFFFF;
-background: #283593;
-    margin: 0px 40px 15px 810px;
+    border: none;
+    background: #283593;
+    margin: 0px 40px 0px 840px;
 }
+
+/* 취소 버튼 */
 .planNumberButton3{
     width: 80px;
+    border: none;
     border-radius: 5px;
-    border-color: #c3fdff;
     color: #FFFFFF;
-background: #5d99c6;
+    background: #283593;
+    margin: 0px 40px 0px -30px;
     
 }

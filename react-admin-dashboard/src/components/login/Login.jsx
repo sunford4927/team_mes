@@ -58,8 +58,8 @@ function Login() {
   const[imgLeft,setimgLeft]=useState(0);
 
   useEffect(function(){
-      if(imgLeft<150){
-       setTimeout(()=>  setimgLeft(imgLeft+15),150);          
+      if(imgLeft<250){
+       setTimeout(()=>  setimgLeft(imgLeft+15),200);          
       }else{
           setimgLeft(0)
       }
@@ -75,7 +75,8 @@ function Login() {
                                             src="images/turtle_log.png" 
                                             alt ="log"/>      
           
-          <h1 className="title">MES</h1>
+          <h2 className="Title">광주 제약</h2>
+          <h4 className="title">Gwang_Ju Pharmaceutical Company</h4>
           
           <hr /> 
                  

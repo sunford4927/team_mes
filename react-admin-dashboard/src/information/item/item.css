@@ -22,7 +22,7 @@
 .itemcode1{
     height: 30px;
     width: 1095px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 0px 0px 30px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -44,7 +44,7 @@ border: 1px solid #e9ecef
 .itemname1{
     height: 30px;
     width: 1095px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 0px 0px 30px;
     background: #eeeeee;
     -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
@@ -71,7 +71,7 @@ border: 1px solid #e9ecef
     cursor: pointer;
     font-size: 16px;
     margin-right: 5px;
-    margin: 10px 0px 0px 920px;
+    margin: 10px 0px 0px 940px;
     color: #FFFFFF;
     background: #283593;
 }
@@ -81,13 +81,11 @@ border: 1px solid #e9ecef
 .itemAddButton1{
     width: 100px;
     height: 30px;
-    padding: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: #49ff18;
-background: #FFF;
-text-shadow:  0 0 10px #FFF, 0 0 15px #FFF,0 0 40px #49FF18, 0 0 75px #49ff18;
-   margin: -30px -40px 20px 1020px;
+    margin: -30px -40px 20px 1030px;
+    color: #FFFFFF;
+    background: #283593
 }

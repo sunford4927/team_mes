@@ -29,14 +29,20 @@
 
 
 /* MES 부분 */
-.form-div h1{
+.form-div h2{
     font-weight: bold;
-    font-size: 40px;
-    margin: 0px 0px 0px 120px;
+    font-size: 30px;
+    margin: 0px 0px 0px 80px;
     color: #90caf9;
 }
 
 
+.form-div h4{
+    font-weight: bold;
+    font-size: 10px;
+    margin: 0px 0px 0px 60px;
+    color: #90caf9;
+}
 
 
 .login-btn{
