@@ -32,11 +32,14 @@
 .form-div h1{
     font-weight: bold;
     font-size: 40px;
-    margin: 0px 0px 0px 120px;
+    margin: 0px 0px 0px 60px;
     color: #90caf9;
 }
 
-
+/* 회사 이름 */
+.title{
+    
+}
 
 
 .login-btn{
