@@ -32,7 +32,7 @@ function Login() {
     
     // 로그인 
     axios
-      .post("http://127.0.0.1:8000/users/login/", user)
+      .post("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/users/login/", user)
       .then((res) => {
         if (res.data.token) {
             console.log(res.data);
