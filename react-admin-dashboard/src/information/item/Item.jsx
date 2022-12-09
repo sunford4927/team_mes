@@ -67,7 +67,7 @@ export default function Item() {
   return (
     <div className="item">
       <div className="itemTitleContainer">
-        <h3 className="itemTitle">제품정보 관리</h3>
+        <h3 className="itemTitle5">제품정보 관리</h3>
       </div>
       <div className="itemContainer">
         <div className="itemcode">
@@ -112,7 +112,7 @@ export default function Item() {
 
 
       </div>
-      <Box sx={{ height: 475, width: "90%", margin: 0 }}>
+      <Box sx={{ height: 490, width: "89%", marginLeft: "30px"}}>
         <DataGrid
           rows={data}
           columns={columns}

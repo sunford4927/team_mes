@@ -49,29 +49,29 @@ const UserList = () => {
     },
     {
       field: "lot_num",
-      headerName: "LOT번호",
-      width: 150,
+      headerName: "LOT 번호",
+      width: 145,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "order_code",
-      headerName: "수주코드",
-      width: 150,
+      headerName: "수주 코드",
+      width: 145,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "customer_name",
-      headerName: "고객명",
-      width: 175,
+      headerName: "고객 명",
+      width: 180,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "item_name",
-      headerName: "제품명",
-      width: 250,
+      headerName: "제품 명",
+      width: 240,
       align: "center",
       headerAlign: 'center',
     },
@@ -84,14 +84,14 @@ const UserList = () => {
     },
     {
       field: "due_date",
-      headerName: "생산완료예정일",
+      headerName: "생산 완료 예정일",
       width: 150,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "reg_date",
-      headerName: "생산계획등록일",
+      headerName: "생산 계획 등록일",
       width: 150,
       align: "center",
       headerAlign: 'center',
@@ -122,7 +122,7 @@ const UserList = () => {
   return (
     <div className="userList">
       <ManageMent />
-      <Box sx={{ height: 600, width: "104%", margin: -1 }}>
+      <Box sx={{ height: 600, width: "103%", margin: -1, marginLeft: '13px'}}>
         <Product list={dummyData} />
         <DataGrid
           rows={dummyData}

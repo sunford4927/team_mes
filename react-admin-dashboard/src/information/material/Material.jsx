@@ -114,7 +114,7 @@ export default function Material() {
         </Link>
         <button className="materialAddButton1">검색 초기화</button>
       </div>
-      <Box sx={{ height: 475, width: "90%", margin: 0 }}>
+      <Box sx={{height: 490, width: "89%", marginLeft: "30px" }}>
         <DataGrid
           rows={data}
           columns={columns}

@@ -1,8 +1,10 @@
-<<<<<<< HEAD
 .monitoringcode1{
     margin: 0px 0px 0px 20px;
 }
 
+.itemTitle{
+    margin-top: 40px
+}
 
 .chart_one{
     display: flex;
@@ -26,7 +28,7 @@
     }
 /* 표의 header*/
 .MuiDataGrid-columnHeaders {
-    color: #b6ffff;
+    color: white;
     background-color: #1e88e5;
 }
 /* 표 내용  */
@@ -52,52 +54,6 @@
 .MuiSvgIcon-root{
     color: rgb(0, 0, 0);
 }
-=======
-
-    
-    /* 표의 header*/
-    .MuiDataGrid-columnHeaders {
-        text-align: center;
-        color: white;
-        background-color: #777777;  
-    }
-    
-    /* 표 내용  */
-    .MuiDataGrid-cellContent{
-        color: #000000;
-        border-color: 1px solid rgba(6,49,70,1)
-    
-    }
-    
-    
-    
-    /* header 아래쪽 선 */
-    .css-1w5m2wr-MuiDataGrid-virtualScroller{
-        border: 1px solid rgba(6,49,70,1)
-    }
-    
-    
-    
-    /* 아래번호 */
-    .MuiTablePagination-displayedRows{
-        color: #000000;
-        border-color: 1px solid rgba(6,49,70,1)
-    }
-    
-    
-    /* 페이지 넘기는 것  */
-    .MuiButtonBase-root{
-        color: #ffffff;
-        border-color: 1px solid rgba(6,49,70,1)
-    
-    }
-    
-    /* 바닥에 화살표 */
-    .MuiSvgIcon-root{
-        color: rgb(0, 0, 0);
-        
-    }
->>>>>>> 4b6023d8a86af0244b71c875744c409902ca9870
 
 
     .bar{

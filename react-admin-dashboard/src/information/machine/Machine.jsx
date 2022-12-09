@@ -15,7 +15,7 @@ const columns = [
   },
   {
     field: 'clientname',
-    headerName: '설비코드',
+    headerName: '설비 코드',
     width: 150,
     align: "center",
     headerAlign: 'center',
@@ -23,7 +23,7 @@ const columns = [
   },
   {
     field: 'clientcode',
-    headerName: '설비명',
+    headerName: '설비 명',
     width: 150,
     align: "center",
     headerAlign: 'center',
@@ -31,7 +31,7 @@ const columns = [
   },
   {
     field: 'phone',
-    headerName: '라인명',
+    headerName: '라인 명',
     type: 'number',
     width: 110,
     align: "center",
@@ -40,7 +40,7 @@ const columns = [
   },
   {
     field: 'manager',
-    headerName: '관리담당(장)',
+    headerName: '관리 담당(장)',
     sortable: false,
     width: 160,
     align: "center",
@@ -49,7 +49,7 @@ const columns = [
   },
   {
     field: 'managerphone',
-    headerName: '관리담당(부)',
+    headerName: '관리 담당(부)',
     width: 150,
     editable: true,
     align: "center",
@@ -111,7 +111,7 @@ export default function Machine() {
 
       </div>
 
-      <Box sx={{ height: 475, width: '90%', margin: 0, }}>
+      <Box sx={{ height: 490, width: "89%", marginLeft: "30px" }}>
         <DataGrid
           rows={rows}
           columns={columns}
