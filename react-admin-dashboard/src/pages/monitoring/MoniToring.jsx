@@ -180,23 +180,7 @@ export default function MoniToring(props) {
          )
         }
       },
-      {
-        headerAlign: 'center',
-        field: "Edit",
-        headerName: "",
-        width: 200,
-        
-        renderCell : (props)=>{
-          return(
-          <Link to='./detail'>            
-          <div className="edit">
-            <button className="detailinfo">상세 정보</button> 
-          </div>
-          </Link>
-
-          )
-        }
-      }          
+          
     ];
     // console.log(percent1,percent2,percent3)
     useEffect(() => {

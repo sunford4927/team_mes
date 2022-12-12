@@ -3,27 +3,131 @@
     margin: 0px -700px 0px 50px;
 }
 
-
+/* 생상율 파이 */
 .pip1{
-    flex: 4px;
+    flex: 5px;
     -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-border: 1px solid #e9ecef
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin: 50px 0px 0px -403px;
+    background: #eeeeee
+
+
+}
+/* 생산율 */
+.pip1Title{
+    margin: 50px 0px 0px 150px;
+    
 }
 
+.pip2Title{
+    margin: 50px 0px 0px 150px;
+}
+/* 불량량률 파이 */
 .pip2{
-    flex: 4px;
+    flex: 5px;
     -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-border: 1px solid #e9ecef
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin: 50px 0px 0px 150px;
+    background: #eeeeee
+
+
 }
 
-.pip3{
-    flex: 4px;
+
+
+/* 찾기 버튼 */
+.pipname{
+    font-size: 1pc;
+    margin: 0px 0px 0px -50px;
+}    
+
+/* 찾기 버튼 바     */
+.pipname1{
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    background: #eeeeee;
+}
+/* 생산율 생상수량 */
+.pip1SubTitle1{
+    margin: -50px 0px 0px 120px;
+}
+/* 생산율 남은 수량 */
+.pip1SubTitle2{
+    margin: -26px 0px 0px 220px;
+}
+
+/* pipSubTitle3,4,5 합동 */
+.pipSubTitle{
+    margin: -20px 0px 0px 23px;
+}
+/* 생산율 생산계획 */
+.pip1SubTitle3{
+    height: 100px;
+    width: 70px;
+    margin: 50px 0px 0px 70px;
     -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-border: 1px solid #e9ecef
+    -moz-border-radius: 10px;
+    border-radius: 0px;
+    border-right: 1px  solid white;    
+}
+/* 생산율 생산수량 */
+.pip1SubTitle4{
+    height: 100px;
+    width: 70px;
+    margin: -99px 0px 0px 150px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0px;
+    border-right: 1px  solid white;
+}
+/* 생산율 남은수량 */
+.pip1SubTitle5{
+    margin: -100px 0px 0px 225px;    
+}
+
+
+
+
+/* 불량률 양품수량 */
+.pip2SubTitle1{
+    margin: -50px 0px 0px 120px;
+}
+/* 불량률 불량 수량 */
+.pip2SubTitle2{
+    margin: -26px 0px 0px 220px;
+}
+
+/* pipSubTitle3,4,5 합동 */
+.pip2SubTitle{
+    margin: -23px 0px 0px 23px;
+    height: 100px;
+}
+/* 불량률 생산계획 */
+.pip2SubTitle3{
+    height: 100px;
+    width: 70px;
+    margin: 50px 0px 0px 70px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0px;
+    border-right: 1px  solid white;    
+}
+/* 불량률 양품수량 */
+.pip2SubTitle4{
+    height: 100px;
+    width: 70px;
+    margin: -99px 0px 0px 150px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0px;
+    border-right: 1px  solid white;
+}
+/* 불량률 불량수량 */
+.pip2SubTitle5{
+    margin: -100px 0px 0px 225px;    
 }
