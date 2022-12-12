@@ -61,6 +61,9 @@ export default function MoniToring(props) {
     {completed: 100, num:20000},
     {completed: 100, num:20000},
     {completed: 100, num:40000},
+    {completed: 100, num:30000},
+    {completed: 100, num:1500},
+    {completed: 100, num:5000},
   ];
   useEffect(() => {
     console.log("Test1");
@@ -227,7 +230,7 @@ export default function MoniToring(props) {
         <DataGrid
           rows={data}
           columns={columns}
-          pageSize={7}
+          pageSize={data.length}
           rowsPerPageOptions={[5]}
           disableSelectionOnClick          
         >
