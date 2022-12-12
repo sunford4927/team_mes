@@ -287,7 +287,7 @@ function data(testname, orders,plans, customers){
         <button
           className="orderNumberButton1"
           type="button"
-          onClick={() => alert("조심")}
+          onClick={() => alert("원자재 정보 입력해주세요")}
         >
           원자재정보 입력
         </button>
@@ -298,7 +298,7 @@ function data(testname, orders,plans, customers){
         <button
           className="orderNumberButton1"
           type="button"
-          onClick={() => alert("조심")}
+          onClick={() => alert("공정정보를 입력해주세요")}
         >
           공정정보 입력
         </button>
@@ -309,7 +309,7 @@ function data(testname, orders,plans, customers){
       <div className="orderTitleContainer">
         <input type="date" required className="orderNumbername1" onChange={(e) =>setdate(e.target.value)} />
       </div>
-      <div className="planTitleContainer">
+      <div className="orderTitleContainer">
         <button className="orderNumberButton2" type="button" onClick={setSave}>
           저장
         </button>

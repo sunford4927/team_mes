@@ -1,19 +1,15 @@
 import React from "react";
 import './sidebar.css'
 import HomeWorkIcon from '@mui/icons-material/HomeWork'
-import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
-import SettingsIcon from '@mui/icons-material/Settings';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+
 import { Link } from 'react-router-dom'
-import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { useState, useEffect, useRef, useN } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
     const nav = useNavigate();
-    const [menuCollapse, setMenuCollapse] = useState(false)
-    const menuIconClick = () => {
-        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-    };
+   
     function home() {
         nav('/info/Client')
     }
@@ -34,9 +30,9 @@ export default function Sidebar() {
                 
                 <div className="sidebarMenu">
 
-                    <Link to={"/info"}>
+                    
                         <h3 className="sidebarTitle"> <HomeWorkIcon /> 기준정보관리</h3>
-                    </Link>
+
 
                     <ul className="sidebarList">
                         <Link to="/info/Client">
@@ -68,32 +64,32 @@ export default function Sidebar() {
                     </ul>
 
                 </div>
-
-                <div className="sidebarMenu">
-
-                    <h3 className="sidebarTitle1"> <Person2SharpIcon />생산관리</h3>
-
-                    <ul className="sidebarList">
-                        <Link to='/users'>
-                            <li className="sidebarListItem">
-                                생산계획 관리
-                            </li>
-                        </Link>
-
-                        <Link to='/monitoring'>
-                            <li className="sidebarListItem">
-                                생산 모니터링
-                            </li>
-                        </Link>
-
-                        <li className="sidebarListItem">
-                            생산 보고서
-                        </li>
-                    </ul>
-                </div>
-
-
             </div>
+
+            <div className="sidebarMenu">
+                
+                <h3 className="sidebarTitle1"> <FactCheckIcon /> 생산관리</h3>
+                
+                <ul className="sidebarList">
+                    <Link to='/users'>
+                    <li className="sidebarListItem">                        
+                        생산계획 관리
+                    </li>
+                    </Link>
+                    
+                    <Link to='/monitoring'>
+                    <li className="sidebarListItem">                       
+                        생산 모니터링
+                    </li>
+                    </Link>
+                    <Link to= 'report'>
+                    <li 
+                    className="sidebarListItem"> 
+                        생산보고서
+                    </li>
+                    </Link>
+                </ul>
+            </div>            
         </div>
     )
 }

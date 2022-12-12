@@ -122,7 +122,7 @@ const UserList = () => {
   return (
     <div className="userList">
       <ManageMent />
-      <Box sx={{ height: 600, width: "103%", margin: -1, marginLeft: '13px'}}>
+      <Box sx={{ height: 600, width: "102.6%", margin: -1, marginLeft: '13px'}}>
         <Product list={dummyData} />
         <DataGrid
           rows={dummyData}

@@ -3,7 +3,6 @@
     background-attachment: fixed;
     background-color:#1e88e5;
     color:#b6ffff;
-
     margin: -70px 30px -120px -10px
     
 }
@@ -18,7 +17,7 @@
 /* 생산관리 헤더 */
 .sidebarTitle1{
     font-size: 28px;
-    margin: 50px 0px 30px 40px;
+    margin: 50px 0px 30px 20px;
     font-weight: bold;
     color: white;
     
