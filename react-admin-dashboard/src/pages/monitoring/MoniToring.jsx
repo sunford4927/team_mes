@@ -7,7 +7,6 @@ import ProgressBar from "./chart/Chart";
 import Box from '@mui/material/Box';
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import Expd from './Expd'
 
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
@@ -142,20 +141,20 @@ export default function MoniToring(props) {
       {
         headerAlign: 'center',
         field: "plan_name",
-        headerName: "생산 명",
-        width: 130,
+        headerName: "생산명",
+        width: 150,
         align: "center"
       },
       {
         field: "quantity",
         headerName: "계획 수량",
-        width: 80,
+        width: 100,
         align: "center"
       },
       {
         field: "due_date",
         headerName: "생산 등록 날짜",
-        width: 150,
+        width: 170,
         align: "center",
         headerAlign: 'center',
       },
@@ -163,14 +162,14 @@ export default function MoniToring(props) {
         headerAlign: 'center',
         field: "reg_date",
         headerName: "생산 완료 날짜",
-        width: 150,
+        width: 170,
         align: "center"
       },
       {
         headerAlign: 'center',
         field: "spec",
         headerName: "생산 진행 상태",
-        width: 450,
+        width: 500,
         
         renderCell : (props)=>{
           return(
@@ -203,14 +202,13 @@ export default function MoniToring(props) {
   return (
 
       <div className="monitoring">
-        <div className="item">
-            <div className= "itemTitleContainer">
-                <h3 className="itemTitle">생산 모니터링</h3>
+        <div className="monitorem">
+            <div className= "monitorTitleContainer">
+                <h3 className="monitorTitle">생산 모니터링</h3>
             </div>
-            <div className="itemContainer">
+            <div className="monitorContainer">
             </div>
-            <Box sx={{ height: 500, width: "680%", marginTop: "50px" }}>
-        <Expd peed={data}/>
+            <Box sx={{ height: 500, width: "660%", marginTop: "50px" }}>
         <DataGrid
           rows={data}
           columns={columns}

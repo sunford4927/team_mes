@@ -17,12 +17,14 @@
 }
 /* 생산율 */
 .pip1Title{
-    margin: 50px 0px 0px 150px;
+    margin: 60px 0px 0px 165px;
+    font-style:italic
     
 }
-
+/* 불량률 */
 .pip2Title{
-    margin: 50px 0px 0px 150px;
+    margin: 60px 0px 0px 165px;
+    font-style:italic
 }
 /* 불량량률 파이 */
 .pip2{
@@ -43,6 +45,7 @@
 .pipname{
     font-size: 1pc;
     margin: 0px 0px 0px -50px;
+    color: #1e88e5;
 }    
 
 /* 찾기 버튼 바     */
@@ -51,10 +54,12 @@
     border-radius: 10px;
     border: 1px solid #e9ecef;
     background: #eeeeee;
+    font-style: italic;
 }
-/* 생산율 생상수량 */
+/* 생산율 생산수량 */
 .pip1SubTitle1{
     margin: -50px 0px 0px 120px;
+    color: #1e88e5;
 }
 /* 생산율 남은 수량 */
 .pip1SubTitle2{
@@ -100,6 +105,8 @@
 /* 불량률 불량 수량 */
 .pip2SubTitle2{
     margin: -26px 0px 0px 220px;
+    color: #e5211e;
+    
 }
 
 /* pipSubTitle3,4,5 합동 */

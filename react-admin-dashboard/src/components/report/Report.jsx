@@ -2,13 +2,22 @@ import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import './report.css'
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-
+// 생상율 차트
 const data = [
   { name: "Group A", value: 400 },
   
 ];
+// # 불량률 차트 
+const data1 = [
+  { name: "Group b", value1: 400 },
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  
+];
+// 생상율 차트 색깔
+const COLORS = ["#0088FE", "#e5211e", "#FFBB28", "#FF8042"];
+// 불량률 차트 색깔 
+const COLORS1 = ["#e5211e", "#FFBB28", "#FF8042"];
+
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -40,16 +49,16 @@ export default function Report() {
   return (
 <div className="pip">
 <div className="pipname">
-                    <label>찾기  </label>
+                    <label> 찾기 </label>
                     <input 
                         type="text"
-                        placeholder="입력해주세요"
+                        placeholder=" 입력해주세요"
                         className="pipname1"
                     />    
                 </div>
 
   <div className="pip1">
-    <h1 className="pip1Title">생산율</h1>
+    <h2 className="pip1Title">생산율</h2>
     <PieChart width={400} height={400} >
       <Pie
         data={data}
@@ -58,7 +67,7 @@ export default function Report() {
         labelLine={false}
         label={renderCustomizedLabel}
         outerRadius={80}
-        fill="#8884d8"
+        fill="#0088FE"
         dataKey="value"
       >        
         {data.map((entry, index) => (
@@ -76,21 +85,21 @@ export default function Report() {
 
     </div>
     <div className="pip2">
-    <h1 className="pip2Title">불량률</h1>
+    <h2 className="pip2Title">불량률</h2>
 
         <PieChart width={400} height={400}>
       <Pie
-        data={data}
+        data={data1}
         cx={200}
         cy={200}
         labelLine={false}
         label={renderCustomizedLabel}
         outerRadius={80}
-        fill="#8884d8"
-        dataKey="value"
+        fill="#e5211e"
+        dataKey="value1"
       >
         {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          <Cell key={`cell-${index}`} fill={COLORS1[index % COLORS1.length]} />
         ))}
       </Pie>
     </PieChart>
