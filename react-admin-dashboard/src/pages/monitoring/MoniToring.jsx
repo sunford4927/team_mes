@@ -7,6 +7,7 @@ import ProgressBar from "./chart/Chart";
 import Box from '@mui/material/Box';
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import Expd from './Expd'
 
 ////////////////////////////////////////////////////////
 // import 'bootstrap.css';
@@ -186,8 +187,7 @@ export default function MoniToring(props) {
     useEffect(() => {
       const getdata = async() => {
         try {
-            const result = await axios.get("http://127.0.0.1:8000/items/");
-            const result1 = await axios.get("http://127.0.0.1:8000/plans/");
+            const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
             result.data[0].spec =percent1 * 3;
             result.data[1].spec =percent2 * 3;
             result.data[2].spec =percent3 * 3;
@@ -198,6 +198,7 @@ export default function MoniToring(props) {
       getdata();
     },[percent1]);
   return (
+
       <div className="monitoring">
         <div className="item">
             <div className= "itemTitleContainer">
@@ -206,8 +207,9 @@ export default function MoniToring(props) {
             <div className="itemContainer">
             </div>
             <Box sx={{ height: 500, width: "680%", marginTop: "50px" }}>
+        <Expd peed={data}/>
         <DataGrid
-          rows={data.slice(0,7)}
+          rows={data}
           columns={columns}
           pageSize={7}
           rowsPerPageOptions={[5]}
