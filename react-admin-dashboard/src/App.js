@@ -16,7 +16,11 @@ import Info from './information/info/Info'
 import Login from './components/login/Login'
 import Join from './components/join/Join'
 import Report from './components/report/Report'
-
+import ClientR from './information/clientr/ClientR'
+import ItemR from './information/itemr/ItemR'
+import MachineR from './information/machiner/MachineR'
+import MaterialR from './information/materialr/MaterialR'
+import ProCessR from './information/proCessr/ProCessR'
 
 
 
@@ -46,6 +50,12 @@ function App() {
           <Route path="/info" element={<Info />} />
           <Route path="/join" element={<Join />} />
           <Route path="/report" element={<Report />} />
+          <Route path='/info/Client/clientr' element={<ClientR />} />
+          <Route path='/info/item/itemr' element={<ItemR />} />
+          <Route path='/info/material/materialr' element={<MaterialR />} />
+          <Route path='/info/machine/machiner' element={<MachineR />} />
+          <Route path='/info/process/proCessr' element={<ProCessR />} />
+
 
         </Routes>
 

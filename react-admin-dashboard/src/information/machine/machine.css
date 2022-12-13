@@ -84,3 +84,18 @@ background: #283593;
     background: #283593
 
 }
+
+.machineAddButton2{
+    width: 80px;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+    margin: 10px 0px 0px 1050px;
+    color: #FFFFFF;
+background: #283593;
+
+}

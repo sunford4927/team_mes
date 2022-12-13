@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "@mui/material";
+import {Link} from 'react-router-dom'
 import "./client.css";
 import axios from "axios";
 
@@ -124,11 +124,12 @@ export default function DataGridDemo() {
             aria-label="생산완료예정일 검색 종료 기간"
             value
           />
-        </div>
-        <Link>
+        </div>        
           <button className="clientAddButton">검색</button>
-        </Link>
         <button className="clientAddButton1">검색 초기화</button>
+        <Link to= "./clientr">
+        <button className="clientAddButton2">신규등록</button>
+        </Link>
       </div>
       <Box sx={{ height: 490, width: "89%", marginLeft: "30px" }}>
         <DataGrid

@@ -98,6 +98,8 @@ border: 1px solid #e9ecef;
 /* 저장버튼 */
 .orderNumberButton2{
     width: 80px;
+    height: 30px;
+
     border-radius: 5px;
     border: none;
     color: #FFFFFF;
@@ -108,6 +110,8 @@ border: 1px solid #e9ecef;
 /* 취소버튼 */
 .orderNumberButton3{
     width: 80px;
+    height: 30px;
+
     border: none;
     border-radius: 5px;
     color: #FFFFFF;

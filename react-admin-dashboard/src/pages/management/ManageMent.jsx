@@ -46,7 +46,7 @@ export default function ManageMent() {
                 </div>
             <div className="managementContainer">
                 
-                <Link to="/Check">
+                <Link to="./Check">
                 <button className="managementAddButton">검색</button>
                 </Link>
                 <button className="managementAddButton1">검색 초기화</button>
