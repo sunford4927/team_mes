@@ -183,11 +183,23 @@ export default function Report() {
         setMain_data(Onedata[i]);
       }
     }
+    let all_sum = 0
+    for(var i=0; i <next1.length; i++){
+      all_sum += next1[i].metalbadcnt
+      all_sum += next1[i].weighthighcnt
+      all_sum += next1[i].weightlowcnt
+      all_sum += next2[i].metalbadcnt
+      all_sum += next2[i].weighthighcnt
+      all_sum += next2[i].weightlowcnt
+      all_sum += next3[i].metalbadcnt
+      all_sum += next3[i].weighthighcnt
+      all_sum += next3[i].weightlowcnt
+    }
+    setValuecount3(all_sum);
   }, [update]);
   useEffect(() => {
-    setAll_Cnt(Number(main_data.quantity) + valuecount1);
+    setAll_Cnt(Number(main_data.quantity) + valuecount3);
     setData_Cnt(main_data.quantity);
-    setValuecount3(main_data.valuecount1);
 
     console.log(main_data);
     console.log(all_Cnt);
@@ -195,7 +207,9 @@ export default function Report() {
 
   return (
     <div className="pip">
+
       <div className="pipname">
+      <h2>생산보고서</h2>
         <button
           value={search}
           onClick={() => {

@@ -37,11 +37,11 @@ export default function Chart({ data, update }) {
     >
       <CartesianGrid strokeDasharray="2 2" />
       <XAxis dataKey="linecode" />
-      <YAxis />
+      <YAxis label='불량개수'/>
       <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
       <Brush dataKey="curdatetime" height={20} stroke="#8884d8" />
-      <Bar dataKey="metalbadcnt" stackId="b" name="금속불량" fill="#8884d8" />
+      <Bar dataKey="metalbadcnt" legendType='square' stackId="b" name="금속불량" fill="#8884d8" />
       <Bar dataKey="weightlowcnt" name="중량미달" fill="#82ca9d" />
       <Bar dataKey="weighthighcnt" name="중량초과" fill="#ffc658" />
     </BarChart>
