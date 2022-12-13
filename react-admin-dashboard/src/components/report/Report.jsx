@@ -1,22 +1,9 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { PieChart, Pie, Cell } from "recharts";
-<<<<<<< HEAD
 import "./report.css";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import axios from "axios";
 import Chart from "./chart/Chart";
-=======
-import './report.css'
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-// 생상율 차트
-const data = [
-  { name: "Group A", value: 200 },
-  
-];
-// # 불량률 차트 
-const data1 = [
-  { name: "Group b", value1: 400 },
->>>>>>> 75e24d46fc10775f37e8958edc49a3f3db615b2b
 
 export default function Report() {
 
