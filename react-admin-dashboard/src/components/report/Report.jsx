@@ -229,7 +229,7 @@ export default function Report() {
       <div className="pip1">
         <div className='pip1box'>
         <h2 className="pip1Title">총생산율</h2>
-        <PieChart width={400} height={400} >
+        <PieChart width={400} height={400} className='chart'>
           <Pie
             data={data}
             cx={200}
@@ -251,7 +251,7 @@ export default function Report() {
             ))}
           </Pie>
         </PieChart>
-
+<div className="textbox">
         <h5 className="pip1SubTitle1">
           
           생산 수량
@@ -275,6 +275,7 @@ export default function Report() {
             총 불량수량<h4>{valuecount3}</h4>
           </div>
           </div>
+        </div>
         </div>
           <div className="pip2box">
         <h2 className="pip2title">0라인</h2>

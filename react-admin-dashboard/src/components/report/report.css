@@ -26,17 +26,25 @@
 
 
 }
+/* 원차트 name */
+.chart{
+    margin:-70px 0px 0px 50px;
+}
+/* 원차트아래 텍스트박스 */
+.textbox{
+    margin: -65px 0px 0px 50px;
+}
 /* 생산율 원차트박스 */
 .pip1box{
     margin: 0px 0px 0px 90px;
     background-color: #eeeeee;
-    width: auto;
-    height: 600px;
+    width: 500px;
+    height: 433px;
     
 }
 /* 생산율 */
 .pip1Title{
-    margin: 50px 0px 0px 165px;
+    margin: 50px 0px 0px 200px;
     font-style:italic
     
 }
@@ -52,7 +60,7 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: none;
-    margin: 100px 0px 0px 60px;
+    margin: 130px 0px 0px 60px;
     /* background: #eeeeee */
 
 
@@ -171,15 +179,15 @@
 }
 
 .pip2title{
-    margin: 60px 0px 0px 245px;
+    margin: 60px 0px 0px 230px;
     color: #1e88e5;
 }
 .pip2title1{
-    margin: 60px 0px 0px 245px;
+    margin: 60px 0px 0px 230px;
     color: #1e88e5;
 }
 .pip2title2{
-    margin: 60px 0px 0px 245px;
+    margin: 60px 0px 0px 230px;
     color: #1e88e5;
 }
 /* 0번라인 */
