@@ -1,6 +1,7 @@
 .pip{
     display: flex;
     margin: 0px -700px 0px 50px;
+
 }
 .pipsearch{
     color: #FFFFFF;
@@ -12,13 +13,14 @@
 
 /* 생상율 파이 */
 .pip1{
-    flex: 5px;
+    flex: 1px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: 1px solid #e9ecef;
     margin: 100px 0px 0px -403px;
-    background: #eeeeee
+    background: #eeeeee;
+
 
 
 }
@@ -52,7 +54,7 @@
 .pipname{
     font-size: 1pc;
     margin: 0px 0px 0px -50px;
-    color: #1e88e5;
+    color: black;
 }    
 
 /* 찾기 버튼 바     */

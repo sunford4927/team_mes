@@ -43,7 +43,7 @@ export default function Chart({ data, update }) {
     >
       <CartesianGrid strokeDasharray="2 2" />
       <XAxis dataKey="linecode" /> 
-      <YAxis label={{value:'불량개수', angle:90, position:"insideleft",}}/> 
+      <YAxis label={{value:'불량개수', angle:90, position:"left",}}/> 
       <Tooltip />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
       <Brush dataKey="curdatetime" height={30} stroke="#8884d8" />
