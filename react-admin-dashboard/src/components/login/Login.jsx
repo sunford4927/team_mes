@@ -58,8 +58,8 @@ function Login() {
   const[imgLeft,setimgLeft]=useState(0);
 
   useEffect(function(){
-      if(imgLeft<250){
-       setTimeout(()=>  setimgLeft(imgLeft+15),200);          
+      if(imgLeft<300){
+       setTimeout(()=>  setimgLeft(imgLeft+0.5),300);          
       }else{
           setimgLeft(0)
       }

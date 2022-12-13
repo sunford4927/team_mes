@@ -1,7 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import "./report.css";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import axios from "axios";
 import Chart from "./chart/Chart";
 
@@ -53,7 +52,7 @@ export default function Report() {
   }
 
   // 생상율 차트 색깔
-  const COLORS = ["#FF8042", "#0088FE", "#FFBB28"];
+  const COLORS = ["#e5211e", "#0088FE", "#FFBB28"];
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -208,8 +207,9 @@ export default function Report() {
   return (
     <div className="pip">
       <div className="pipname">
-
+        <h2>생산보고서</h2>
         <button
+          className="pipsearch"
           value={search}
           onClick={() => {
             setUpdate("play");
@@ -227,15 +227,16 @@ export default function Report() {
       </div>
 
       <div className="pip1">
+        <div className='pip1box'>
         <h2 className="pip1Title">총생산율</h2>
-        <PieChart width={400} height={400}>
+        <PieChart width={400} height={400} >
           <Pie
             data={data}
             cx={200}
             cy={200}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={130}
+            outerRadius={90}
             fill="#0088FE"
             dataKey="value"
             
@@ -250,15 +251,18 @@ export default function Report() {
             ))}
           </Pie>
         </PieChart>
+
         <h5 className="pip1SubTitle1">
-          <CheckBoxOutlineBlankIcon />
+          
           생산 수량
         </h5>
+
         <h5 className="pip1SubTitle2">
-          <CheckBoxOutlineBlankIcon />
-          남은 수량
+          불량 수량
         </h5>
+
         <div className="pipSubTitle">
+
           <div className="pip1SubTitle3">
             총 생산계획 <h4>{all_Cnt}</h4>
           </div>
@@ -266,21 +270,31 @@ export default function Report() {
           <div className="pip1SubTitle4">
             총 생산수량<h4>{data_Cnt}</h4>
           </div>
+
           <div className="pip2SubTitle5">
             총 불량수량<h4>{valuecount3}</h4>
           </div>
+          </div>
+        </div>
+          <div className="pip2box">
+        <h2 className="pip2title">0라인</h2>
+        <Chart data={next1} update={update} />
         </div>
       </div>
+
+
       <div className="pip2">
-
-        <h2>0라인</h2>
-        <Chart data={next1} update={update} />
-
-        <h2>1라인</h2>
-        <Chart data={next2} update={update} />
-        <h2>2라인</h2>
+        <div className="pip2box2">
+        <h2 className="pip2title2">2라인</h2>
         <Chart data={next3} update={update} />
+        </div>
+
+        <div className="pip2box1">
+        <h2 className="pip2title1">1라인</h2>
+        <Chart data={next2} update={update} />
+        </div>
       </div>
+ 
     </div>
   );
 }

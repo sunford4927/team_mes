@@ -1,7 +1,9 @@
 import "./Chart.css";
 import React from "react";
+
 import {
   BarChart,
+  Label,
   Bar,
   XAxis,
   YAxis,
@@ -9,9 +11,11 @@ import {
   Tooltip,
   Legend,
   Brush,
-  Label
+  Text
 } from "recharts";
 import { useState, useEffect } from "react";
+import { margin } from "@mui/system";
+import { red } from "@mui/material/colors";
 
 export default function Chart({ data, update }) {
     // 원하는 타이밍에 데이터 입력을 위한 state값 선언
@@ -25,9 +29,11 @@ export default function Chart({ data, update }) {
     }, [update]);
 
   return (
+      <div>
     <BarChart
-      width={600}
-      height={300}
+      barSize={20}      
+      width={500}
+      height={400}
       data={bigdata}
       margin={{
         top: 20,
@@ -37,16 +43,15 @@ export default function Chart({ data, update }) {
       }}
     >
       <CartesianGrid strokeDasharray="2 2" />
-      <XAxis dataKey="linecode" name="lese" />
-      <YAxis ><Label value='불량개수' position={'left'}/></YAxis>
-      <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+      <XAxis dataKey=" " label={{value:'라인', position:'center'}} /> 
+      <YAxis label={{value:'불량개수', angle:90, position:"left",}}/> 
+      <Tooltip />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
-      <Brush dataKey="curdatetime" height={20} stroke="#8884d8" label='ee'/>
-      <Bar dataKey="metalbadcnt" legendType='square' stackId="b" name="금속불량" fill="#8884d8" />
+      <Brush dataKey="curdatetime" height={30} stroke="#8884d8"/>
+      <Bar dataKey="metalbadcnt" stackId="b" name="금속불량" fill="#8884d8" />
       <Bar dataKey="weightlowcnt" name="중량미달" fill="#82ca9d" />
       <Bar dataKey="weighthighcnt" name="중량초과" fill="#ffc658" />
     </BarChart>
- 
-
+    </div>
   );
 }
