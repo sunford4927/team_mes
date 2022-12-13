@@ -1,10 +1,8 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import "./report.css";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import axios from "axios";
 import Chart from "./chart/Chart";
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 export default function Report() {
 
@@ -54,7 +52,7 @@ export default function Report() {
   }
 
   // 생상율 차트 색깔
-  const COLORS = ["#FF8042", "#0088FE", "#FFBB28"];
+  const COLORS = ["#e5211e", "#0088FE", "#FFBB28"];
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -184,11 +182,23 @@ export default function Report() {
         setMain_data(Onedata[i]);
       }
     }
+    let all_sum = 0
+    for(var i=0; i <next1.length; i++){
+      all_sum += next1[i].metalbadcnt
+      all_sum += next1[i].weighthighcnt
+      all_sum += next1[i].weightlowcnt
+      all_sum += next2[i].metalbadcnt
+      all_sum += next2[i].weighthighcnt
+      all_sum += next2[i].weightlowcnt
+      all_sum += next3[i].metalbadcnt
+      all_sum += next3[i].weighthighcnt
+      all_sum += next3[i].weightlowcnt
+    }
+    setValuecount3(all_sum);
   }, [update]);
   useEffect(() => {
-    setAll_Cnt(Number(main_data.quantity) + valuecount1);
+    setAll_Cnt(Number(main_data.quantity) + valuecount3);
     setData_Cnt(main_data.quantity);
-    setValuecount3(main_data.valuecount1);
 
     console.log(main_data);
     console.log(all_Cnt);
@@ -196,6 +206,7 @@ export default function Report() {
 
   return (
     <div className="pip">
+
       <div className="pipname">
         <h2>생산보고서</h2>
         <button
@@ -242,13 +253,12 @@ export default function Report() {
         </PieChart>
 
         <h5 className="pip1SubTitle1">
-          <CheckBoxIcon className="pip1SubTitleIcon1" />
+          
           생산 수량
         </h5>
 
         <h5 className="pip1SubTitle2">
-          <CheckBoxOutlineBlankIcon />
-          남은 수량
+          불량 수량
         </h5>
 
         <div className="pipSubTitle">
@@ -270,13 +280,13 @@ export default function Report() {
 
       <div className="pip2">
 
-        <h2>0라인</h2>
+        <h2 className="pip2title">0라인</h2>
         <Chart data={next1} update={update} />
 
-        <h2>1라인</h2>
+        <h2 className="pip2title1">1라인</h2>
         <Chart data={next2} update={update} />
 
-        <h2>2라인</h2>
+        <h2 className="pip2title2">2라인</h2>
         <Chart data={next3} update={update} />
       </div>
     </div>

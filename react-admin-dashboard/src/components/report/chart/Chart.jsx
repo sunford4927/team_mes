@@ -1,7 +1,9 @@
 import "./Chart.css";
 import React from "react";
+
 import {
   BarChart,
+  Label,
   Bar,
   XAxis,
   YAxis,
@@ -11,12 +13,14 @@ import {
   Brush,
 } from "recharts";
 import { useState, useEffect } from "react";
+import { margin } from "@mui/system";
+import { red } from "@mui/material/colors";
 
 export default function Chart({ data, update }) {
     // 원하는 타이밍에 데이터 입력을 위한 state값 선언
   const [bigdata, setbigdata] = useState();
   let lee = [];
-  for (var i = 324; i < 452; i++) {
+  for (var i = 0; i < data.length; i++) {
       lee.push(data[i]);
     }
     useEffect(() => {
@@ -25,7 +29,8 @@ export default function Chart({ data, update }) {
 
   return (
       <div>
-    <BarChart      
+    <BarChart
+      barSize={20}      
       width={650}
       height={300}
       data={bigdata}
@@ -37,10 +42,11 @@ export default function Chart({ data, update }) {
       }}
     >
       <CartesianGrid strokeDasharray="2 2" />
-      <YAxis />
+      <XAxis dataKey="linecode" /> 
+      <YAxis label={{value:'불량개수', angle:90, position:"insideleft",}}/> 
       <Tooltip />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
-      <Brush dataKey="curdatetime" height={20} stroke="#8884d8" />
+      <Brush dataKey="curdatetime" height={30} stroke="#8884d8" />
       <Bar dataKey="metalbadcnt" stackId="b" name="금속불량" fill="#8884d8" />
       <Bar dataKey="weightlowcnt" name="중량미달" fill="#82ca9d" />
       <Bar dataKey="weighthighcnt" name="중량초과" fill="#ffc658" />
