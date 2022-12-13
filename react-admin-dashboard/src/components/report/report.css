@@ -1,6 +1,6 @@
 .pip{
     display: flex;
-    margin: 0px -700px 0px 50px;
+    margin: 0px 0px 0px 50px;
 }
 
 /* 생상율 파이 */
@@ -11,7 +11,8 @@
     border-radius: 10px;
     border: 1px solid #e9ecef;
     margin: 50px 0px 0px -403px;
-    background: #eeeeee
+    background: #eeeeee;
+    height: 600px;
 
 
 }

@@ -207,9 +207,8 @@ export default function Report() {
 
   return (
     <div className="pip">
-
       <div className="pipname">
-      <h2>생산보고서</h2>
+
         <button
           value={search}
           onClick={() => {
