@@ -25,10 +25,9 @@ export default function Chart({ data, update }) {
 
   return (
       <div>
-    <BarChart
-      title="바보"
+    <BarChart      
       width={650}
-      height={500}
+      height={300}
       data={bigdata}
       margin={{
         top: 20,
@@ -38,16 +37,14 @@ export default function Chart({ data, update }) {
       }}
     >
       <CartesianGrid strokeDasharray="2 2" />
-      <XAxis dataKey="linecode" />
       <YAxis />
       <Tooltip />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
-      <Brush dataKey="curdatetime" height={50} stroke="#8884d8" />
+      <Brush dataKey="curdatetime" height={20} stroke="#8884d8" />
       <Bar dataKey="metalbadcnt" stackId="b" name="금속불량" fill="#8884d8" />
       <Bar dataKey="weightlowcnt" name="중량미달" fill="#82ca9d" />
       <Bar dataKey="weighthighcnt" name="중량초과" fill="#ffc658" />
     </BarChart>
-        <h4>ssssss</h4>
     </div>
   );
 }

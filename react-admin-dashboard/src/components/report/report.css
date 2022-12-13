@@ -17,7 +17,7 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: 1px solid #e9ecef;
-    margin: 50px 0px 0px -403px;
+    margin: 100px 0px 0px -403px;
     background: #eeeeee
 
 
@@ -30,7 +30,7 @@
 }
 /* 불량률 */
 .pip2Title{
-    margin: 60px 0px 0px 165px;
+    margin: 0px 0px 0px 165px;
     font-style:italic
 }
 /* 불량량률 파이 */
@@ -40,7 +40,7 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: 1px solid #e9ecef;
-    margin: 50px 0px 0px 150px;
+    margin: 100px 0px 0px 70px;
     background: #eeeeee
 
 
@@ -69,6 +69,13 @@
     margin: -50px 0px 0px 120px;
     color: #1e88e5;
 }
+
+.pip1SubTitleIcon1{
+    color: #1e88e5;
+}
+
+
+
 /* 생산율 남은 수량 */
 .pip1SubTitle2{
     margin: -26px 0px 0px 220px;
@@ -76,29 +83,29 @@
 
 /* pipSubTitle3,4,5 합동 */
 .pipSubTitle{
-    margin: -20px 0px 0px 23px;
+    margin: -20px 0px 0px 40px;
 }
-/* 생산율 생산계획 */
+/* 생산율 총생산계획 */
 .pip1SubTitle3{
-    height: 100px;
-    width: 70px;
-    margin: 50px 0px 0px 70px;
+    height: 99px;
+    width: 90px;
+    margin: 50px 0px 0px 30px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 0px;
     border-right: 1px  solid white;    
 }
-/* 생산율 생산수량 */
+/* 생산율 총생산수량 */
 .pip1SubTitle4{
     height: 100px;
-    width: 70px;
-    margin: -99px 0px 0px 150px;
+    width: 90px;
+    margin: -99px 0px 0px 130px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 0px;
     border-right: 1px  solid white;
 }
-/* 생산율 남은수량 */
+/* 생산율 총남은수량 */
 .pip1SubTitle5{
     margin: -100px 0px 0px 225px;    
 }

@@ -4,11 +4,16 @@ import "./report.css";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import axios from "axios";
 import Chart from "./chart/Chart";
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 export default function Report() {
 
   // props 넘길 state 값
-  const [next, setNext] = useState([]);
+  const [next1, setNext1] = useState([]);
+  // props 넘길 state 값
+  const [next2, setNext2] = useState([]);
+  // props 넘길 state 값
+  const [next3, setNext3] = useState([]);
   // 페이지 렌더링 기준state 값
   const [update, setUpdate] = useState("");
   // 페이지에 사용될 데이터 값
@@ -95,22 +100,21 @@ export default function Report() {
         );
         // 원하는정보만 모아서 딕셔너리 구축
         setOneData(Make_ID(result.data));
-        setNext(logdata.data);
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
         for (var i = 324; i < 450; i += 3) {
           data_list1.push(logdata.data[i]);
-        }
+        }setNext1(data_list1)
         // 데이터 1라인별로 모아서 저장
         var data_list2 = [];
         for (var i = 325; i < 451; i += 3) {
           data_list2.push(logdata.data[i]);
-        }
+        }setNext2(data_list2)
         // 데이터 2라인별로 모아서 저장
         var data_list3 = [];
         for (var i = 326; i < 452; i += 3) {
           data_list3.push(logdata.data[i]);
-        }
+        }setNext3(data_list3)
         setValuecount1(
           data_list2[data_list2.length - 1]["weighthighcnt"]
         );
@@ -193,6 +197,7 @@ export default function Report() {
   return (
     <div className="pip">
       <div className="pipname">
+        <h2>생산보고서</h2>
         <button
           className="pipsearch"
           value={search}
@@ -205,14 +210,14 @@ export default function Report() {
         </button>
         <input
           type="text"
-          placeholder=" 입력해주세요"
+          placeholder=" Lot 번호를 입력해주세요"
           className="pipname1"
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
       <div className="pip1">
-        <h2 className="pip1Title">생산율</h2>
+        <h2 className="pip1Title">총생산율</h2>
         <PieChart width={400} height={400}>
           <Pie
             data={data}
@@ -220,7 +225,7 @@ export default function Report() {
             cy={200}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={80}
+            outerRadius={130}
             fill="#0088FE"
             dataKey="value"
             
@@ -235,29 +240,44 @@ export default function Report() {
             ))}
           </Pie>
         </PieChart>
+
         <h5 className="pip1SubTitle1">
-          <CheckBoxOutlineBlankIcon />
+          <CheckBoxIcon className="pip1SubTitleIcon1" />
           생산 수량
         </h5>
+
         <h5 className="pip1SubTitle2">
           <CheckBoxOutlineBlankIcon />
           남은 수량
         </h5>
+
         <div className="pipSubTitle">
+
           <div className="pip1SubTitle3">
-            생산계획 <h4>{all_Cnt}</h4>
+            총 생산계획 <h4>{all_Cnt}</h4>
           </div>
 
           <div className="pip1SubTitle4">
-            생산수량<h4>{data_Cnt}</h4>
+            총 생산수량<h4>{data_Cnt}</h4>
           </div>
+
           <div className="pip2SubTitle5">
-            불량수량<h4>{valuecount3}</h4>
+            총 불량수량<h4>{valuecount3}</h4>
           </div>
+
         </div>
       </div>
+
       <div className="pip2">
-        <Chart data={next} update={update} />
+
+        <h2>0라인</h2>
+        <Chart data={next1} update={update} />
+
+        <h2>1라인</h2>
+        <Chart data={next2} update={update} />
+
+        <h2>2라인</h2>
+        <Chart data={next3} update={update} />
       </div>
     </div>
   );
