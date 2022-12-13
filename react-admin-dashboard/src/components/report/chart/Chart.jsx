@@ -26,6 +26,7 @@ export default function Chart({ data, update }) {
   return (
       <div>
     <BarChart
+      title="바보"
       width={650}
       height={500}
       data={bigdata}

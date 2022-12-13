@@ -194,6 +194,7 @@ export default function Report() {
     <div className="pip">
       <div className="pipname">
         <button
+          className="pipsearch"
           value={search}
           onClick={() => {
             setUpdate("play");

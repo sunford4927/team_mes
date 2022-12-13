@@ -2,6 +2,13 @@
     display: flex;
     margin: 0px -700px 0px 50px;
 }
+.pipsearch{
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    background: #283593;
+    margin: 0px 0px 0px 10px;
+}
 
 /* 생상율 파이 */
 .pip1{
@@ -51,6 +58,7 @@
 /* 찾기 버튼 바     */
 .pipname1{
     width: 400px;
+    margin: 0px 0px 0px 20px;
     border-radius: 10px;
     border: 1px solid #e9ecef;
     background: #eeeeee;
