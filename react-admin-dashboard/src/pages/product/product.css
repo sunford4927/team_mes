@@ -7,7 +7,7 @@
 
 .productTitleContainer {
     display: flex;
-    margin: 30px 0px -30px -15px;
+    margin: 10px 0px -30px -15px;
     font-size: 0.875rem;
     color: #000000;
     
@@ -33,14 +33,14 @@
 
 /* 신규등록 */
 .productAddButton{
-    width: 100px;
+    width: 80px;
     height: 30px;
     border: none;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin: -20px -10px 0px 0px;
+    margin: 30px -10px 0px 0px;
     color: #FFFFFF;
     background: #283593;
 }

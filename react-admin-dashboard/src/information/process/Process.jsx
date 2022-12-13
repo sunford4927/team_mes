@@ -103,6 +103,11 @@ export default function Process() {
         </Link>
         <button className="processAddButton1">검색 초기화</button>
 
+        <Link to='./proCessr'>
+        <button className="processAddButton2">신규등록</button>
+        </Link>
+
+
 
       </div>
       <Box sx={{ height: 380, width: "89%", marginLeft: "30px" }}>

@@ -4,7 +4,7 @@ import './report.css'
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 // 생상율 차트
 const data = [
-  { name: "Group A", value: 400 },
+  { name: "Group A", value: 200 },
   
 ];
 // # 불량률 차트 

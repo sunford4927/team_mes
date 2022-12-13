@@ -113,6 +113,9 @@ export default function Material() {
           <button className="materialAddButton">검색</button>
         </Link>
         <button className="materialAddButton1">검색 초기화</button>
+        <Link to='./materialr'>
+        <button className="materialAddButton2">신규등록</button>
+        </Link>
       </div>
       <Box sx={{height: 490, width: "89%", marginLeft: "30px" }}>
         <DataGrid

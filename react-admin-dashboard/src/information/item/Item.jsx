@@ -109,8 +109,9 @@ export default function Item() {
 
         </Link>
         <button className="itemAddButton1">검색 초기화</button>
-
-
+        <Link to='./itemr'>
+        <button className="itemAddButton2">신규등록</button>
+        </Link>
       </div>
       <Box sx={{ height: 490, width: "89%", marginLeft: "30px"}}>
         <DataGrid

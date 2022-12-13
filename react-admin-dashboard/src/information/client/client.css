@@ -144,7 +144,20 @@ border: 1px solid #e9ecef
     background: #283593;
 
 }
-
+.clientAddButton2{
+    width: 80px;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+    margin: 0px 0px 0px 1050px;
+    color: #FFFFFF;
+    background: #283593;
+    
+}
 
 
 

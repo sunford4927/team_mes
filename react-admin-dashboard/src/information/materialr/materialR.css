@@ -1,0 +1,29 @@
+.MaterialRnext{
+    padding: 19px;
+    margin: -55px 10px 0px 100px;
+    color: red;
+}
+
+.MaterialRRAddButton{
+    width: 100px;
+    height: 30px;
+
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    background: #283593;
+    margin: 50px 40px 0px 910px;
+}
+
+/* 취소 버튼 */
+.MaterialRRAddButton1{
+    width: 100px;
+    height: 30px;
+
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background: #283593;
+    margin: 0px 40px 0px -20px;
+    
+}

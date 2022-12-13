@@ -125,6 +125,9 @@ useEffect(() => {
 
         </Link>
         <button className="machineAddButton1">검색 초기화</button>
+        <Link to='machiner'>
+        <button className="machineAddButton2">신규등록</button>
+        </Link>
 
 
       </div>

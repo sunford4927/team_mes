@@ -1,0 +1,139 @@
+/* 부모 컨포넌트 */
+.ClientReg {
+    flex: 4;        
+    position: relative;
+    color: #000000;
+}
+
+
+/* 자식 컨포넌트 */
+.clientContainerR{
+    display: grid;
+    white-space: nowrap;
+    
+
+}
+/* 생상계획 등록 부분  */
+.ClientRR{
+    padding: 19px;
+    margin: -20px 0px 0px -10px;
+}
+/* 필수항목 부분 */
+.ClientRRnext{
+    padding: 19px;
+    margin: -55px 10px 0px 90px;
+    color: red;   
+
+}
+/* 고객명 */
+.ClientRnumber{
+    flex: 0.7;
+    width: 130px;
+    white-space: normal;
+    
+}
+/* 고객명 바 부분 */
+.ClientRnumber1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 30px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef    
+}
+/* 고객코드 */
+.ClientRcode{
+    flex: 0.6;
+    margin: 20px 0px 0px 0px;
+    width: 130px;
+    white-space: normal;
+}
+/* 고객코드 바 */
+.ClientRcode1{
+    height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 30px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef    
+}
+
+/* 전화번호 */
+.phone{    
+        flex: 0.6;
+        margin: 20px 0px 0px 0px;
+        width: 130px;
+        white-space: normal;    
+}
+.phone1{height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 30px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef }
+
+/* 담잠자 */
+.ClientRname{
+    flex: 0.6;
+    margin: 20px 0px 0px 0px;
+    width: 130px;
+    white-space: normal;
+}
+.ClientRname1{height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 30px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef }
+
+
+/* 담담자 연락처 */
+.ClientRphone{
+    flex: 0.6;
+    margin: 20px 0px 0px 0px;
+    width: 130px;
+    white-space: normal;
+}
+.ClientRphone1{height: 30px;
+    width: 1095px;
+    margin: 5px 0px 0px 30px;
+    background: #eeeeee;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #e9ecef }
+
+
+
+/* 저장버튼 */
+.ClientRAddButton{
+    width: 100px;
+    height: 30px;
+
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    background: #283593;
+    margin: 30px 40px 0px 910px;
+}
+
+/* 취소 버튼 */
+.ClientRAddButton1{
+    width: 100px;
+    height: 30px;
+
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background: #283593;
+    margin: 0px 40px 0px -20px;
+    
+}
