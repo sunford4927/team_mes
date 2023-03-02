@@ -13,13 +13,15 @@ export default function NewR({ orders, customers, items, plan }) {
   const [items_a, setItems] = useState('');
   const [plan_a, setPlan] = useState('');
   // 뒤로가기 기능 구현
-
   console.log(items_a);
   const eventcatch = (e) => {
     console.log(e.target.value);
     setEvent(e.target.value);
   };
-
+  useEffect(()=>{
+    let inputBtn = document.getElementById("rd1")
+    inputBtn.checked = true;
+  },[])
   useEffect(() => {
     setOrders(orders);
     setCustomers(customers);
@@ -40,6 +42,8 @@ export default function NewR({ orders, customers, items, plan }) {
         </div>
 
         <div className="button">
+          <form action="">
+        <label>
           <input
             type="radio"
             className="processchangeButton"
@@ -49,8 +53,8 @@ export default function NewR({ orders, customers, items, plan }) {
             onChange={eventcatch}
           />
 
-          <label>계획</label>
-
+          계획</label>
+          <label>
           <input
             type="radio"
             className="processchangeButton"
@@ -59,7 +63,8 @@ export default function NewR({ orders, customers, items, plan }) {
             value="O"
             onChange={eventcatch}
           />
-          <label>수주</label>
+          수주</label>
+          </form>
           {event == "O" ? <Orders event={event} order={orders_a} item={items_a} /> : <Plan item={items_a} event={event} />}
         </div>
       </div>

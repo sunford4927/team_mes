@@ -21,6 +21,7 @@ import ItemR from './information/itemr/ItemR'
 import MachineR from './information/machiner/MachineR'
 import MaterialR from './information/materialr/MaterialR'
 import ProCessR from './information/proCessr/ProCessR'
+import Dropdown from './components/dropdown/Dropdown'
 
 
 
@@ -32,7 +33,7 @@ function App() {
       {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Topbar />}
       <div className="container">
 
-        {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Sidebar />}
+        {/* {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Sidebar />} */}
 
 
         <Routes>
@@ -55,6 +56,7 @@ function App() {
           <Route path='/info/material/materialr' element={<MaterialR />} />
           <Route path='/info/machine/machiner' element={<MachineR />} />
           <Route path='/info/process/proCessr' element={<ProCessR />} />
+          <Route path='/info/drop' element={<Dropdown />} />
 
 
         </Routes>

@@ -1,27 +1,27 @@
+import { useRef, useState} from 'react';
+import './Dropdown.css'
 import React from "react";
-import "./sidebar.css";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 
 import { Link } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
-  const nav = useNavigate();
+export default function DropdownMenu  ()  {
+    const dropdownRef = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+    const onClick = () => setIsActive(!isActive);
 
-  function home() {
-    nav("/info/Client");
-  }
+  
+    return (
+      <div className="menu-container">
+        <button onClick={onClick} className="menu-trigger">
+          <span>User</span>
+          <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/df/df7789f313571604c0e4fb82154f7ee93d9989c6.jpg" alt="User avatar" />
+        </button>
+        <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
+        <div className="sidebarWrapper">
 
-  return (
-    <div className="sidebar">
-      <div className="sidebarWrapper">
-        <div className="logo">
-          <p >
-            <span class="material-symbols-outlined">menu</span> <span onClick={home}>거북이</span>
-          </p>
-        </div>
 
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">
@@ -68,6 +68,7 @@ export default function Sidebar() {
           </Link>
         </ul>
       </div>
-    </div>
-  );
-}
+        </nav>
+      </div>
+    );
+  };

@@ -1,6 +1,7 @@
 import { getByTestId, getByText } from "@testing-library/react";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import "./plan.css";
@@ -26,6 +27,7 @@ export default function Plan({ item, event }) {
   const num_quantity = Number(quantity);
   const item_list = item;
   const nav = useNavigate();
+  console.log(useRef(null).current)
   // 뒤로가기 구현
   function back(e){
     if(e.target.value == 'end'){
@@ -72,7 +74,7 @@ export default function Plan({ item, event }) {
   const [testname, settestname] = useState();
   async function openPro() {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
+    const item_a = await axios.get("http://127.0.0.1:8000/mes/items/");
     console.log(item_a.data);
     let proArray = item_a.data;
     let proNameArray = [];

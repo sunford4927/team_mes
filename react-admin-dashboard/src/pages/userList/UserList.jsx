@@ -102,12 +102,12 @@ const UserList = () => {
     // 기존 생산계획정보 및, 신규등록에 관한 데이터를 가져옴
     const Plansgetdata = async () => {
       try {
-        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
-        const result_data1 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/orders/");
+        const result = await axios.get("http://127.0.0.1:8000/mes/plans/");
+        const result_data1 = await axios.get("http://127.0.0.1:8000/mes/orders/");
         const result_data2 = await axios.get(
-          "http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/customers/"
+          "http://127.0.0.1:8000/mes/customers/"
         );
-        const result_data3 = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
+        const result_data3 = await axios.get("http://127.0.0.1:8000/mes/items/");
         // console.log(result_data1)
         setDummyData(Make_ID(result.data));
         setOrders(
