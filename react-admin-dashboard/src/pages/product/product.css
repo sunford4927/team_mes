@@ -1,13 +1,16 @@
 .product {
+    margin-top:300px;
+    margin-bottom: -30px;
     flex: 1;
-    padding: 10px;
+    height: 100px;
+    /* padding: 10px; */
 
     
 }
 
 .productTitleContainer {
     display: flex;
-    margin: 10px 0px -30px -15px;
+    /* margin: 10px 0px -30px -15px; */
     font-size: 0.875rem;
     color: #000000;
     
@@ -16,7 +19,6 @@
 }
 /* 생산계획정보 */
 .productTitle{
-    position: relative;
     padding: 15px;
     font-size: 13px;
 }
@@ -24,7 +26,6 @@
 /* 총 생산건의 검색 결과 내용 */
 .productTitleNext {
     flex:1px;
-    padding: 0px;
     margin: 38px 0px -200px 0px;
     font-size: 1px;
 

@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 export default function ManageMent() {
     return (
         <div className="management">
+            <div className="management_all">
             <div className= "managementTitleContainer">
                 <h3 className="managementTitle">생산계획 관리</h3>                
             </div>
-            <div className="managementContainer">
                 <div className="managementnumber">
-                    <label>LOT번호  </label>
+                    <span>LOT번호  </span><br/>
                     <input
                         type="text"
                         placeholder="LoT번호를 입력해주세요"
@@ -27,7 +27,7 @@ export default function ManageMent() {
                     />    
                 </div>
 
-                <div className="managementdate">
+                <p className="managementdate">
                     <label>생산완료예정일  </label>
                     <input 
                         type="date"
@@ -43,7 +43,7 @@ export default function ManageMent() {
                         value
                     />
 
-                </div>
+                </p>
             <div className="managementContainer">
                 
                 <Link to="./Check">

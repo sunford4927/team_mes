@@ -32,16 +32,7 @@
         
 }
 
-.menu.active {
-    position: absolute;
-    left: 0;
-    /* margin : auto; */
-    opacity: 1;
-    visibility: inherit;
-    transform: translate(0,0);
-    z-index: 99;
-    
-}
+
 .topIconBadge {
     position: absolute;
     top: -1px;
@@ -81,30 +72,19 @@
     border-radius: 8px;
     position: absolute;
     top: 60px;
-    right: 0;
     width: 300px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   }
   
-
-  
-  .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu li {
-    border-bottom: 1px solid #dddddd;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: #333333;
-    padding: 15px 20px;
-    display: block;
-  }
+  .menu.active {
+    position: absolute;
+    left: 0;
+    opacity: 1;
+    visibility: inherit;
+    transform: translate(0,0);
+    z-index: 99;
+    
+}

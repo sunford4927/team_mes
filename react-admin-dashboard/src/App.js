@@ -31,7 +31,7 @@ function App() {
     <Router>
 
       {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Topbar />}
-      <div className="container">
+      <div className="body">
 
         {/* {window.location.href === "http://localhost:3000/" && "http://localhost:3000/join" ? '' : <Sidebar />} */}
 
