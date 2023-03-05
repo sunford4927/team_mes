@@ -1,34 +1,37 @@
 import React from "react";
 import './manageMent.css'
 import {Link} from 'react-router-dom'
+import Product from "../product/Product";
 
-export default function ManageMent() {
+export default function ManageMent({dummyData, title, row1, row2,row3}) {
     return (
         <div className="management">
             <div className="management_all">
             <div className= "managementTitleContainer">
-                <h3 className="managementTitle">생산계획 관리</h3>                
+                <h3 className="managementTitle">{title}</h3>                
             </div>
+                <div className="management_container">
                 <div className="managementnumber">
-                    <span>LOT번호  </span><br/>
+                    <span>{row1}</span><br/>
                     <input
                         type="text"
-                        placeholder="LoT번호를 입력해주세요"
+                        placeholder={`${row1} 입력`}
                         className="managementnumber1" 
                     />
                 </div>
 
                 <div className="managementname">
-                    <label>제품명  </label>
+                    <label>{row2}</label>
                     <input 
                         type="text"
-                        placeholder="제품명을 입력해주세요"
+                        placeholder={`${row2} 입력`}
                         className="managementname1"
                     />    
                 </div>
+                </div>
 
                 <p className="managementdate">
-                    <label>생산완료예정일  </label>
+                    <label>{row3}</label>
                     <input 
                         type="date"
                         className="search"
@@ -44,13 +47,14 @@ export default function ManageMent() {
                     />
 
                 </p>
+                <br/>
             <div className="managementContainer">
                 
-                <Link to="./Check">
                 <button className="managementAddButton">검색</button>
-                </Link>
                 <button className="managementAddButton1">검색 초기화</button>
+                <br/>
             </div>
+                <Product list={dummyData} />
             </div>
         </div>
     )

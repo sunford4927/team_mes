@@ -2,9 +2,10 @@ import './machine.css'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
-import { Link } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Make_ID } from '../../make';
+import ManageMent from '../../pages/management/ManageMent';
 
 export default function MoniToring(){
 const columns = [
@@ -60,18 +61,13 @@ const columns = [
 
 ];
 const [data, setData] = useState('');
-function Make_ID(dummyData) {
-  for (var i = 0; i < dummyData.length; i++) {
-    dummyData[i]["id"] = i + 1;
-  }
-  return dummyData;
-}
+
 
 
 useEffect(() => {
   const getdata = async () => {
     try {
-      const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/machine/");
+      const result = await axios.get("http://127.0.0.1:8000/mes/items/");
       console.log(data);
       setData(Make_ID(result.data));
     } catch (error) {
@@ -82,65 +78,19 @@ useEffect(() => {
 }, []);
   return (
     <div className="machine">
-      <div className="machineTitleContainer">
-        <h3 className="machineTitle">설비정보 관리</h3>
-      </div>
       <div className="machineContainer">
-        <div className="machinecode">
-          <label>설비코드  </label>
-          <input
-            type="text"
-            placeholder="설비코드를 입력해주세요"
-            className="machinecode1"
-          />
-        </div>
-        <div className="machinename">
-          <label>설비명  </label>
-          <input
-            type="text"
-            placeholder="설비명을 입력해주세요"
-            className="machinename1"
-          />
-        </div>
-
-        <div className="machinedate">
-          <label>등록일시  </label>
-          <input
-            type="date"
-            className="search"
-            aria-label="생산완료예정일 검색 시작기간"
-            value
-          />
-          <span className="control"> ~ </span>
-          <input
-            type="date"
-            className="search"
-            aria-label="생산완료예정일 검색 종료 기간"
-            value
-          />
-
-        </div>
-        <Link>
-          <button className="machineAddButton">검색</button>
-
-        </Link>
-        <button className="machineAddButton1">검색 초기화</button>
-        <Link to='machiner'>
-        <button className="machineAddButton2">신규등록</button>
-        </Link>
-
-
       </div>
-
-      <Box sx={{ height: 490, width: "89%", marginLeft: "30px" }}>
+      <ManageMent dummyData={data} title='설비정보 관리' row1='제품코드' row2='제품명' row3='등록일시'/>
+      <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={data}
-          columns={columns}
-          pageSize={7}
-          rowsPerPageOptions={[5]}
           disableSelectionOnClick
-          experimentalFeatures={{ newEditingApi: true }}
-        />
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[5]}
+          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 400,margin : '0 auto'}}
+        // getRowId={(r) => r.id}
+        ></DataGrid>
       </Box>
     </div>
   )

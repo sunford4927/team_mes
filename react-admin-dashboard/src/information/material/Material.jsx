@@ -4,14 +4,10 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import { Make_ID } from "../../make";
+import ManageMent from "../../pages/management/ManageMent";
 export default function Material() {
   const [data, setData] = useState('');
-  function Make_ID(dummyData) {
-    for (var i = 0; i < dummyData.length; i++) {
-      dummyData[i]["id"] = i + 1;
-    }
-    return dummyData;
-  }
   const columns = [
     {
       field: "id",
@@ -21,47 +17,85 @@ export default function Material() {
       headerAlign: 'center',
     },
     {
-      field: "material_code",
+      field: "item_code",
       headerName: "원자재 코드",
       width: 150,
       align: "center",
       headerAlign: 'center',
     },
     {
-      field: "material_name",
+      field: "item_name",
       headerName: "원자재 명",
       width: 350,
       align: "center",
       headerAlign: 'center',
     },
     {
-      field: "unit",
-      headerName: "단위",
-      width: 80,
-      align: "center",
-      headerAlign: 'center',
-    },
-    {
       field: "sort",
       headerName: "분류",
-      width: 225,
+      width: 285,
       align: "center",
       headerAlign: 'center',
     },
     {
       field: "spec",
       headerName: "사양",
-      width: 225,
+      width: 285,
       align: "center",
       headerAlign: 'center',
     },
-
   ];
+
+  // const columns = [
+  //   {
+  //     field: "id",
+  //     headerName: "ID",
+  //     width: 50,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+  //   {
+  //     field: "material_code",
+  //     headerName: "원자재 코드",
+  //     width: 150,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+  //   {
+  //     field: "material_name",
+  //     headerName: "원자재 명",
+  //     width: 350,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+  //   {
+  //     field: "unit",
+  //     headerName: "단위",
+  //     width: 80,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+  //   {
+  //     field: "sort",
+  //     headerName: "분류",
+  //     width: 225,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+  //   {
+  //     field: "spec",
+  //     headerName: "사양",
+  //     width: 225,
+  //     align: "center",
+  //     headerAlign: 'center',
+  //   },
+
+  // ];
 
   useEffect(() => {
     const getdata = async () => {
       try {
-        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/materials/");
+        const result = await axios.get("http://127.0.0.1:8000/mes/items/");
         console.log(data);
         setData(Make_ID(result.data));
       } catch (error) {
@@ -72,59 +106,17 @@ export default function Material() {
   }, []);
   return (
     <div className="material">
-      <div className="materialTitleContainer">
-        <h3 className="materialTitle">원자재정보 관리</h3>
-      </div>
-      <div className="materialContainer">
-        <div className="materialcode">
-          <label>원재자재코드 </label>
-          <input
-            type="text"
-            placeholder="원자재코드를 입력해주세요"
-            className="materialcode1"
-          />
-        </div>
-        <div className="materialname">
-          <label>원자재명 </label>
-          <input
-            type="text"
-            placeholder="원자재를 입력해주세요"
-            className="materialname1"
-          />
-        </div>
-
-        <div className="materialdate">
-          <label>등록일시 </label>
-          <input
-            type="date"
-            className="search"
-            aria-label="생산완료예정일 검색 시작기간"
-            value
-          />
-          <span className="control"> ~ </span>
-          <input
-            type="date"
-            className="search"
-            aria-label="생산완료예정일 검색 종료 기간"
-            value
-          />
-        </div>
-        <Link>
-          <button className="materialAddButton">검색</button>
-        </Link>
-        <button className="materialAddButton1">검색 초기화</button>
-        <Link to='./materialr'>
-        <button className="materialAddButton2">신규등록</button>
-        </Link>
-      </div>
-      <Box sx={{height: 490, width: "89%", marginLeft: "30px" }}>
+          <ManageMent dummyData={data} title="원자재정보 관리" row1="원자재 코드" row2="원자재" row3="등록일시"/> 
+      <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={data}
-          columns={columns}
-          pageSize={7}
-          rowsPerPageOptions={[5]}
           disableSelectionOnClick
-        />
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[5]}
+          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 400,margin : '0 auto'}}
+        // getRowId={(r) => r.id}
+        ></DataGrid>
       </Box>
     </div>
   );

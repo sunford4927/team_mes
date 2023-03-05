@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
+import './sidebar.css';
 
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 .userList {
-    
+
 }
 
 /* 표의 header*/
@@ -45,3 +45,6 @@
 }
 
 
+.MuiDataGrid-columnHeaders{
+    /* width:10px; */
+}

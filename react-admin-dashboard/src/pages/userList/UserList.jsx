@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./userList.css";
 import { createUseGridApiEventHandler, DataGrid } from "@mui/x-data-grid";
 import ManageMent from "../management/ManageMent";
-import Product from "../product/Product";
 import axios from "axios";
 import { Box } from "@mui/system";
 import { Make_ID,Make_Table } from "../../make";
@@ -67,7 +66,7 @@ const UserList = () => {
       width: 150,
       align: "center",
       headerAlign: 'center',
-    },
+    }
   ];
 
   useEffect(() => {
@@ -93,15 +92,17 @@ const UserList = () => {
   }, []);
   return (
     <div className="userList">
-      <ManageMent />
-      <Box sx={{ height: 600, width: "100%", margin: -1, marginLeft: '13px', }}>
-        <Product list={dummyData} />
+      <div>
+      <ManageMent dummyData = {dummyData} title='생산계획 관리' row1 = 'LOT 번호' row2='제품명' row3='생산완료 예정일'/>
+      </div>
+      <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={dummyData}
           disableSelectionOnClick
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[5]}
+          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 400,margin : '0 auto'}}
         // getRowId={(r) => r.id}
         ></DataGrid>
       </Box>
