@@ -22,7 +22,7 @@ export default function Plan({ item, event }) {
   //등록일
   const [date, setdate] = useState("");
   //저장버튼
-  const [save, setSave] = useState("");
+  const [save, setSave] = useState(false);
   const event_a = event;
   const num_quantity = Number(quantity);
   const item_list = item;
@@ -35,8 +35,7 @@ export default function Plan({ item, event }) {
     }
   }
   function item_con(itembox, japum) {
-    var list = [];
-    console.log(japum)
+    let list = [];
     for (var i = 0; i < itembox.length; i++) {
       if (itembox[i]["item_name"] == japum) {
         list["item_code"] = itembox[i]["item_code"];
@@ -52,7 +51,7 @@ export default function Plan({ item, event }) {
       try {
         const item_b = item_con(item_list, japum);
         console.log(item_b)
-        await axios.post("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/", {
+        await axios.post("http://127.0.0.1:8000/mes/plans/", {
           flag: event_a,
           lot_num: LotNum,
           item_code: item_b["item_code"],
@@ -60,6 +59,7 @@ export default function Plan({ item, event }) {
           due_date: date,
           plan_name: sangsan,
         });
+        setSave(false)
         alert(`등록이 완료되었습니다.`);
         nav("/users");
       } catch (error) {
@@ -93,6 +93,7 @@ export default function Plan({ item, event }) {
     alert("아이디 또는 비밀번호가 일치하지 않습니다");
   }
   return (
+
     <div className="plan">
       <div className="planTitleContainer">
         <span className="P"> * </span>
@@ -214,7 +215,7 @@ export default function Plan({ item, event }) {
         />
       </div>
       <div className="planTitleContainer">
-        <button className="planNumberButton2" type="button" onClick={setSave}>
+        <button className="planNumberButton2" type="button" onClick={setSave(true)}>
           저장
         </button>
         <button className="planNumberButton3" type="button" onClick={back} value='end'>
@@ -222,6 +223,7 @@ export default function Plan({ item, event }) {
         </button>
       </div>
     </div>
+
   );
 }
 

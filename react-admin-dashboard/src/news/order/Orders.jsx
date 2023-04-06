@@ -33,7 +33,7 @@ export default function Orders({ order , event, item }) {
   const [quantity,setQuantity] = useState('')
 
   function item_code(itembox, itemname) {
-    var list = [];
+    let list = [];
     for (var i = 0; i < itembox.length; i++) {
       if (itembox[i]["item_name"] == itemname) {
         list["item_code"] = itembox[i]["item_code"];
@@ -60,9 +60,9 @@ export default function Orders({ order , event, item }) {
   const [testname, settestname] = useState();
   async function openPro() {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/orders/");
-    const item_b = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
-    const item_c = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/customers/");
+    const item_a = await axios.get("http://127.0.0.1:8000/mes/orders/");
+    const item_b = await axios.get("http://127.0.0.1:8000/mes/plans/");
+    const item_c = await axios.get("http://127.0.0.1:8000/mes/customers/");
     console.log(item_a.data);
     let proArray = item_a.data;
     let proNameArray = [];
@@ -93,7 +93,7 @@ export default function Orders({ order , event, item }) {
   }, [quantity]);
   async function openPro2() {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
+    const item_a = await axios.get("http://127.0.0.1:8000/mes/items/");
     console.log(item_a.data);
     let proArray = item_a.data;
     let proNameArray = [];
@@ -141,7 +141,7 @@ function data(testname, orders,plans, customers){
       try {
         const code = item_code(item, itemname)
         console.log(code['item_code'])
-        await axios.post("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/create_order/", {
+        await axios.post("http://127.0.0.1:8000/mes/create_order/", {
           flag: eventing,
           lot_num: Lotnum,
           order_code: order_code,
@@ -243,6 +243,7 @@ function data(testname, orders,plans, customers){
           placeholder="수주코드를 선택하시면 해당 고객명이 입력됩니다"
           className="orderNumbername1"
           onChange={(e) => setCustomerName(e.target.value)}
+          disabled
         />
       </div>
 
@@ -279,6 +280,7 @@ function data(testname, orders,plans, customers){
           placeholder="수주코드를 선택하시면 해당제품의 수량이 입력됩니다"
           className="quantityNumbername"
           onChange={(e) => setItemName(e.target.value)}
+          disabled
         />
       </div>
 

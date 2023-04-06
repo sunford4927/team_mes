@@ -6,10 +6,7 @@
     color: #90caf9;
 }
 
-.login-div{
-    display: flex;
-    margin: 200px 400px;   
-}
+
 
 /* 회원가입에 부분에 글자 적는 부분 */
 .join-div{
@@ -23,11 +20,12 @@
     border:1px solid #fff;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
     height: 100px;
-    width: 300px;
+    width: 400px;
     display: inline-block;
-    padding: 20px;
-    margin: -210px 0px -200px -410px;
-    position: center;
+    /* padding: 20px; */
+    margin: 10% 0 0 0;
+    /* margin : auto 0; */
+    /* position: center; */
 }
 
 /* 회원가입 */

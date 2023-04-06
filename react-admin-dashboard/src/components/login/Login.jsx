@@ -3,11 +3,13 @@ import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
-function Login() {
+function Login(props) {
   // django 연결
   const [id, setId] = useState(""); // 아이디
   const [password, setPassword] = useState(""); // 비밀번호
+  
 
   const onChangeId = (e) => {
     setId(e.target.value);
@@ -32,7 +34,7 @@ function Login() {
     
     // 로그인 
     axios
-      .post("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/users/login/", user)
+      .post("http://127.0.0.1:8000/users/login/", user)
       .then((res) => {
         if (res.data.token) {
             console.log(res.data);
@@ -46,6 +48,11 @@ function Login() {
           setPassword("");
           localStorage.clear();
         }
+      }).then((res) =>{
+        const result10 = axios.get("http://127.0.0.1:8000/mes/plans/").then(function(response) {props.ADD('ADDPLAN',response.data)})
+    const result12 = axios.get("http://127.0.0.1:8000/mes/items/").then(function(response) {props.ADD("ADDITEM",response.data)})
+    const result11 = axios.get("http://127.0.0.1:8000/mes/orders/").then(function(response) {props.ADD("ADDORDER",response.data)})
+    const result13 = axios.get("http://127.0.0.1:8000/mes/customers/").then(function(response) {props.ADD("ADDCUSTOMER",response.data)})
       })
       .catch((err) => {
         console.clear();
@@ -83,7 +90,6 @@ function Login() {
         <Form inline onSubmit={onSubmit}>
           <FormGroup floating>
           <Label className="loginId">아이디 </Label>
-
             <Input
               className="loginIdname"
               id="loginId"
@@ -131,4 +137,15 @@ function Login() {
   );
 }
 
-export default Login;
+const MapStatetoProps=(state)=>{
+  console.log(state)
+  return {...state}
+}
+
+const MapDispatchtoProps=(dispatch)=>{
+  return {
+    ADD : (a,b) => dispatch({type : a, content: b})
+  }
+}
+
+export default connect(MapStatetoProps,MapDispatchtoProps)(Login);

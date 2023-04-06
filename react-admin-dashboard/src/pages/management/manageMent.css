@@ -1,18 +1,16 @@
 .management {
-    position: absolute;;
-    top:0;
-    left:0;
-    right:0;
+    /* position: relative;; */
     color: #000000;
     width: 1200px;
-    margin: 0 auto;
+    margin : auto;
+
 }
 
 
 
 .managementContainer {
     position : absolute;
-    right: 0;
+    right: 50px;
     
 }
 
@@ -90,7 +88,6 @@ border: 1px solid #e9ecef
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    
     color: #FFFFFF;
     background: #283593;
     

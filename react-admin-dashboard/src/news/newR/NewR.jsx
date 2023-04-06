@@ -31,6 +31,7 @@ export default function NewR({ orders, customers, items, plan }) {
   }, [event]);
 
   return (
+    <div className="inner">
     <div className="processPR">
         <h3 className="processTitle">생산 계획 관리</h3>
     <div className="processMenu">
@@ -68,6 +69,7 @@ export default function NewR({ orders, customers, items, plan }) {
           {event == "O" ? <Orders event={event} order={orders_a} item={items_a} /> : <Plan item={items_a} event={event} />}
         </div>
       </div>
+    </div>
     </div>
   );
 }

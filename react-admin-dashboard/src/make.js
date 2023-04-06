@@ -29,3 +29,19 @@ for (var i = 0; i < dummyData.length; i++) {
 }
 return dummyData;
 }
+
+export function make_div(){
+  let div = document.createElement('div')
+  let span = document.createElement('span')
+  let input = document.createElement('input')
+  let br = document.createElement('br')
+  div.className = 'clientname'
+  span.innerText ='담당자'
+  input.className = 'managementname1'
+  input.type = 'text'
+  input.placeholder = `담당자 입력`
+  div.appendChild(span)
+  div.appendChild(br)
+  div.appendChild(input)
+  return div
+}

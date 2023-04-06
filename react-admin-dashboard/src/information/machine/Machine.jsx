@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Make_ID } from '../../make';
 import ManageMent from '../../pages/management/ManageMent';
 
-export default function MoniToring(){
+export default function Machine(){
 const columns = [
   {
     field: "id",
@@ -78,20 +78,20 @@ useEffect(() => {
 }, []);
   return (
     <div className="machine">
-      <div className="machineContainer">
-      </div>
+      <div className="inner">
       <ManageMent dummyData={data} title='설비정보 관리' row1='제품코드' row2='제품명' row3='등록일시'/>
-      <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
+      <Box sx={{ height: 400, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={data}
           disableSelectionOnClick
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[5]}
-          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 400,margin : '0 auto'}}
+          sx={{width:1150, margin : '0 auto'}}
         // getRowId={(r) => r.id}
         ></DataGrid>
       </Box>
+      </div>
     </div>
   )
 }

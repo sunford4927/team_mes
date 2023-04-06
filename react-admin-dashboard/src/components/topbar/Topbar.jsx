@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import './sidebar.css';
+import Notice from "./notice/Notice";
 
 import { Link } from "react-router-dom";
 
@@ -26,11 +27,10 @@ export default function Topbar() {
           menu
         </span>
         <span onClick={home} className="home_name">
-          거북이
+          공장 관리 시스템
         </span>
+      <Notice />
       </p>
-      <div className="menu-container"></div>
-
       <div className="topbarWrapper">
         <div className="topRight">
           {/* tobarIcon */}
@@ -55,7 +55,7 @@ export default function Topbar() {
         <div className="sidebarWrapper">
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">
-              {" "}
+              {/* {" "} */}
               <HomeWorkIcon /> 기준정보관리
             </h3>
 
@@ -95,6 +95,31 @@ export default function Topbar() {
             </Link>
             <Link to="report">
               <li className="sidebarListItem">생산보고서</li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle1">
+            {" "}
+            <FactCheckIcon /> 시스템 관리
+          </h3>
+
+          <ul className="sidebarList">
+            <Link to="/users">
+              <li className="sidebarListItem">사용자 설정</li>
+            </Link>
+
+            <Link to="/monitoring">
+              <li className="sidebarListItem">사용자 그룹</li>
+            </Link>
+            <Link to="report">
+              <li className="sidebarListItem">그룹별 권한</li>
+            </Link>
+            <Link to="report">
+              <li className="sidebarListItem">암호 변경</li>
+            </Link>
+            <Link to="report">
+              <li className="sidebarListItem">공지사항 관리</li>
             </Link>
           </ul>
         </div>

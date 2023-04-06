@@ -1,13 +1,11 @@
 
+.login-div{
+    display: flex;
+    height: 100vh;
+}
 .window{
-    background-attachment: fixed;
-    position: absolute; 
-    top: 0; 
-    left: 100; 
-    right: 0; 
-    bottom: 0;
-    width: 1200px;
-    height: 740px
+    width: 100%; 
+    height: 100%;
 }
 
 
@@ -30,17 +28,19 @@
 
 /* MES 부분 */
 .form-div h2{
+    text-align: center;
     font-weight: bold;
     font-size: 30px;
-    margin: 0px 0px 0px 80px;
+    /* margin: 0px 0px 0px 80px; */
     color: #90caf9;
 }
 
 
 .form-div h4{
+    text-align: center;
     font-weight: bold;
     font-size: 10px;
-    margin: 0px 0px 0px 60px;
+    /* margin: 0px 0px 0px 60px; */
     color: #90caf9;
 }
 
@@ -54,13 +54,13 @@
     
 }
 
-.loginIdname{
-    margin: 50px 0px -20px 15px;
-
+.join-btn-div{
+    text-align: right;
 }
+
 
 /* 메인 회원가입 버튼 */
 .join-link{
-    margin: 0px 0px 0px 235px;
     color:#90caf9;
 }
+

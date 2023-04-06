@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import {Link} from 'react-router-dom'
 import "./client.css";
 import axios from "axios";
-import { Make_ID } from "../../make";
+import { Make_ID, make_div } from "../../make";
 import ManageMent from "../../pages/management/ManageMent";
+import Loading from "../../components/loading/Loading";
 
-export default function DataGridDemo() {
+import {connect} from "react-redux"
+
+function Client(props) {
   const [data, setData] = useState('');
-  const element = document.createElement('div')
+  const [loading, setLoading] = useState(false);
+  console.log(props)
+  // const element = document.createElement('div')
   const columns = [
     { 
       field: "id",
@@ -62,50 +66,65 @@ export default function DataGridDemo() {
     },
   ];
 
+ 
+
+  const getdata = async () => {
+    setLoading(true);
+    try {
+      const result = await axios.get("http://127.0.0.1:8000/mes/customers/");
+      console.log(data);
+      setData(Make_ID(result.data));
+      setLoading(false)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const getdata = async () => {
-      try {
-        const result = await axios.get("http://127.0.0.1:8000/mes/customers/");
-        console.log(data);
-        setData(Make_ID(result.data));
-      } catch (error) {
-        console.error(error);
-      }
-    };
     let topdiv = document.querySelector('.management_container')
-    let div = document.createElement('div')
-    let span = document.createElement('span')
-    let input = document.createElement('input')
-    let br = document.createElement('br')
-    div.className = 'clientname'
-    span.innerText ='담당자'
-    input.className = 'managementname1'
-    input.type = 'text'
-    input.placeholder = `담당자 입력`
-    div.appendChild(span)
-    div.appendChild(br)
-    div.appendChild(input)
-    topdiv.appendChild(div)
+    topdiv.appendChild(make_div())
     getdata();
     return () => {
-      div.remove()
+      make_div().remove()
     }
   }, []);
   return (
     <div className="client">
-
+      <div className="inner">
+        <div className="loading">
+          {loading ? <Loading/> : null}
+        </div>
       <ManageMent dummyData={data} title='고객정보 관리' row1='고객명' row2='고객코드' row3='등록일시'/>
 
-       <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
+      <div>
+       <Box sx={{ height: 400, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={data}
           disableSelectionOnClick
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[5]}
-          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 470,margin : '0 auto'}}
+          sx={{width:1150, margin : '0 auto'}}
+        // getRowId={(r) => r.id}
         ></DataGrid>
       </Box>
+      </div>
+      </div>
     </div>
   );
 }
+
+const MapStatetoProps=(state)=>{
+  console.log(state)
+  return {...state}
+}
+
+const MapDispatchtoProps=(dispatch)=>{
+  return {
+    ADD : (a,b) => dispatch({type : a, content: b})
+  }
+}
+
+
+
+export default connect(MapStatetoProps,MapDispatchtoProps)(Client);

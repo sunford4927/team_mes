@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./moniToring.css";
-import "react-circular-progressbar/dist/styles.css";
+// import "react-circular-progressbar/dist/styles.css";
 import axios from "axios";
 import ProgressBar from "./chart/Chart";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
+import { Make_ID } from "../../make";
 
-////////////////////////////////////////////////////////
-// import 'bootstrap.css';
-// function dic(result){
-//   var dic_list = [] 
-//   var moniter_dic = {}
-//   for(var u=0; u<result.length; u++){
-//     moniter_dic[u]['lot_num'] = result[u]['lot_num'];
-//     moniter_dic[u]['plan_name'] = result[u]['plan_name'];
-//     moniter_dic[u]['quantity'] = result[u]['quantity'];
-//     dic_list.push(moniter_dic)
-//     var moniter_dic = {}
-//   }
-// }
 export default function MoniToring(props) {
+  const [compostate, setCompostate] = useState(0)
+  // setCompostate(compostate+1)
+  console.log(compostate)
   // 1라인 실시간 생산량
   const [num1, setNum1] = useState(0);
   // const [indata1, setIndata1] = useState();
@@ -53,25 +43,26 @@ export default function MoniToring(props) {
   // 차트에 들어갈 데이터 주머니
   const testData = [
     // completed : 현재생산율   num : 현재생산수량
-    {completed: Math.floor(percent1), num:num1},
-    {completed: Math.floor(percent2), num:num2},
-    {completed: Math.floor(percent3), num:num3},
-    {completed: 100, num:20000},
-    {completed: 100, num:20000},
-    {completed: 100, num:20000},
-    {completed: 100, num:40000},
-    {completed: 100, num:30000},
-    {completed: 100, num:1500},
-    {completed: 100, num:5000},
+    { completed: Math.floor(percent1), num: num1 },
+    { completed: Math.floor(percent2), num: num2 },
+    { completed: Math.floor(percent3), num: num3 },
+    { completed: 100, num: 20000 },
+    { completed: 100, num: 20000 },
+    { completed: 100, num: 20000 },
+    { completed: 100, num: 40000 },
+    { completed: 100, num: 30000 },
+    { completed: 100, num: 1500 },
+    { completed: 100, num: 5000 },
   ];
   useEffect(() => {
-    console.log("Test1");
     const outdata = async () => {
       try {
-        const logdata = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/productionlog/");
-        const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/");
+        const logdata = await axios.get(
+          "http://127.0.0.1:8000/mes/TbProductionLog/"
+        );
+        const result = await axios.get("http://127.0.0.1:8000/mes/plans/");
         // 원하는정보만 모아서 딕셔너리 구축
-        setData(Make_ID(result.data))
+        setData(Make_ID(result.data));
         // 데이터 0라인별로 모아서 저장
         var data_list1 = [];
         for (var i = 324; i < 450; i += 3) {
@@ -101,7 +92,6 @@ export default function MoniToring(props) {
           } else {
             clearInterval(timer);
           }
-          console.log(j);
         }, 1000);
         // math(data_list)
       } catch (error) {
@@ -111,9 +101,7 @@ export default function MoniToring(props) {
     outdata();
   }, []);
   useEffect(() => {
-    // console.log("Test2");
     setPercent1(math1(num1, valuecount1));
-    // console.log(percent1);
   }, [num1]);
   useEffect(() => {
     setPercent2(math2(num2, valuecount2));
@@ -121,104 +109,98 @@ export default function MoniToring(props) {
   useEffect(() => {
     setPercent3(math3(num3, valuecount3));
   }, [num3]);
-    const [data, setData] = useState('');
-    function Make_ID(dummyData) {
-      for (var i =0; i < dummyData.length; i++) {
-        dummyData[i]["id"] = i+1;
-      }
-      return dummyData;
-    }
-    const columns = [
-      // 데이터 그리드 내용삽입을위한 형식지정
-      {field: "id", headerName: "ID", width: 40 },
-      {
-        headerAlign: 'center',
-        field: "lot_num",
-        headerName: "LOT 번호",
-        width: 100,
-        align: "center"
-      },
-      {
-        headerAlign: 'center',
-        field: "plan_name",
-        headerName: "생산명",
-        width: 150,
-        align: "center"
-      },
-      {
-        field: "quantity",
-        headerName: "계획 수량",
-        width: 100,
-        align: "center"
-      },
-      {
-        field: "due_date",
-        headerName: "생산 등록 날짜",
-        width: 170,
-        align: "center",
-        headerAlign: 'center',
-      },
-      {
-        headerAlign: 'center',
-        field: "reg_date",
-        headerName: "생산 완료 날짜",
-        width: 170,
-        align: "center"
-      },
-      {
-        headerAlign: 'center',
-        field: "spec",
-        headerName: "생산 진행 상태",
-        width: 500,
-        
-        renderCell : (props)=>{
-          return(
-                      
-          <div id='bar'><ProgressBar key={0} completed={testData[props.row.id-1].completed} num={testData[props.row.id-1].num}
-          count={props.row.quantity} id={props.row.id}/>                  
+  const [data, setData] = useState("");
+
+  const columns = [
+    // 데이터 그리드 내용삽입을위한 형식지정
+    { field: "id", headerName: "ID", width: 40 },
+    {
+      headerAlign: "center",
+      field: "lot_num",
+      headerName: "LOT 번호",
+      width: 100,
+      align: "center",
+    },
+    {
+      headerAlign: "center",
+      field: "plan_name",
+      headerName: "생산명",
+      width: 150,
+      align: "center",
+    },
+    {
+      field: "quantity",
+      headerName: "계획 수량",
+      width: 100,
+      align: "center",
+    },
+    {
+      field: "due_date",
+      headerName: "생산 등록 날짜",
+      width: 170,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
+      headerAlign: "center",
+      field: "reg_date",
+      headerName: "생산 완료 날짜",
+      width: 170,
+      align: "center",
+    },
+    {
+      headerAlign: "center",
+      field: "spec",
+      headerName: "생산 진행 상태",
+      width: 400,
+
+      renderCell: (props) => {
+        return (
+          <div id="bar">
+            <ProgressBar
+              key={0}
+              completed={testData[props.row.id - 1].completed}
+              num={testData[props.row.id - 1].num}
+              count={props.row.quantity}
+              id={props.row.id}
+            />
           </div>
-
-          
-          
-         )
-        }
+        );
       },
-          
-    ];
-    // console.log(percent1,percent2,percent3)
-    useEffect(() => {
-      const getdata = async() => {
-        try {
-            const result = await axios.get("http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/");
-            result.data[0].spec =percent1 * 3;
-            result.data[1].spec =percent2 * 3;
-            result.data[2].spec =percent3 * 3;
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      getdata();
-    },[percent1]);
+    },
+  ];
+  useEffect(() => {
+    const getdata = async () => {
+      try {
+        const result = await axios.get("http://127.0.0.1:8000/mes/items/");
+        result.data[0].spec = percent1 * 3;
+        result.data[1].spec = percent2 * 3;
+        result.data[2].spec = percent3 * 3;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getdata();
+  }, [percent1]);
   return (
-
-      <div className="monitoring">
-        <div className="monitorem">
-            <div className= "monitorTitleContainer">
-                <h3 className="monitorTitle">생산 모니터링</h3>
-            </div>
-            <div className="monitorContainer">
-            </div>
-            <Box sx={{ height: 500, width: "660%", marginTop: "50px" }}>
-        <DataGrid
-          rows={data}
-          columns={columns}
-          pageSize={data.length}
-          rowsPerPageOptions={[5]}
-          disableSelectionOnClick          
-        >
-        </DataGrid>
-      </Box>
+    <div className="monitoring">
+      <div className="monitorem">
+        <div className="inner">
+        <div className="monitorTitleContainer">
+          <h3 className="monitorTitle">생산 모니터링</h3>
+        </div>
+        <Box sx={{ height: 400, margin: -1, marginLeft: "13px" }}>
+          <DataGrid
+            rows={data}
+            disableSelectionOnClick
+            columns={columns}
+            pageSize={10}
+            rowsPerPageOptions={[5]}
+            sx={{ width: 1150, margin: "0 auto" }}
+          ></DataGrid>
+        </Box>
         </div>
       </div>
+    </div>
   );
 }

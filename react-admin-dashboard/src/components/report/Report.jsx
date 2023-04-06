@@ -87,14 +87,13 @@ export default function Report() {
   ];
 
   useEffect(() => {
-    console.log("Test1");
     const outdata = async () => {
       try {
         const logdata = await axios.get(
-          "http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/productionlog2/"
+          "http://127.0.0.1:8000/mes/test/TbProductionLog/"
         );
         const result = await axios.get(
-          "http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/plans/"
+          "http://127.0.0.1:8000/mes/plans/"
         );
         // 원하는정보만 모아서 딕셔너리 구축
         setOneData(Make_ID(result.data));
@@ -129,7 +128,6 @@ export default function Report() {
           } else {
             clearInterval(timer);
           }
-          console.log(j);
         }, 1000);
         // math(data_list)
       } catch (error) {
@@ -162,7 +160,7 @@ export default function Report() {
     const getdata = async () => {
       try {
         const result = await axios.get(
-          "http://ec2-3-35-26-50.ap-northeast-2.compute.amazonaws.com:8080/items/"
+          "http://127.0.0.1:8000/mes/items/"
         );
         result.data[0].spec = percent1 * 3;
         result.data[1].spec = percent2 * 3;
@@ -199,9 +197,6 @@ export default function Report() {
   useEffect(() => {
     setAll_Cnt(Number(main_data.quantity) + valuecount3);
     setData_Cnt(main_data.quantity);
-
-    console.log(main_data);
-    console.log(all_Cnt);
   }, [main_data]);
 
   return (
@@ -222,7 +217,7 @@ export default function Report() {
           type="text"
           placeholder=" Lot 번호를 입력해주세요"
           className="pipname1"
-          onChange={(e) => setSearch(e.target.value)}
+          onClick={(e) => setSearch(e.target.value)}
         />
       </div>
 

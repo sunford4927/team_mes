@@ -1,7 +1,4 @@
-import { red } from "@mui/material/colors";
-import { borderColor } from "@mui/system";
-import { Switch } from "@material-ui/core";
-import { useEffect, useState } from "react";
+
 const ProgressBar = (props) => {
   const { completed, num, count, id } = props;
   function math1(num, valuecount) {
@@ -10,14 +7,14 @@ const ProgressBar = (props) => {
   }
 
   const containerStyles = {
-    height: 20,
-    
+    height: 50,
+    position: 'relative',
     // 생산진행상태바 가로길이
-    width: '410%',
+    width: 350,
     // 상태바 배경색
-    backgroundColor: "#918f88",
+    backgroundColor: "red",
     borderRadius: 50,
-    margin: 50,
+    margin: 0,
   }
   const fillerStyles = {
     height: '100%',
@@ -26,14 +23,19 @@ const ProgressBar = (props) => {
     borderRadius: 'inherit',
     textAlign: 'center',
     transition: 'width 1s ease-in-out',
+    position: 'absolute',
+    margin : 0,
+ 
 
   }
   const labelStyles = {
-    padding: 5,
+    position: 'abolute',
     // 상태바 Text
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
-    position: "fixed",
+    // position: "fixed",
+    margin : 'auto'
+    
   }
 
   return (

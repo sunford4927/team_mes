@@ -56,21 +56,22 @@ export default function Process() {
   return (
     <div className="process">
 
-      <div className="processContainer">
+      <div className="inner">
       <ManageMent dummyData={data} title='공정정보 관리' row1='공정코드' row2='공정명' row3='등록일시'/>
 
-      </div>
-      <Box sx={{ height: 400, width: 1150, margin: -1, marginLeft: '13px', }}>
+
+       <Box sx={{ height: 400, margin: -1, marginLeft: '13px', }}>
         <DataGrid
           rows={data}
           disableSelectionOnClick
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[5]}
-          sx={{width:1150,position: 'absolute', left: 0 , right:0,top: 400,margin : '0 auto'}}
+          sx={{width:1150, margin : '0 auto'}}
         // getRowId={(r) => r.id}
         ></DataGrid>
       </Box>
+      </div>
     </div>
 
   )

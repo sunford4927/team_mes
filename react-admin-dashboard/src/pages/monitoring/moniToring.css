@@ -22,10 +22,6 @@
     margin: auto;
 }
 
-.userList {
-    grid: 4px;
-        margin: 220px 0px 0px 13px;
-    }
 /* 표의 header*/
 .MuiDataGrid-columnHeaders {
     color: white;
@@ -56,6 +52,10 @@
 }
 
 
-    .bar{
-        border-color: crimson;
-    }
+.bar{
+    border-color: crimson;
+}
+
+#id{
+    margin-top: 200px;
+}
