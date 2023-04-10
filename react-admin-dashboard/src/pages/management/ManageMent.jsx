@@ -1,9 +1,8 @@
 import React from "react";
 import './manageMent.css'
-import {Link} from 'react-router-dom'
 import Product from "../product/Product";
 
-export default function ManageMent({dummyData, title, row1, row2,row3}) {
+export default function ManageMent({dummyData, title, row1, row2,row3,adress}) {
     return (
         <div className="management">
             <div className="management_all">
@@ -54,7 +53,7 @@ export default function ManageMent({dummyData, title, row1, row2,row3}) {
                 <button className="managementAddButton1">검색 초기화</button>
                 <br/>
             </div>
-                <Product list={dummyData} />
+                <Product list={dummyData} ads = {adress} />
             </div>
         </div>
     )

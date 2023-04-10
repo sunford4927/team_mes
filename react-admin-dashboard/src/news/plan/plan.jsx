@@ -1,7 +1,6 @@
 import { getByTestId, getByText } from "@testing-library/react";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import "./plan.css";
@@ -27,7 +26,6 @@ export default function Plan({ item, event }) {
   const num_quantity = Number(quantity);
   const item_list = item;
   const nav = useNavigate();
-  console.log(useRef(null).current)
   // 뒤로가기 구현
   function back(e){
     if(e.target.value == 'end'){
@@ -59,7 +57,6 @@ export default function Plan({ item, event }) {
           due_date: date,
           plan_name: sangsan,
         });
-        setSave(false)
         alert(`등록이 완료되었습니다.`);
         nav("/users");
       } catch (error) {
@@ -81,8 +78,6 @@ export default function Plan({ item, event }) {
     for (let i = 0; i < proArray.length; i++) {
       proNameArray.push(proArray[i].item_name);
     }
-
-    console.log(proNameArray);
     setProNames(proNameArray);
     setModalState(!modalState);
   }
@@ -215,7 +210,7 @@ export default function Plan({ item, event }) {
         />
       </div>
       <div className="planTitleContainer">
-        <button className="planNumberButton2" type="button" onClick={setSave(true)}>
+        <button className="planNumberButton2" type="button" onClick={() =>setSave(!save)}>
           저장
         </button>
         <button className="planNumberButton3" type="button" onClick={back} value='end'>

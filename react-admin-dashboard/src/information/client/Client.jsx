@@ -7,12 +7,10 @@ import { Make_ID, make_div } from "../../make";
 import ManageMent from "../../pages/management/ManageMent";
 import Loading from "../../components/loading/Loading";
 
-import {connect} from "react-redux"
 
-function Client(props) {
+function Client() {
   const [data, setData] = useState('');
   const [loading, setLoading] = useState(false);
-  console.log(props)
   // const element = document.createElement('div')
   const columns = [
     { 
@@ -72,7 +70,6 @@ function Client(props) {
     setLoading(true);
     try {
       const result = await axios.get("http://127.0.0.1:8000/mes/customers/");
-      console.log(data);
       setData(Make_ID(result.data));
       setLoading(false)
     } catch (error) {
@@ -92,9 +89,8 @@ function Client(props) {
     <div className="client">
       <div className="inner">
         <div className="loading">
-          {loading ? <Loading/> : null}
         </div>
-      <ManageMent dummyData={data} title='고객정보 관리' row1='고객명' row2='고객코드' row3='등록일시'/>
+      <ManageMent dummyData={data} title='고객정보 관리' row1='고객명' row2='고객코드' row3='등록일시' adress='/customer/Create'/>
 
       <div>
        <Box sx={{ height: 400, margin: -1, marginLeft: '13px', }}>
@@ -110,21 +106,10 @@ function Client(props) {
       </Box>
       </div>
       </div>
+      {loading ? <Loading/> : null}
+
     </div>
   );
 }
 
-const MapStatetoProps=(state)=>{
-  console.log(state)
-  return {...state}
-}
-
-const MapDispatchtoProps=(dispatch)=>{
-  return {
-    ADD : (a,b) => dispatch({type : a, content: b})
-  }
-}
-
-
-
-export default connect(MapStatetoProps,MapDispatchtoProps)(Client);
+export default Client;

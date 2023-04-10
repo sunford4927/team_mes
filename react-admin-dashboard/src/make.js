@@ -30,6 +30,13 @@ for (var i = 0; i < dummyData.length; i++) {
 return dummyData;
 }
 
+export function Make_IDO(dummyData) {
+  for (var i = 0; i < dummyData.length; i++) {
+      dummyData[i]["ido"] = i + 1;
+  }
+  return dummyData;
+  }
+
 export function make_div(){
   let div = document.createElement('div')
   let span = document.createElement('span')

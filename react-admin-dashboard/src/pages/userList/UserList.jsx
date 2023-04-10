@@ -110,6 +110,7 @@ const UserList = () => {
             row1="LOT 번호"
             row2="제품명"
             row3="생산완료 예정일"
+            adress="/NewR"
           />
           </div>
       <div>

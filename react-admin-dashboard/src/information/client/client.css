@@ -155,10 +155,50 @@ border: 1px solid #e9ecef
     
 }
 
+.customer_box{
+    width : 1100px;
+    border : 1px solid black;
+    margin : auto ;
+}
 
+.input_container input {
+    display : block;
+    background: #eeeeee;
+    width: 900px;
+    margin-right: 20px;
+    padding: 5px;
+    margin: 0px 8px 30px 20px ;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
 
+.input_container {
+    margin : 20px 0 0 30px;
+}
 
+.btn-r{
+    float : right ;
+}
 
+.btn-under{
+    line-height: 30px;
+    margin : 20px 15px 0 0;
+}
+
+select{
+    display :block;
+    margin : 10px;
+    width: 200px;
+    background: #eeeeee;
+    padding: 5px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    text-align: center;
+}
 
 
 

@@ -11,7 +11,7 @@ export default function Product(props) {
             <div className= "productTitleContainer">
                 <h4 className="productTitle">생산 계획 정보</h4> 
                 <h6 className="productTitleNext" >총 {props.list.length}건의 검색 결과가 있습니다. </h6>
-                <Link to="/NewR">
+                <Link to={props.ads}>
                 <button className="productAddButton">신규등록</button>
                 </Link>
             </div>

@@ -16,10 +16,14 @@ import Join from './components/join/Join'
 import Report from './components/report/Report'
 import ClientR from './information/clientr/ClientR'
 import Notice from './components/topbar/notice/Notice'
+import Board from './components/topbar/notice/board/Board'
+import NewCreate from './information/client/NewCreate'
+import Staff from './information/staff/Staff'
+import StaffCreate from './information/staff/StaffCreate'
 
 
 
-
+console.log(window.location.href)
 function App() {
   return (
 
@@ -42,7 +46,10 @@ function App() {
           <Route path="/join" element={<Join />} />
           <Route path="/report" element={<Report />} />
           <Route path='/info/Client/clientr' element={<ClientR />} />
-          <Route path='/123' element={<Notice />} />
+          <Route path='/system/notice_board' element={<Board />} />
+          <Route path='/customer/Create' element={<NewCreate />} />
+          <Route path='/staff' element={<Staff />} />
+          <Route path='/staff/create' element={<StaffCreate />} />
         </Routes>
       </div>
     </Router >

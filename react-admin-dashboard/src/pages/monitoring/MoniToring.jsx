@@ -7,11 +7,9 @@ import ProgressBar from "./chart/Chart";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { Make_ID } from "../../make";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function MoniToring(props) {
-  const [compostate, setCompostate] = useState(0)
-  // setCompostate(compostate+1)
-  console.log(compostate)
   // 1라인 실시간 생산량
   const [num1, setNum1] = useState(0);
   // const [indata1, setIndata1] = useState();
@@ -31,15 +29,32 @@ export default function MoniToring(props) {
   const [percent2, setPercent2] = useState(0);
   // 3라인 생산율
   const [percent3, setPercent3] = useState(0);
+
+  const [data, setData] = useState("");
+
+  const {line_one, line_two, line_three, plan} = useSelector(state => ({
+    line_one : state.monitoringReducer.line1,
+    line_two : state.monitoringReducer.line2,
+    line_three : state.monitoringReducer.line3,
+    plan : state.planReducer.plan
+  }));
+  
+  useEffect(()=>{
+    setValuecount1(line_one[line_one.length - 1]["metalgoodcnt"]);
+    setValuecount2(line_two[line_two.length - 1]["metalgoodcnt"]);
+    setValuecount3(line_three[line_three.length - 1]["metalgoodcnt"]);
+    setData(plan)
+  },[line_three])
+
+  useEffect(() => {
+    outdata()
+  }, []);
+
+
   function math1(num, valuecount) {
     return (num / valuecount) * 100;
   }
-  function math2(num, valuecount) {
-    return (num / valuecount) * 100;
-  }
-  function math3(num, valuecount) {
-    return (num / valuecount) * 100;
-  }
+
   // 차트에 들어갈 데이터 주머니
   const testData = [
     // completed : 현재생산율   num : 현재생산수량
@@ -54,62 +69,35 @@ export default function MoniToring(props) {
     { completed: 100, num: 1500 },
     { completed: 100, num: 5000 },
   ];
-  useEffect(() => {
-    const outdata = async () => {
-      try {
-        const logdata = await axios.get(
-          "http://127.0.0.1:8000/mes/TbProductionLog/"
-        );
-        const result = await axios.get("http://127.0.0.1:8000/mes/plans/");
-        // 원하는정보만 모아서 딕셔너리 구축
-        setData(Make_ID(result.data));
-        // 데이터 0라인별로 모아서 저장
-        var data_list1 = [];
-        for (var i = 324; i < 450; i += 3) {
-          data_list1.push(logdata.data[i]);
+  const outdata = async () => {
+    try {
+      var j = 0;
+      var timer = setInterval(function () {
+        if (j < 42) {
+          setNum1(line_one[j]["metalgoodcnt"]);
+          setNum2(line_two[j]["metalgoodcnt"]);
+          setNum3(line_three[j]["metalgoodcnt"]);
+          j++;
+        } else {
+          clearInterval(timer);
         }
-        // 데이터 1라인별로 모아서 저장
-        var data_list2 = [];
-        for (var i = 325; i < 451; i += 3) {
-          data_list2.push(logdata.data[i]);
-        }
-        // 데이터 2라인별로 모아서 저장
-        var data_list3 = [];
-        for (var i = 326; i < 452; i += 3) {
-          data_list3.push(logdata.data[i]);
-        }
-        setValuecount1(data_list1[data_list1.length - 1]["metalgoodcnt"]);
-        setValuecount2(data_list2[data_list2.length - 1]["metalgoodcnt"]);
-        setValuecount3(data_list3[data_list3.length - 1]["metalgoodcnt"]);
-        // console.log(data_list3)
-        var j = 0;
-        var timer = setInterval(function () {
-          if (j < 42) {
-            setNum1(data_list1[j]["metalgoodcnt"]);
-            setNum2(data_list2[j]["metalgoodcnt"]);
-            setNum3(data_list3[j]["metalgoodcnt"]);
-            j++;
-          } else {
-            clearInterval(timer);
-          }
-        }, 1000);
-        // math(data_list)
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    outdata();
-  }, []);
+      }, 1000);
+      // math(data_list)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     setPercent1(math1(num1, valuecount1));
   }, [num1]);
   useEffect(() => {
-    setPercent2(math2(num2, valuecount2));
+    setPercent2(math1(num2, valuecount2));
   }, [num2]);
   useEffect(() => {
-    setPercent3(math3(num3, valuecount3));
+    setPercent3(math1(num3, valuecount3));
   }, [num3]);
-  const [data, setData] = useState("");
+
 
   const columns = [
     // 데이터 그리드 내용삽입을위한 형식지정
@@ -153,6 +141,7 @@ export default function MoniToring(props) {
       field: "spec",
       headerName: "생산 진행 상태",
       width: 400,
+      // aling: "center",
 
       renderCell: (props) => {
         return (
@@ -161,7 +150,7 @@ export default function MoniToring(props) {
               key={0}
               completed={testData[props.row.id - 1].completed}
               num={testData[props.row.id - 1].num}
-              count={props.row.quantity}
+              count={props.row.quantity/4}
               id={props.row.id}
             />
           </div>

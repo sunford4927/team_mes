@@ -18,7 +18,7 @@ export default function Topbar() {
 
   const nav = useNavigate();
   const home = () => {
-    nav("/info/Client");
+    nav("/staff");
   };
   return (
     <div className="topbar">
@@ -60,6 +60,9 @@ export default function Topbar() {
             </h3>
 
             <ul className="sidebarList">
+              <Link to="/staff">
+                <li className="sidebarListItem">사원정보 관리</li>
+              </Link>
               <Link to="/info/Client">
                 <li className="sidebarListItem">고객정보 관리</li>
               </Link>
@@ -118,7 +121,7 @@ export default function Topbar() {
             <Link to="report">
               <li className="sidebarListItem">암호 변경</li>
             </Link>
-            <Link to="report">
+            <Link to="system/notice_board">
               <li className="sidebarListItem">공지사항 관리</li>
             </Link>
           </ul>

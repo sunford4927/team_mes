@@ -1,0 +1,75 @@
+.table_info {
+    margin :auto;
+}
+
+.notice_table {
+    display : flex;
+    height:900px;
+    margin : auto;
+}
+
+.table_name {
+    font-weight: bold;
+    font-size : 20px;
+    display : inline-block;
+}
+
+
+table {
+    margin : auto;
+    border : 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    border : 1px solid black;
+    padding: 10px
+}
+th{
+    background-color: rgb(40, 145, 231);
+}
+
+.post_container {
+    border :3px solid rgb(120, 121, 122);
+    border-radius : 15px;
+    padding : 15px;
+    height: 400px;
+    position : relative;
+    margin-left : 10px;
+}
+.sub_container{
+    margin : auto;
+}
+
+
+.post_container input{
+    width: 300px;
+    height : 40px;
+    border-radius : 15px;
+    display :block;
+}
+
+.save_btn{
+    background-color: rgb(10, 43, 189);
+    color : white;
+    font-weight: bold;
+    font-size : 20px;
+    width : 80px;
+    height : 40px;
+    border-radius: 10px;
+    position : absolute;
+    right: 10px;
+    bottom : 10px; 
+}
+.post_container.modal{
+    display: block;
+}
+
+.save_btn_input{
+    right: 10px;
+    bottom : 10px; 
+}
+.save_btn_esc{
+    right: 100px;
+    bottom : 10px; 
+}

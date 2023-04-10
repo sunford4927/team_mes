@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Autoplay, Navigation } from "swiper"
+import { noticeCheck } from '../../../reducer/notice_info';
+import { useSelector, useDispatch } from 'react-redux';
 import Parser from 'html-react-parser'
 import axios from "axios"
 import "swiper/css/autoplay"
@@ -13,16 +15,20 @@ SwiperCore.use([Autoplay, Navigation])
 
 function Notice(){
     const [noticelist, setNoticelist] = useState([])
+    const dispatch = useDispatch();
+    const onNoticeCheck = (data) => dispatch(noticeCheck(data));
     const resepon = async () => {
         try {
             const result = await axios.get("http://127.0.0.1:8000/mes/TbNotice/");
             setNoticelist(result.data)
+            onNoticeCheck(result.data)
+            console.log(result.data)
             } catch (error) {
             console.error(error);
             }
         };
     
-    useEffect(() => {
+        useEffect(() => {
         resepon()
     },[])
 
@@ -37,12 +43,6 @@ function Notice(){
                     style={{
                         height: '70px',
                         width: '400px',
-                        // position: 'absolute',
-                        // top: 0,
-                        // right: 150,
-                        margin : '20px 0 0 30px',
-                        // border : '1px solid red',
-                        // height :  '100%',
                     }}
                     direction={'vertical'}
                     autoplay={{
@@ -55,7 +55,7 @@ function Notice(){
                     >
                         
                     {noticelist.map((item,idx)=>{
-                        return <SwiperSlide key={idx}>{Parser(item.notice_content)}</SwiperSlide>
+                        return <SwiperSlide key={idx}><p>{item.notice_content}</p></SwiperSlide>
                     })} 
                 </Swiper>
             </div>
