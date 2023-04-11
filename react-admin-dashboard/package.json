@@ -33,6 +33,7 @@
     "reactstrap": "^9.1.5",
     "recharts": "^2.1.16",
     "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
     "reset-css": "^5.0.1",
     "styled-components": "^5.3.9",
     "swiper": "^9.2.0",

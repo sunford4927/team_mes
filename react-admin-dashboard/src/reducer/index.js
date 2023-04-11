@@ -7,9 +7,18 @@ import { orderReducer } from './order_management';
 import { planReducer } from './plan_management';
 import { materialsReducer } from './materials_info';
 import { noticeReducer } from './notice_info';
-import { monitoringReducer } from './monitoring_info'; 
+import { monitoringReducer } from './monitoring_info';
 
-const rootReducer = combineReducers({
+
+
+// import { rootReducer } from "./index"
+
+
+
+
+
+
+export const rootReducer = combineReducers({
     staffReducer,
     customerReducer,
     machineReducer,
@@ -21,4 +30,3 @@ const rootReducer = combineReducers({
     monitoringReducer,
 });
 
-export default rootReducer;

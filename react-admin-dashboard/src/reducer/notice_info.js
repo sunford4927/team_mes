@@ -24,7 +24,10 @@ const Initialstate = {
 export const noticeReducer = (state=Initialstate, action) =>{
     switch(action.type){
         case WRITE:
-            return {};
+
+            return {
+                ...state,
+            };
         case CHECK:
             return {
                 ...state,

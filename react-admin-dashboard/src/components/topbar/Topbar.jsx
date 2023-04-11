@@ -23,7 +23,7 @@ export default function Topbar() {
   return (
     <div className="topbar">
       <p className="logo_menu">
-        <span class="material-symbols-outlined" onClick={onClick}>
+        <span class="material-symbols-outlined leeelee" onClick={onClick}>
           menu
         </span>
         <span onClick={home} className="home_name">

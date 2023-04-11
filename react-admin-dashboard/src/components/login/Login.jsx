@@ -4,13 +4,60 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
+import { connect, useDispatch } from "react-redux";
+import { customerCheck } from "../../reducer/customer_info";
+import { machineCheck } from "../../reducer/machine_info";
+import { itemCheck } from "../../reducer/item_info";
+import { orderCheck } from "../../reducer/order_management";
+import { planCheck } from "../../reducer/plan_management";
+import { staffCheck } from "../../reducer/staff_info";
+import { materialsCheck } from "../../reducer/materials_info";
+import { monitoringCheck } from "../../reducer/monitoring_info";
+import { noticeCheck } from "../../reducer/notice_info";
 
 function Login(props) {
   // django 연결
   const [id, setId] = useState(""); // 아이디
   const [password, setPassword] = useState(""); // 비밀번호
 
+  const dispatch = useDispatch();
+  const oncustomerCheck = (data) => dispatch(customerCheck(data));
+  const onmachineCheck = (data) => dispatch(machineCheck(data));
+  const onitemCheck = (data) => dispatch(itemCheck(data));
+  const onorderCheck = (data) => dispatch(orderCheck(data));
+  const onplanCheck = (data) => dispatch(planCheck(data));
+  const onstaffCheck = (data) => dispatch(staffCheck(data));
+  const onmaterialsCheck = (data) => dispatch(materialsCheck(data));
+  const onmonitorCheck = (data) => dispatch(monitoringCheck(data));
+  const onnoticeCheck = (data) => dispatch(noticeCheck(data));
 
+  useEffect(() => {
+    axios
+    .all([
+      axios.get("http://127.0.0.1:8000/mes/orders/"),
+      axios.get("http://127.0.0.1:8000/mes/items/"),
+      axios.get("http://127.0.0.1:8000/mes/plans/"),
+      axios.get("http://127.0.0.1:8000/mes/materials/"),
+      axios.get("http://127.0.0.1:8000/mes/customers/"),
+      axios.get("http://127.0.0.1:8000/mes/TbMachine/"),
+      axios.get("http://127.0.0.1:8000/mes/TbStaff/"),
+      axios.get("http://127.0.0.1:8000/mes/TbProductionLog/"),
+      axios.get("http://127.0.0.1:8000/mes/TbNotice/"),
+    ])
+    .then(
+      axios.spread((res1, res2, res3, res4, res5, res6, res7, res8, res9) => {
+        onorderCheck(res1.data);
+        onitemCheck(res2.data);
+        onplanCheck(res3.data);
+        onmaterialsCheck(res4.data);
+        oncustomerCheck(res5.data);
+        onmachineCheck(res6.data);
+        onstaffCheck(res7.data);
+        onmonitorCheck(res8.data);
+        onnoticeCheck(res9.data);
+      })
+    );
+  },[])
 
   const onChangeId = (e) => {
     setId(e.target.value);
@@ -28,6 +75,8 @@ function Login(props) {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    
+
     const user = {
       username: id,
       password: password,
@@ -38,8 +87,9 @@ function Login(props) {
       .post("http://127.0.0.1:8000/users/login/", user)
       .then((res) => {
         if (res.data.token) {
+
           console.log(res.data);
-          localStorage.clear();
+          // localStorage.clear();
           localStorage.setItem("token", res.data.token);
           // 사용하려면 App.js에서 /로 라우팅해야 한다
           localStorage.setItem("userId", id); // 로그인할때 유저ID 저장
@@ -56,6 +106,8 @@ function Login(props) {
         setId("");
         setPassword("");
       });
+
+
   };
 
   const [imgLeft, setimgLeft] = useState(0);

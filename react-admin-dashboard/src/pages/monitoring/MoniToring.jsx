@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./moniToring.css";
-// import "react-circular-progressbar/dist/styles.css";
-import axios from "axios";
 import ProgressBar from "./chart/Chart";
 
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import { Make_ID } from "../../make";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-export default function MoniToring(props) {
+export default function MoniToring() {
   // 1라인 실시간 생산량
   const [num1, setNum1] = useState(0);
-  // const [indata1, setIndata1] = useState();
   const [valuecount1, setValuecount1] = useState("0");
   // 2라인 실시간 생산량
   const [num2, setNum2] = useState(0);
-  // const [indata2, setIndata2] = useState();
   const [valuecount2, setValuecount2] = useState("0");
   // 3라인 실시간 생산량
   const [num3, setNum3] = useState(0);
-  // const [indata3, setIndata3] = useState();
   // 3라인에 들어올 데이터의 개수
   const [valuecount3, setValuecount3] = useState("0");
   // 1라인 생산율
@@ -33,18 +27,18 @@ export default function MoniToring(props) {
   const [data, setData] = useState("");
 
   const {line_one, line_two, line_three, plan} = useSelector(state => ({
-    line_one : state.monitoringReducer.line1,
-    line_two : state.monitoringReducer.line2,
-    line_three : state.monitoringReducer.line3,
-    plan : state.planReducer.plan
+    line_one : [...state.monitoringReducer.line1],
+    line_two : [...state.monitoringReducer.line2],
+    line_three : [...state.monitoringReducer.line3],
+    plan : [...state.planReducer.plan]
   }));
-  
+  // console.log(line_one.length)
   useEffect(()=>{
     setValuecount1(line_one[line_one.length - 1]["metalgoodcnt"]);
     setValuecount2(line_two[line_two.length - 1]["metalgoodcnt"]);
     setValuecount3(line_three[line_three.length - 1]["metalgoodcnt"]);
     setData(plan)
-  },[line_three])
+  },[])
 
   useEffect(() => {
     outdata()
@@ -141,7 +135,7 @@ export default function MoniToring(props) {
       field: "spec",
       headerName: "생산 진행 상태",
       width: 400,
-      // aling: "center",
+
 
       renderCell: (props) => {
         return (
@@ -158,19 +152,7 @@ export default function MoniToring(props) {
       },
     },
   ];
-  useEffect(() => {
-    const getdata = async () => {
-      try {
-        const result = await axios.get("http://127.0.0.1:8000/mes/items/");
-        result.data[0].spec = percent1 * 3;
-        result.data[1].spec = percent2 * 3;
-        result.data[2].spec = percent3 * 3;
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getdata();
-  }, [percent1]);
+
   return (
     <div className="monitoring">
       <div className="monitorem">
@@ -178,12 +160,12 @@ export default function MoniToring(props) {
         <div className="monitorTitleContainer">
           <h3 className="monitorTitle">생산 모니터링</h3>
         </div>
-        <Box sx={{ height: 400, margin: -1, marginLeft: "13px" }}>
+        <Box sx={{ height:372, margin: -1, marginLeft: "13px" }}>
           <DataGrid
             rows={data}
             disableSelectionOnClick
             columns={columns}
-            pageSize={10}
+            pageSize={5}
             rowsPerPageOptions={[5]}
             sx={{ width: 1150, margin: "0 auto" }}
           ></DataGrid>

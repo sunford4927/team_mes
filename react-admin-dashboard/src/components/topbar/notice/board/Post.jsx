@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+import { noticeCheck } from "../../../../reducer/notice_info";
 
 function Post({ onSaveData }) {
   const [form, setForm] = useState({
@@ -9,6 +11,8 @@ function Post({ onSaveData }) {
     reg_id: "",
   });
 
+  const dispatch = useDispatch()
+  const onNoticeCheck = (data) =>dispatch(noticeCheck(data))
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
@@ -25,11 +29,15 @@ function Post({ onSaveData }) {
         notice_content: form.notice_content,
         reg_date: form.reg_date,
         reg_id: parseInt(form.reg_id),
-      })
+      }).then(() => axios.get(`http://127.0.0.1:8000/mes/TbNotice/`)
+      .then((res)=>{
+        onNoticeCheck(res.data)
+      }))
       .catch((err) => {
         console.log(err);
       });
     console.log(form);
+
     setForm({
       notice_subject: "",
       notice_content: "",

@@ -14,24 +14,30 @@ import "./Notice.css"
 SwiperCore.use([Autoplay, Navigation])
 
 function Notice(){
+    console.log(localStorage)
     const [noticelist, setNoticelist] = useState([])
+    const notice = useSelector(state => state.noticeReducer.notice)
     const dispatch = useDispatch();
     const onNoticeCheck = (data) => dispatch(noticeCheck(data));
-    const resepon = async () => {
-        try {
-            const result = await axios.get("http://127.0.0.1:8000/mes/TbNotice/");
-            setNoticelist(result.data)
-            onNoticeCheck(result.data)
-            console.log(result.data)
-            } catch (error) {
-            console.error(error);
-            }
-        };
+    // const resepon = async () => {
+    //     try {
+    //         const result = await axios.get("http://127.0.0.1:8000/mes/TbNotice/");
+    //         setNoticelist(result.data)
+    //         onNoticeCheck(result.data)
+    //         console.log(result.data)
+    //         } catch (error) {
+    //         console.error(error);
+    //         }
+    //     };
     
-        useEffect(() => {
-        resepon()
-    },[])
+    //     useEffect(() => {
+    //     resepon()
+    // },[])
 
+    useEffect(() => {
+        setNoticelist(notice)
+        console.log('렌더링 됫습니다!', notice)
+    },[notice])
       return (
         <>  
         <div className='notice'>
@@ -65,3 +71,4 @@ function Notice(){
 }
 
 export default Notice;
+

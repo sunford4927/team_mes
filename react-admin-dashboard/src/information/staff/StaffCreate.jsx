@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { customerWrite } from "../../reducer/customer_info";
 import { staffCheck } from "../../reducer/staff_info"; 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

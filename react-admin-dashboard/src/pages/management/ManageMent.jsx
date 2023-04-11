@@ -1,59 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import './manageMent.css'
 import Product from "../product/Product";
 
-export default function ManageMent({dummyData, title, row1, row2,row3,adress}) {
+export default function ManageMent({dummyData, content, handleChange, form, handleReset}) {
+    // const [form, setForm] = useState({})
+
     return (
         <div className="management">
             <div className="management_all">
             <div className= "managementTitleContainer">
-                <h3 className="managementTitle">{title}</h3>                
+                <h3 className="managementTitle">{content.title}</h3>                
             </div>
                 <div className="management_container">
                 <div className="managementnumber">
-                    <span>{row1}</span><br/>
+                    <span>{content.row1}</span><br/>
                     <input
+                        name="input1"
                         type="text"
-                        placeholder={`${row1} 입력`}
-                        className="managementnumber1" 
+                        placeholder={`${content.row1} 입력`}
+                        className="managementnumber1"
+                        value={form.input1}
+                        onChange={handleChange}
                     />
                 </div>
 
                 <div className="managementname">
-                    <label>{row2}</label>
+                    <label>{content.row2}</label>
                     <input 
+                        name="input2"
                         type="text"
-                        placeholder={`${row2} 입력`}
+                        placeholder={`${content.row2} 입력`}
                         className="managementname1"
+                        value={form.input2}
+                        onChange={handleChange}
                     />    
                 </div>
                 </div>
 
                 <p className="managementdate">
-                    <label>{row3}</label>
-                    <input 
+                    <label>{content.row3}</label>
+                    <input
+                        name="startdate" 
                         type="date"
                         className="search"
-                        aria-label="생산완료예정일 검색 시작기간"
-                        value
+                        // aria-label="생산완료예정일 검색 시작기간"
+                        value={form.startdate}
+                        onChange = {handleChange}
                     />
                     <span className="control"> ~ </span>
                     <input
+                        name="enddate"
                         type="date"
                         className="search"
-                        aria-label="생산완료예정일 검색 종료 기간"
-                        value
+                        // aria-label="생산완료예정일 검색 종료 기간"
+                        onChange={handleChange}
+                        value={form.enddate}
                     />
 
                 </p>
                 <br/>
             <div className="managementContainer">
                 
-                <button className="managementAddButton">검색</button>
-                <button className="managementAddButton1">검색 초기화</button>
+                <button className="managementAddButton1" onClick={handleReset}>검색 초기화</button>
                 <br/>
             </div>
-                <Product list={dummyData} ads = {adress} />
+                <Product list={dummyData} ads = {content.adress} />
             </div>
         </div>
     )

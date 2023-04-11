@@ -17,9 +17,6 @@ export const monitoringUpdate = (data) => ({type: UPDATE, data})
 // init State ( 초기 상태 ) 
 const Initialstate = {
     monitoring : [],
-    line1 : [],
-    line2 : [],
-    line3 : [],
     state : false,
 };
 
@@ -27,8 +24,6 @@ const Initialstate = {
 // Reducer function ( 리듀서 함수 )
 export const monitoringReducer = (state=Initialstate, action) =>{
     switch(action.type){
-        case WRITE:
-            return {};
         case CHECK:
             let content = action.data.slice(324,452)
             let line1 = []

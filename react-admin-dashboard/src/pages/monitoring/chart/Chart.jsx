@@ -1,6 +1,6 @@
 
 const ProgressBar = (props) => {
-  const { completed = null, num, count, id } = props;
+  const { completed, num, count, id } = props;
   function math1(num, valuecount) {
     // 생산율 구하는 공식함수
     return (num / valuecount) * 100;
@@ -19,7 +19,7 @@ const ProgressBar = (props) => {
   const fillerStyles = {
     height: '100%',
     width: `${completed}%`,
-    backgroundColor: "#808080",
+    backgroundColor: completed === 0? "#edf2f5":"#808080",
     textAlign: 'center',
     lineHeight: '40px',
     marginLeft: '0',
