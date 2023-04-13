@@ -44,6 +44,6 @@ cd react-admin-dashboard
 
 ## Frontend
 ```
-npv use v.8.11.0
+nvm use v.8.11.0
 yarn install
 yarn start
