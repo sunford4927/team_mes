@@ -4,7 +4,8 @@
 ## 프로젝트 소개
 MES (Manufacturing Execution System) 생산관리시스템 서비스
 
-## 시작 가이드
+## 사용기술
+<img src="https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>" >
 
 ### Requirements
 Npm 8.11.0\
