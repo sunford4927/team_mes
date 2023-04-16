@@ -14,7 +14,6 @@ import Machine from './information/machine/Machine'
 import Login from './components/login/Login'
 import Join from './components/join/Join'
 import Report from './components/report/Report'
-import ClientR from './information/clientr/ClientR'
 import Notice from './components/topbar/notice/Notice'
 import Board from './components/topbar/notice/board/Board'
 import NewCreate from './information/client/NewCreate'
@@ -45,7 +44,6 @@ function App() {
           <Route path="/order" element={<Orders />} />
           <Route path="/join" element={<Join />} />
           <Route path="/report" element={<Report />} />
-          <Route path='/info/Client/clientr' element={<ClientR />} />
           <Route path='/system/notice_board' element={<Board />} />
           <Route path='/customer/Create' element={<NewCreate />} />
           <Route path='/staff' element={<Staff />} />

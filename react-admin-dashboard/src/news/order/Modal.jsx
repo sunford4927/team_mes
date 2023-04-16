@@ -8,7 +8,7 @@ function Modal(props) {
   }
 
 function data_name(e){
-  props.update(e.target.innerText)
+  props.update(e)
   props.closeModal();
   // console.log(e.target.innerText)
 
@@ -26,7 +26,7 @@ function data_name(e){
 
         <h1 className="item_name">수주코드</h1>
         {props.nameArray.map(function(data){
-            return <div className="item_data"><button name="abc" onClick={data_name}>{data}</button></div>
+            return <div className="item_data"><button name={props.category} onClick={data_name} value={data}>{data}</button></div>
             
         })}
       </div>

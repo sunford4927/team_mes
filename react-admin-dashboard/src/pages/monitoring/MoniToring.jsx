@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 
-export default function MoniToring() {
+ function MoniToring() {
   // 1라인 실시간 생산량
   const [num1, setNum1] = useState(0);
   const [valuecount1, setValuecount1] = useState("0");
@@ -43,6 +43,8 @@ export default function MoniToring() {
   useEffect(() => {
     outdata()
   }, []);
+
+  console.log(num1)
 
 
   function math1(num, valuecount) {
@@ -175,3 +177,5 @@ export default function MoniToring() {
     </div>
   );
 }
+
+export default React.memo(MoniToring)

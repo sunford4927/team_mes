@@ -3,183 +3,128 @@ import "./orders.css";
 import axios from "axios";
 import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function Orders({ order , event, item }) {
-  const nav = useNavigate();
-  //수주, 계획 value 값
-  const [eventing, setEventing] = useState(event);
-  //수주 테이블
-  const [orders, setOrders] = useState("");
-  //수주 코드
-  const [order_code, setOrder_code] = useState('');
-  //LOT 번호
-  const [Lotnum, setLotNum] = useState('');
-  //생산명
-  const [productname, setProductName] = useState('');
-  //고객명
-  const [customername, setCustomerName] = useState('');
-  //제품명
-  const [itemname, setItemName] = useState('');
-  //원자재
-  const [materials_list, setMaterials_List] = useState('');
-  //공정리스트
-  const [process_list, setProcess_List] = useState('');
-  //저장버튼
-  const [save, setSave] = useState('');
-  //등록날짜
-  const [date, setdate]  = useState('');
-  const [plan, setPlan] = useState('')
-  const [customer, setCustomer] = useState('')
-  const [quantity,setQuantity] = useState('')
+export default function Orders({event}) {
+  const [form, setForm] = useState({
+    flag: event,
+  });
+  const {item, customer, order} = useSelector((state) => ({
+    item : state.itemReducer.item,
+    customer : state.customerReducer.customer,
+    order : state.orderReducer.order
+  })
+  );
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
 
-  function item_code(itembox, itemname) {
-    let list = [];
-    for (var i = 0; i < itembox.length; i++) {
-      if (itembox[i]["item_name"] == itemname) {
-        list["item_code"] = itembox[i]["item_code"];
-        break;
+    item.reduce((acc, cur) => {
+      if (cur.item_name === value) {
+        setForm({
+          ...form,
+          item_code: cur.item_code,
+          [name]: value
+        });
       }
-    }
-    console.log(list);
-    return list;
-  }
+    }, []);
+
+    order.reduce((acc, cur) => {
+      if (cur.order_code === value) {
+        customer.reduce((arr, data) => {
+          // console.log(cur.order_code)
+          if(cur.customer_code === data.customer_code){
+            setForm({
+              ...form,
+              customer_name : data.customer_name,
+              quantity : cur.quantity,
+              order_code : value
+            })
+          }
+        } )
+      }
+    },[])
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form)
+    axios.post("http://127.0.0.1:8000/mes/create_order/", {
+          flag: form.flag,
+          lot_num: form.lot_num,
+          order_code: form.order_code,
+          item_code: form.item_code,
+          quantity: Number(form.quantity),
+          due_date: form.due_date,
+          plan_name: form.plan_name,
+        }).then((response) => {
+          alert(`등록이 완료되었습니다.`);
+          nav("/users");
+        }).catch ((error)=> {
+          console.log(error);
+        })
+    
+      } 
+
+  const nav = useNavigate();
     // 뒤로가기 구현
     function back(e){
       if(e.target.value == 'end'){
         nav('/users')
       }
     }
-    // function duplecation(plan, Lotnum){
-
-    // }
-
-
 
   const [modalState, setModalState] = useState(false);
   const [proNames, setProNames] = useState([]);
   const [testname, settestname] = useState();
-  async function openPro() {
+
+  async function openPro2(e) {
     //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://127.0.0.1:8000/mes/orders/");
-    const item_b = await axios.get("http://127.0.0.1:8000/mes/plans/");
-    const item_c = await axios.get("http://127.0.0.1:8000/mes/customers/");
-    console.log(item_a.data);
-    let proArray = item_a.data;
-    let proNameArray = [];
-    for (let i = 0; i < proArray.length; i++) {
-      proNameArray.push(proArray[i].order_code);
-    }
-    setCustomer(item_c.data)
-    setPlan(item_b.data)
-    setOrders(proArray)
-    console.log(proNameArray);
-    setProNames(proNameArray);
-    setModalState(!modalState);
-  }
-  useEffect(() => {
-    console.log(testname);
-    if(testname == '차전자피식이섬유'){
-      setItemName(testname)
+    if(e.target.value === "제품명"){
+      const data =item.reduce((acc, cur) => {
+        acc.push(cur.item_name)
+        return acc
+    },[])
+      setProNames(data)
+      settestname("item_name")
     }else{
-      data(testname,order,plan,customer)
+      const code_data =order.reduce((acc, cur) => {
+        acc.push(cur.order_code)
+        return acc
+    },[])
+      setProNames(code_data)
+      settestname("order_code")
     }
-    console.log(plan)
-  }, [testname]);
-  useEffect(() => {
-    console.log(customername);
-  }, [customername]);
-  useEffect(() => {
-    console.log(quantity);
-  }, [quantity]);
-  async function openPro2() {
-    //모달창을 띄워서 제품 정보를 띄우는 기능
-    const item_a = await axios.get("http://127.0.0.1:8000/mes/items/");
-    console.log(item_a.data);
-    let proArray = item_a.data;
-    let proNameArray = [];
-    for (let i = 0; i < proArray.length; i++) {
-      proNameArray.push(proArray[i].item_name);
-    }
-    console.log(proNameArray);
-    setProNames(proNameArray);
     setModalState(!modalState);
   }
-  useEffect(() => {
-    if(testname !== '차전자피식이섬유'){
-      setOrder_code(testname)
-    }
-    console.log(testname);
-  }, [testname]);
-function data(testname, orders,plans, customers){
-  
-  for (var i = 0; i < plans.length; i++) {
-    
-    for (var j = 0; j < orders.length; j++) {
-      if (plans[i]['order_code'] == orders[j]["order_code"]) {
-        plans[i]["customer_code"] = orders[j]["customer_code"];
-      }
-      for (var k = 0; k < customers.length; k++) {
-        if (plans[i]["customer_code"] == customers[k]["customer_code"]) {
-          plans[i]["customer_name"] = customers[k]["customer_name"];
-        }
-      }
-    }
-  }
-  console.log(plans)
-  for(var y=0; y<plans.length; y++){
-    if(testname == plans[y]['order_code']){
-      setCustomerName(plans[y]['customer_name'])
-      setQuantity(plans[y]['quantity'])
-    }
-  }
-  
 
-}
-
-  useEffect(() => {
-    const outdata = async () => {
-      try {
-        const code = item_code(item, itemname)
-        console.log(code['item_code'])
-        await axios.post("http://127.0.0.1:8000/mes/create_order/", {
-          flag: eventing,
-          lot_num: Lotnum,
-          order_code: order_code,
-          item_code: code['item_code'],
-          quantity: quantity,
-          due_date: date,
-          plan_name: productname,
-        });
-        alert(`등록이 완료되었습니다.`);
-        nav("/users");
-      } catch (error) {
-        console.error(error);
-        
-      }
-    };
-
-    outdata();
-  }, [save]);
   return (
     <div className="order">
       <div className="orderTitleContainer">
         <span className="O"> * </span>
         <label className="ordercode"> 수주코드 </label>
       </div>
+      <form onSubmit={handleSubmit}>
       <div className="orderbar">
       {modalState ? (
           <Modal
-            update={settestname}
+            update={handleChange}
             closeModal={() => setModalState(!modalState)}
             nameArray={proNames}
             item={item}
+            category = {testname}
           ></Modal>
         ) : (
           ""
         )}
         <input
+          disabled
           type="text"
-          value={order_code}
+          value={form.order_code}
+          name="order_code"
           required
           placeholder="찾기버튼을 통해 수주코드를 선택해주세요"
           className="orderNumbername"
@@ -188,7 +133,7 @@ function data(testname, orders,plans, customers){
         <button
           className="orderNumberButton"
           type="button"
-          onClick={openPro}
+          onClick={openPro2}
         >
           찾기
         </button>
@@ -205,7 +150,10 @@ function data(testname, orders,plans, customers){
           required
           placeholder="LOT번호를 입력해주세요"
           className="orderNumbername"
-          onChange={(e) => setLotNum(e.target.value)}
+          onChange={handleChange}
+          value={form.lot_num}
+          name="lot_num"
+
         />
         <button
           className="orderNumberButton"
@@ -227,7 +175,9 @@ function data(testname, orders,plans, customers){
           required
           placeholder="생산명을 입력해주세요"
           className="orderNumbername1"
-          onChange={(e) => setProductName(e.target.value)}
+          onChange={handleChange}
+          value={form.plan_name}
+          name="plan_name"
         />
       </div>
 
@@ -238,12 +188,13 @@ function data(testname, orders,plans, customers){
       <div className="orderbar1">
         <input
           type="text"
-          value={customername}
+          value={form.customer_name}
           required
           placeholder="수주코드를 선택하시면 해당 고객명이 입력됩니다"
           className="orderNumbername1"
-          onChange={(e) => setCustomerName(e.target.value)}
+          onChange={handleChange}
           disabled
+          name="customer_name"
         />
       </div>
 
@@ -253,17 +204,19 @@ function data(testname, orders,plans, customers){
       </div>
       <div className="orderbar">
         <input
-          value={itemname}
+          value={form.item_name}
+          name="item_name"
           type="text"
           required
           placeholder="찾기버튼을 통해 제품을 선택해 주세요"
           className="orderNumbername"
-          onChange={(e) => setItemName(e.target.value)}
+          onChange={handleChange}
         />
         <button
           className="orderNumberButton"
           type="button"
           onClick={openPro2}
+          value="제품명"
         >
           찾기
         </button>
@@ -274,12 +227,12 @@ function data(testname, orders,plans, customers){
       </div>
       <div className="orderbar">
         <input
-          value={quantity}
+          value={form.quantity}
           type="text"
           required
           placeholder="수주코드를 선택하시면 해당제품의 수량이 입력됩니다"
           className="quantityNumbername"
-          onChange={(e) => setItemName(e.target.value)}
+          onChange={handleChange}
           disabled
         />
       </div>
@@ -309,16 +262,17 @@ function data(testname, orders,plans, customers){
 
         <div className="ordercompelte">생산완료예정일</div>
       <div className="orderTitleContainer">
-        <input type="date" required className="orderNumbername1" onChange={(e) =>setdate(e.target.value)} />
+        <input type="date" required className="orderNumbername1" name="due_date" onChange={handleChange} />
       </div>
       <div className="orderTitleContainer">
-        <button className="orderNumberButton2" type="button" onClick={setSave}>
+        <button className="orderNumberButton2" type="submit" >
           저장
         </button>
         <button className="orderNumberButton3" type="button" value='end' onClick={back}>
           취소
         </button>
       </div>
+      </form>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const UserList = () => {
   const [dummyData, setDummyData] = useState([]);
   const [form, setForm] = useState({});
-
+  console.log(form)
   const plan = useSelector((state) => state.planReducer.plan);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +17,7 @@ const UserList = () => {
       [name]: value,
     });
   };
-
+      
   const handleReset = () => {
     setForm({
       input1: "",
@@ -48,13 +48,14 @@ const UserList = () => {
             ? cur.input2.includes(form.input2)
             : true;
         const startDateCondition = form.startdate
-          ? form.startdate.getTime() - new Date(cur.reg_date).getTime() <= 0
+          ? new Date(form.startdate).getTime() - new Date(cur.due_date).getTime() <= 0
           : true;
         const endDateCondition = form.enddate
-          ? form.enddate.getTime() - new Date(cur.reg_date).getTime() >= 0
+          ? new Date(cur.due_date).getTime() - new Date(form.enddate).getTime() <= 0
           : true;
 
         // 해당 조건이 있다면 그에 부합하는 교집합인 놈만 push 하겠다.
+        
         if (
           payStatusKeywordCondition &&
           payNumKeywordCondition &&
@@ -70,7 +71,6 @@ const UserList = () => {
       setDummyData(filteredList);
     }
   };
-
   // 원본이 갱신되거나, 검색조건이 변경되면 filterData를 실행한다.
   useEffect(() => {
     filterData();

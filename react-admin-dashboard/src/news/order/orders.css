@@ -1,4 +1,9 @@
+button {
+    cursor : pointer;
+}
+
 /* 주문 전체 부분 */
+
 .order {
     padding: 20px;
     font-size: 15px;

@@ -66,7 +66,7 @@ export default function NewR({ orders, customers, items, plan }) {
           />
           수주</label>
           </form>
-          {event == "O" ? <Orders event={event} order={orders_a} item={items_a} /> : <Plan item={items_a} event={event} />}
+          {event == "O" ? <Orders event={event} /> : <Plan event={event} />}
         </div>
       </div>
     </div>

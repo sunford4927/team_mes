@@ -31,12 +31,10 @@ function Post({ onSaveData }) {
         reg_id: parseInt(form.reg_id),
       }).then(() => axios.get(`http://127.0.0.1:8000/mes/TbNotice/`)
       .then((res)=>{
-        onNoticeCheck(res.data)
       }))
       .catch((err) => {
         console.log(err);
       });
-    console.log(form);
 
     setForm({
       notice_subject: "",

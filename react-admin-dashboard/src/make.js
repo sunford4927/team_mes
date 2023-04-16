@@ -37,7 +37,7 @@ export function Make_IDO(dummyData) {
   return dummyData;
   }
 
-export function make_div(){
+export function make_div(form,handleChange){
   let div = document.createElement('div')
   let span = document.createElement('span')
   let input = document.createElement('input')
@@ -46,9 +46,13 @@ export function make_div(){
   span.innerText ='담당자'
   input.className = 'managementname1'
   input.type = 'text'
+  input.name = 'input3'
+  input.value = form.input3 === undefined? '': form.input3
+  input.onchange = handleChange
   input.placeholder = `담당자 입력`
   div.appendChild(span)
   div.appendChild(br)
   div.appendChild(input)
   return div
 }
+

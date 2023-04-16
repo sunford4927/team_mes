@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import ManageMent from "../../pages/management/ManageMent";
@@ -9,6 +9,7 @@ import axios from "axios";
 
 function Staff() {
   const [form, setForm] = useState({})
+  const [dummyData,setDummyData] = useState([])
 
  
 
@@ -16,18 +17,72 @@ function Staff() {
   console.log(staff)
 
 
-  const handleSearch = (form) =>{
-    console.log(test)
-  }
-
-  const handleChange = (e) =>{
-    const {name, value} = e.target
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setForm({
-        ...form,
-        [name]: value,
-    })
-    console.log(form)
-}
+      ...form,
+      [name]: value,
+    });
+  };
+      
+  const handleReset = () => {
+    setForm({
+      input1: "",
+      input2: "",
+      startdate: "",
+      enddate: "",
+    });
+  };
+
+  // 변경사항이 있을때마다 원본 list에 필터를 새로 적용한다.
+  const filterData = () => {
+    //아무 필터도 없는 맨 처음은 원본 list가 나와야 함
+    if (
+      form.input1 &&
+      form.input2 &&
+      form.startdate &&
+      form.enddate === undefined
+    ) {
+      setDummyData(staff);
+    } else {
+      // 실제 필터를 적용하는 부분
+      const filteredList = staff.reduce((acc, cur) => {
+        const payStatusKeywordCondition = form.input1
+          ? cur.name === form.input1
+          : true; // 해당 조건이 없으면 그냥 무시하고 지나간다.
+        const payNumKeywordCondition =
+          form.input2 && form.input2.length > 0
+            ? cur.position.includes(form.input2)
+            : true;
+        const startDateCondition = form.startdate
+          ? new Date(form.startdate).getTime() - new Date(cur.due_date).getTime() <= 0
+          : true;
+        const endDateCondition = form.enddate
+          ? new Date(cur.due_date).getTime() - new Date(form.enddate).getTime() <= 0
+          : true;
+
+        // 해당 조건이 있다면 그에 부합하는 교집합인 놈만 push 하겠다.
+        
+        if (
+          payStatusKeywordCondition &&
+          payNumKeywordCondition &&
+          startDateCondition &&
+          endDateCondition
+        ) {
+          acc.push(cur);
+        }
+
+        return acc;
+      }, []);
+
+      setDummyData(filteredList);
+    }
+  };
+  // 원본이 갱신되거나, 검색조건이 변경되면 filterData를 실행한다.
+  useEffect(() => {
+    filterData();
+  }, [staff, form.input1, form.input2, form.startdate, form.enddate]);
+
   const columns = [
     {
       field: "ido",
@@ -92,7 +147,7 @@ function Staff() {
             row3 : "등록일시",
             adress : "/staff/create",
           }}
-          handleSearch={handleSearch}
+          handleSearch={handleReset}
           handleChange={handleChange}
           form = {form}
         />
@@ -100,7 +155,7 @@ function Staff() {
         <div>
           <Box sx={{ height: 372, margin: -1, marginLeft: "13px" }}>
             <DataGrid
-              rows={staff}
+              rows={dummyData}
               disableSelectionOnClick
               columns={columns}
               pageSize={5}
